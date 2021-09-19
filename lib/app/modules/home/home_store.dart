@@ -1,7 +1,9 @@
 import 'package:flutter_triple/flutter_triple.dart';
 import 'domain/models/carousel_items.dart';
 
+/// Store of Home
 class HomeStore extends NotifierStore<Exception, List<CarouselItems>> {
+  /// HomeStore initialize the List of Carousel Items
   HomeStore()
       : super([
           CarouselItems(

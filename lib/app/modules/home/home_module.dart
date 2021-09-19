@@ -3,6 +3,7 @@ import '../home/home_store.dart';
 
 import 'presentation/home_page.dart';
 
+/// Module of Home
 class HomeModule extends Module {
   @override
   final List<Bind> binds = [
