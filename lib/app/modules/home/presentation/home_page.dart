@@ -32,7 +32,7 @@ class _HomePageState extends ModularState<HomePage, HomeStore> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Image.asset(
-                          'lib/assets/images/logo/logo.png',
+                          'lib/app/assets/images/logo/logo.png',
                           width: 189,
                           height: 41,
                         ),
