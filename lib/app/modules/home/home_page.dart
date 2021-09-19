@@ -1,10 +1,9 @@
-import 'package:ezwallet_mobile/app/modules/home/protocols/carousel_items.dart';
 import 'package:ezwallet_mobile/app/modules/home/widgets/carousel_slider_widget.dart';
 import 'package:ezwallet_mobile/app/shared/widgets/button_widget.dart';
-import 'package:ezwallet_mobile/app/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_triple/flutter_triple.dart';
+import 'domain/models/carousel_items.dart';
 import 'home_store.dart';
 
 class HomePage extends StatefulWidget {

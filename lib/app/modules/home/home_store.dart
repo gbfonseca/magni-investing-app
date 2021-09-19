@@ -1,5 +1,5 @@
-import 'package:ezwallet_mobile/app/modules/home/protocols/carousel_items.dart';
 import 'package:flutter_triple/flutter_triple.dart';
+import 'domain/models/carousel_items.dart';
 
 class HomeStore extends NotifierStore<Exception, List<CarouselItems>> {
   HomeStore()
