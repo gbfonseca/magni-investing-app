@@ -39,7 +39,9 @@ class _HomePageState extends ModularState<HomePage, HomeStore> {
                         Expanded(
                             flex: 1,
                             child: SliderCarousel(items: carouselItems)),
-                        ButtonWidget(text: 'Avançar', onPressed: () {})
+                        ButtonWidget(
+                            text: 'Avançar',
+                            onPressed: () => Modular.to.navigate('/signin'))
                       ],
                     ),
                   ),
