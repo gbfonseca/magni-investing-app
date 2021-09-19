@@ -1,7 +1,7 @@
-import 'package:ezwallet_mobile/app/modules/home/domain/models/carousel_items.dart';
 import 'package:ezwallet_mobile/app/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import '../../domain/models/carousel_items.dart';
 
 class SliderCarousel extends StatelessWidget {
   List<CarouselItems> items;
