@@ -7,7 +7,7 @@ import 'package:google_fonts/google_fonts.dart';
 class AppWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) => MaterialApp(
-        title: 'Flutter Slidy',
+        title: 'EzWallet',
         theme: ThemeData(
             primarySwatch: primaryColor(),
             backgroundColor: ColorConstats.kBackgroundColor,
