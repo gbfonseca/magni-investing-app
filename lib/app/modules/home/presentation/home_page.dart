@@ -5,7 +5,7 @@ import 'package:flutter_triple/flutter_triple.dart';
 import './widgets/carousel_slider_widget.dart';
 import '../../../shared/widgets/button_widget.dart';
 import '../domain/models/carousel_items.dart';
-import '../home_store.dart';
+import 'home_store.dart';
 
 class HomePage extends StatefulWidget {
   final String title;

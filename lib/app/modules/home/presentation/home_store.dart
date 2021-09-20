@@ -1,5 +1,5 @@
 import 'package:flutter_triple/flutter_triple.dart';
-import 'domain/models/carousel_items.dart';
+import '../domain/models/carousel_items.dart';
 
 /// Store of Home
 class HomeStore extends NotifierStore<Exception, List<CarouselItems>> {
@@ -11,7 +11,8 @@ class HomeStore extends NotifierStore<Exception, List<CarouselItems>> {
               title: 'Praticidade',
               description: 'Monte sua careira de investimentos facilmente.'),
           CarouselItems(
-              path: 'lib/app/assets/images/personal_finance/personal_finance.png',
+              path:
+                  'lib/app/assets/images/personal_finance/personal_finance.png',
               title: 'Simplicidade',
               description:
                   'Acompanhe a evolução do seu patrimônio de forma simples.'),
