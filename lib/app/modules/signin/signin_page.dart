@@ -1,6 +1,6 @@
-import 'package:flutter_modular/flutter_modular.dart';
 import 'package:ezwallet_mobile/app/modules/signin/signin_store.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
 class SigninPage extends StatefulWidget {
   final String title;
@@ -8,6 +8,7 @@ class SigninPage extends StatefulWidget {
   @override
   SigninPageState createState() => SigninPageState();
 }
+
 class SigninPageState extends State<SigninPage> {
   final SigninStore store = Modular.get();
 

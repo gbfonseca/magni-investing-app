@@ -5,7 +5,6 @@ import '../../../../utils/colors.dart';
 import '../../domain/models/carousel_items.dart';
 
 /// A Slider to Home Page
-@immutable
 class SliderCarousel extends StatelessWidget {
   /// Declare a var List of Carousel Items
   List<CarouselItems> items;

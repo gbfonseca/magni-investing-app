@@ -1,7 +1,6 @@
+import 'package:ezwallet_mobile/app/modules/signin/signin_page.dart';
+import 'package:ezwallet_mobile/app/modules/signin/signin_store.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-
-import 'signin_page.dart';
-import 'signin_store.dart';
 
 class SigninModule extends Module {
   @override

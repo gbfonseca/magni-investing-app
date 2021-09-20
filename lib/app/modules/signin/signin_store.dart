@@ -1,7 +1,15 @@
-import 'package:flutter_triple/flutter_triple.dart';
+import 'package:mobx/mobx.dart';
 
-class SigninStore extends NotifierStore<Exception, int> {
+part 'signin_store.g.dart';
 
-  SigninStore() : super(0);
+class SigninStore = _SigninStoreBase with _$SigninStore;
+abstract class _SigninStoreBase with Store {
 
+  @observable
+  int value = 0;
+
+  @action
+  void increment() {
+    value++;
+  } 
 }
