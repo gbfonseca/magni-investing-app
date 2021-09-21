@@ -19,31 +19,33 @@ class SigninPageState extends State<SigninPage> {
   @override
   Widget build(BuildContext context) => Scaffold(
         body: SafeArea(
-          child: SizedBox(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height,
-            child: Padding(
-              padding:
-                  EdgeInsets.only(left: 43, top: 23, right: 43, bottom: 23),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  TitleWidget(text: 'Bem-vindo,'),
-                  Container(
-                    width: 223,
-                    child: SubTitleWidget(
-                        text: 'Para continuar insira suas credenciais.'),
-                  ),
-                  SizedBox(
-                    height: 88,
-                  ),
-                  Expanded(
-                    flex: 1,
-                    child: SignInForm(
-                      formKey: _formKey,
+          child: SingleChildScrollView(
+            child: SizedBox(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height,
+              child: Padding(
+                padding:
+                    EdgeInsets.only(left: 43, top: 23, right: 43, bottom: 23),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    TitleWidget(text: 'Bem-vindo,'),
+                    Container(
+                      width: 223,
+                      child: SubTitleWidget(
+                          text: 'Para continuar insira suas credenciais.'),
                     ),
-                  ),
-                ],
+                    SizedBox(
+                      height: 88,
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: SignInForm(
+                        formKey: _formKey,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
