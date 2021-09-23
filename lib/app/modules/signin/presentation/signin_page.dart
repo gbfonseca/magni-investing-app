@@ -19,13 +19,12 @@ class SigninPageState extends State<SigninPage> {
   @override
   Widget build(BuildContext context) => Scaffold(
         body: SafeArea(
-          child: SingleChildScrollView(
-            child: SizedBox(
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height,
-              child: Padding(
-                padding:
-                    EdgeInsets.only(left: 43, top: 23, right: 43, bottom: 23),
+          child: Padding(
+            padding: EdgeInsets.only(left: 43, top: 23, right: 43, bottom: 0),
+            child: SingleChildScrollView(
+              child: SizedBox(
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
