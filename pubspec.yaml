@@ -35,9 +35,10 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter_modular: ^4.0.0+8
   google_fonts: ^2.1.0
-  carousel_slider: ^4.0.0
   mobx: ^2.0.4
   flutter_mobx: ^2.0.2
+  introduction_screen: ^2.1.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

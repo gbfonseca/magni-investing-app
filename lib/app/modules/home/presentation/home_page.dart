@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-import './widgets/carousel_slider_widget.dart';
-import '../../../shared/widgets/button_widget.dart';
-import '../domain/models/carousel_items.dart';
 import 'home_store.dart';
+import 'widgets/introduction_home.dart';
 
 class HomePage extends StatefulWidget {
   final String title;
@@ -36,10 +34,10 @@ class _HomePageState extends State<HomePage> {
                 width: 189,
                 height: 41,
               ),
-              Expanded(flex: 1, child: SliderCarousel(items: store.value)),
-              ButtonWidget(
-                  text: 'Avançar',
-                  onPressed: () => Modular.to.navigate('/signin/'))
+              Expanded(flex: 1, child: IntroductionHome(items: store.value)),
+              // ButtonWidget(
+              //     text: 'Avançar',
+              //     onPressed: () => Modular.to.navigate('/signin/'))
             ],
           ),
         ),
