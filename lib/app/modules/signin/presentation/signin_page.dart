@@ -15,7 +15,6 @@ class SigninPage extends StatefulWidget {
 
 class SigninPageState extends State<SigninPage> {
   final SigninStore store = Modular.get();
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) => Scaffold(
         body: SafeArea(
@@ -39,9 +38,7 @@ class SigninPageState extends State<SigninPage> {
                     ),
                     Expanded(
                       flex: 1,
-                      child: SignInForm(
-                        formKey: _formKey,
-                      ),
+                      child: SignInForm(),
                     ),
                   ],
                 ),

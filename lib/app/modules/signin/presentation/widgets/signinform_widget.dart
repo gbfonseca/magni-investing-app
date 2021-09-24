@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../../shared/widgets/button_widget.dart';
@@ -8,34 +9,45 @@ import '../../../../utils/colors.dart';
 import '../../../../utils/sizes.dart';
 import 'stores/signinform_store.dart';
 
-class SignInForm extends StatelessWidget {
+class SignInForm extends StatefulWidget {
+  SignInForm({Key? key}) : super(key: key);
+
+  @override
+  State<SignInForm> createState() => _SignInFormState();
+}
+
+class _SignInFormState extends State<SignInForm> {
   final SigninFormStore store = Modular.get();
-  Key formKey;
-  SignInForm({Key? key, required this.formKey}) : super(key: key);
+
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) => Form(
-      key: formKey,
+      key: _formKey,
       child: SizedBox(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
         child: Column(
           children: [
-            InputWidget(
-              placeholder: 'E-mail',
-              inputType: TextInputType.emailAddress,
-              icon: Icons.mail_outline,
-              controller: store.email,
-            ),
+            Observer(
+                builder: (_) => InputWidget(
+                    placeholder: 'E-mail',
+                    inputType: TextInputType.emailAddress,
+                    icon: Icons.mail_outline,
+                    onChanged: store.setEmail,
+                    error: store.error.email)),
+            // Text(store.error.email),
             SizedBox(
               height: 32,
             ),
-            InputWidget(
-              placeholder: 'Senha',
-              obscureText: true,
-              icon: Icons.password_outlined,
-              controller: store.password,
-            ),
+            Observer(
+                builder: (_) => InputWidget(
+                      placeholder: 'Senha',
+                      obscureText: true,
+                      icon: Icons.password_outlined,
+                      onChanged: store.setPassword,
+                      error: store.error.password,
+                    )),
             SizedBox(
               height: 16,
             ),

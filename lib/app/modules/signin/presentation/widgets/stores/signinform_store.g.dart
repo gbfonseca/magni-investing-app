@@ -12,13 +12,13 @@ mixin _$SigninFormStore on _SigninFormStoreBase, Store {
   final _$emailAtom = Atom(name: '_SigninFormStoreBase.email');
 
   @override
-  TextEditingController get email {
+  String get email {
     _$emailAtom.reportRead();
     return super.email;
   }
 
   @override
-  set email(TextEditingController value) {
+  set email(String value) {
     _$emailAtom.reportWrite(value, super.email, () {
       super.email = value;
     });
@@ -27,13 +27,13 @@ mixin _$SigninFormStore on _SigninFormStoreBase, Store {
   final _$passwordAtom = Atom(name: '_SigninFormStoreBase.password');
 
   @override
-  TextEditingController get password {
+  String get password {
     _$passwordAtom.reportRead();
     return super.password;
   }
 
   @override
-  set password(TextEditingController value) {
+  set password(String value) {
     _$passwordAtom.reportWrite(value, super.password, () {
       super.password = value;
     });
@@ -41,6 +41,50 @@ mixin _$SigninFormStore on _SigninFormStoreBase, Store {
 
   final _$_SigninFormStoreBaseActionController =
       ActionController(name: '_SigninFormStoreBase');
+
+  @override
+  dynamic setEmail(String value) {
+    final _$actionInfo = _$_SigninFormStoreBaseActionController.startAction(
+        name: '_SigninFormStoreBase.setEmail');
+    try {
+      return super.setEmail(value);
+    } finally {
+      _$_SigninFormStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  dynamic setPassword(String value) {
+    final _$actionInfo = _$_SigninFormStoreBaseActionController.startAction(
+        name: '_SigninFormStoreBase.setPassword');
+    try {
+      return super.setPassword(value);
+    } finally {
+      _$_SigninFormStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  bool validateEmail(String value) {
+    final _$actionInfo = _$_SigninFormStoreBaseActionController.startAction(
+        name: '_SigninFormStoreBase.validateEmail');
+    try {
+      return super.validateEmail(value);
+    } finally {
+      _$_SigninFormStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  dynamic validatePassword(String value) {
+    final _$actionInfo = _$_SigninFormStoreBaseActionController.startAction(
+        name: '_SigninFormStoreBase.validatePassword');
+    try {
+      return super.validatePassword(value);
+    } finally {
+      _$_SigninFormStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
 
   @override
   dynamic onSubmit() {
@@ -58,6 +102,55 @@ mixin _$SigninFormStore on _SigninFormStoreBase, Store {
     return '''
 email: ${email},
 password: ${password}
+    ''';
+  }
+}
+
+mixin _$FormErrorState on _FormErrorState, Store {
+  Computed<bool>? _$hasErrorsComputed;
+
+  @override
+  bool get hasErrors =>
+      (_$hasErrorsComputed ??= Computed<bool>(() => super.hasErrors,
+              name: '_FormErrorState.hasErrors'))
+          .value;
+
+  final _$emailAtom = Atom(name: '_FormErrorState.email');
+
+  @override
+  String? get email {
+    _$emailAtom.reportRead();
+    return super.email;
+  }
+
+  @override
+  set email(String? value) {
+    _$emailAtom.reportWrite(value, super.email, () {
+      super.email = value;
+    });
+  }
+
+  final _$passwordAtom = Atom(name: '_FormErrorState.password');
+
+  @override
+  String? get password {
+    _$passwordAtom.reportRead();
+    return super.password;
+  }
+
+  @override
+  set password(String? value) {
+    _$passwordAtom.reportWrite(value, super.password, () {
+      super.password = value;
+    });
+  }
+
+  @override
+  String toString() {
+    return '''
+email: ${email},
+password: ${password},
+hasErrors: ${hasErrors}
     ''';
   }
 }
