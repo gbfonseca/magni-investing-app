@@ -10,7 +10,13 @@ void main() {
 
   test('should calls email controller with correct value', () async {
     expect(store.email.text, equals(''));
-    store.email.text = 'any_mail.com';
-    expect(store.email.text, equals('any_mail.com'));
+    store.email.text = 'any_mail@mail.com';
+    expect(store.email.text, equals('any_mail@mail.com'));
+  });
+
+  test('should calls password controller with correct value', () async {
+    expect(store.password.text, equals(''));
+    store.password.text = 'any_password';
+    expect(store.password.text, equals('any_password'));
   });
 }
