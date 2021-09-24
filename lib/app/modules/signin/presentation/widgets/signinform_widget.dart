@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../../shared/widgets/button_widget.dart';
@@ -57,13 +58,22 @@ class SignInForm extends StatelessWidget {
                   onTap: () {
                     print('Clicado');
                   },
-                  child: Text(
-                    'Não tem uma conta? Cadastre-se aqui',
-                    style: TextStyle(
-                        color: ColorConstats.kFontColor,
-                        fontSize: FontSizeConstants.s12,
-                        fontWeight: FontWeight.w500),
-                  ),
+                  child: RichText(
+                      text: TextSpan(
+                          style: TextStyle(
+                              color: ColorConstats.kFontColor,
+                              fontSize: FontSizeConstants.s12),
+                          children: <TextSpan>[
+                        TextSpan(
+                          text: 'Não tem uma conta?',
+                          style: TextStyle(fontWeight: FontWeight.w500),
+                        ),
+                        TextSpan(
+                            text: ' Cadastre-se aqui.',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                            ))
+                      ])),
                 ),
               ),
             )
