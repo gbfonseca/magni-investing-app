@@ -43,4 +43,12 @@ void main() {
     var validEmail = store.validateEmail(email);
     expect(validEmail, equals(false));
   });
+
+  test('should Store Validate password return null if password is empty',
+      () async {
+    var password = '';
+    // when(emailValidator.validate(email)).thenReturn(false);
+    var validPassword = store.validatePassword(password);
+    expect(validPassword, equals(null));
+  });
 }
