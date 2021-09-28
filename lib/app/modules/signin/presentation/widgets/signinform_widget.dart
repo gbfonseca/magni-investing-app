@@ -68,7 +68,7 @@ class _SignInFormState extends State<SignInForm> {
                 alignment: Alignment.bottomCenter,
                 child: GestureDetector(
                   onTap: () {
-                    print('Clicado');
+                    Navigator.pushNamed(context, '/signup/');
                   },
                   child: RichText(
                       text: TextSpan(
