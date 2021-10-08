@@ -1,4 +1,4 @@
-import 'package:ezwallet_mobile/app/modules/signup/signup_store.dart';
+import 'package:ezwallet_mobile/app/modules/signup/presentation/stores/signup_store.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
