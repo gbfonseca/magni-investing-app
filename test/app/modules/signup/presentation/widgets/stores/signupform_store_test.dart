@@ -22,6 +22,12 @@ void main() {
     expect(store.name, equals('any_name'));
   });
 
+  test('should calls lastName controller with correct value', () async {
+    expect(store.lastName, equals(''));
+    store.lastName = 'any_lastName';
+    expect(store.lastName, equals('any_lastName'));
+  });
+
   test('should calls email controller with correct value', () async {
     expect(store.email, equals(''));
     store.email = 'any_mail@mail.com';
