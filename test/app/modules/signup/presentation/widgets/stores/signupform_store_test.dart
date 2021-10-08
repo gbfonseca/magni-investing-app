@@ -16,6 +16,12 @@ void main() {
   setUp(() => initModule(SignupModule(),
       replaceBinds: [Bind.instance<EmailValidator>(emailValidator)]));
 
+  test('should calls name controller with correct value', () async {
+    expect(store.name, equals(''));
+    store.name = 'any_name';
+    expect(store.name, equals('any_name'));
+  });
+
   test('should calls email controller with correct value', () async {
     expect(store.email, equals(''));
     store.email = 'any_mail@mail.com';
