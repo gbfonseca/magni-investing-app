@@ -32,7 +32,7 @@ class IntroductionHome extends StatelessWidget {
         ],
         done: Text('Avançar'),
         onDone: () {
-          Modular.to.navigate('/signin');
+          Modular.to.navigate('/signin/');
         },
         showSkipButton: true,
         skip: Text('Pular'),
