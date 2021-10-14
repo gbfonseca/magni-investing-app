@@ -30,8 +30,7 @@ void main() {
     expect(store.name, equals('any_name'));
   });
 
-  test('should returns error if no valid name provided', () async {
-    // store.name = null;
+  test('should returns null if no valid name provided', () async {
     var validateName = store.validateName(store.name);
     expect(validateName, equals(null));
   });
@@ -40,6 +39,11 @@ void main() {
     expect(store.lastName, equals(''));
     store.lastName = 'any_lastName';
     expect(store.lastName, equals('any_lastName'));
+  });
+
+  test('should returns null if no valid last name provided', () async {
+    var validateLastName = store.validateLastName(store.lastName);
+    expect(validateLastName, equals(null));
   });
 
   test('should calls email controller with correct value', () async {
