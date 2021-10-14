@@ -3,6 +3,7 @@ import 'package:ezwallet_mobile/app/modules/signup/presentation/widgets/stores/s
 import 'package:ezwallet_mobile/app/modules/signup/signup_module.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:mockito/annotations.dart';
 // import 'package:mobx/mobx.dart';
 import 'package:mockito/mockito.dart';
 import 'package:modular_test/modular_test.dart';
@@ -16,10 +17,23 @@ void main() {
   setUp(() => initModule(SignupModule(),
       replaceBinds: [Bind.instance<EmailValidator>(emailValidator)]));
 
+  tearDown(() => {
+        store.name = '',
+        store.email = '',
+        store.lastName = '',
+        store.password = ''
+      });
+
   test('should calls name controller with correct value', () async {
     expect(store.name, equals(''));
     store.name = 'any_name';
     expect(store.name, equals('any_name'));
+  });
+
+  test('should returns error if no valid name provided', () async {
+    // store.name = null;
+    var validateName = store.validateName(store.name);
+    expect(validateName, equals(null));
   });
 
   test('should calls lastName controller with correct value', () async {
