@@ -5,13 +5,13 @@ import 'package:introduction_screen/introduction_screen.dart';
 import '../../../../utils/colors.dart';
 import '../../domain/models/carousel_items.dart';
 
-/// A Slider to Home Page
-class IntroductionHome extends StatelessWidget {
+/// A Slider to OnBoarding Page
+class IntroductionOnBoarding extends StatelessWidget {
   /// Declare a var List of Carousel Items
   List<CarouselItems> items;
 
   /// Must to be pass a CarouselItems List
-  IntroductionHome({Key? key, required this.items}) : super(key: key);
+  IntroductionOnBoarding({Key? key, required this.items}) : super(key: key);
 
   @override
   Widget build(BuildContext context) => IntroductionScreen(

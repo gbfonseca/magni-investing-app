@@ -1,6 +1,6 @@
 import 'package:flutter_modular/flutter_modular.dart';
 
-import 'modules/home/home_module.dart';
+import 'modules/on_boarding/on_boarding_module.dart';
 import 'modules/signin/signin_module.dart';
 import 'modules/signup/signup_module.dart';
 
@@ -10,7 +10,7 @@ class AppModule extends Module {
 
   @override
   final List<ModularRoute> routes = [
-    ModuleRoute(Modular.initialRoute, module: HomeModule()),
+    ModuleRoute(Modular.initialRoute, module: OnBoardingModule()),
     ModuleRoute(
       '/signin/',
       module: SigninModule(),

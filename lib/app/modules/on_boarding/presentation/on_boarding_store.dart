@@ -1,11 +1,12 @@
-import 'package:ezwallet_mobile/app/modules/home/domain/models/carousel_items.dart';
 import 'package:mobx/mobx.dart';
 
-part 'home_store.g.dart';
+import '../../on_boarding/domain/models/carousel_items.dart';
 
-class HomeStore = _HomeStoreBase with _$HomeStore;
+part 'on_boarding_store.g.dart';
 
-abstract class _HomeStoreBase with Store {
+class OnBoardingStore = _OnBoardingStoreBase with _$OnBoardingStore;
+
+abstract class _OnBoardingStoreBase with Store {
   @observable
   List<CarouselItems> value = [
     CarouselItems(

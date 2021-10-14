@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-import 'home_store.dart';
-import 'widgets/introduction_home.dart';
+import 'on_boarding_store.dart';
+import 'widgets/introduction_on_boarding.dart';
 
-class HomePage extends StatefulWidget {
+class OnBoardingPage extends StatefulWidget {
   final String title;
-  const HomePage({Key? key, this.title = "Home"}) : super(key: key);
+  const OnBoardingPage({Key? key, this.title = "OnBoarding"}) : super(key: key);
 
   @override
-  _HomePageState createState() => _HomePageState();
+  _OnBoardingPageState createState() => _OnBoardingPageState();
 }
 
-class _HomePageState extends State<HomePage> {
-  final HomeStore store = Modular.get();
+class _OnBoardingPageState extends State<OnBoardingPage> {
+  final OnBoardingStore store = Modular.get();
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -33,7 +33,8 @@ class _HomePageState extends State<HomePage> {
                 width: 189,
                 height: 41,
               ),
-              Expanded(flex: 1, child: IntroductionHome(items: store.value)),
+              Expanded(
+                  flex: 1, child: IntroductionOnBoarding(items: store.value)),
               // ButtonWidget(
               //     text: 'Avançar',
               //     onPressed: () => Modular.to.navigate('/signin/'))
