@@ -1,5 +1,6 @@
 import 'package:flutter_modular/flutter_modular.dart';
 
+import 'modules/home/home_module.dart';
 import 'modules/on_boarding/on_boarding_module.dart';
 import 'modules/signin/signin_module.dart';
 import 'modules/signup/signup_module.dart';
@@ -19,6 +20,11 @@ class AppModule extends Module {
     ModuleRoute(
       '/signup/',
       module: SignupModule(),
+      transition: TransitionType.rightToLeftWithFade,
+    ),
+    ModuleRoute(
+      '/home/',
+      module: HomeModule(),
       transition: TransitionType.rightToLeftWithFade,
     ),
   ];

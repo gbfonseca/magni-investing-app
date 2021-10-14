@@ -1,3 +1,4 @@
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx/mobx.dart';
 
 import '../../protocols/email_validator_protocol.dart';
@@ -47,7 +48,7 @@ abstract class _SigninFormStoreBase with Store {
     if (error.hasErrors) {
       return error;
     }
-    print('$email - $password');
+    Modular.to.navigate('/home/');
   }
 }
 
