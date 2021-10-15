@@ -31,27 +31,39 @@ class StartPageState extends State<StartPage> {
   @override
   Widget build(BuildContext context) => Scaffold(
         body: RouterOutlet(),
-        bottomNavigationBar: BottomNavigationBar(
-          currentIndex: selectedIndex,
-          items: <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.home,
-                  size: 32,
-                ),
-                label: ''),
-            BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.bar_chart,
-                  size: 32,
-                ),
-                label: ''),
-          ],
-          selectedItemColor: ColorConstants.kPrimaryColor,
-          unselectedItemColor: Colors.grey,
-          showSelectedLabels: false,
-          showUnselectedLabels: false,
-          onTap: _onItemTapped,
+        floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.add),
+          backgroundColor: ColorConstants.kPrimaryColor,
+          onPressed: () {},
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        bottomNavigationBar: BottomAppBar(
+          shape: CircularNotchedRectangle(),
+          notchMargin: 5,
+          child: BottomNavigationBar(
+            backgroundColor: Colors.transparent,
+            elevation: 0,
+            currentIndex: selectedIndex,
+            items: <BottomNavigationBarItem>[
+              BottomNavigationBarItem(
+                  icon: Icon(
+                    Icons.home,
+                    size: 32,
+                  ),
+                  label: ''),
+              BottomNavigationBarItem(
+                  icon: Icon(
+                    Icons.bar_chart,
+                    size: 32,
+                  ),
+                  label: ''),
+            ],
+            selectedItemColor: ColorConstants.kPrimaryColor,
+            unselectedItemColor: Colors.grey,
+            showSelectedLabels: false,
+            showUnselectedLabels: false,
+            onTap: _onItemTapped,
+          ),
         ),
       );
 }
