@@ -44,17 +44,33 @@ class StartPageState extends State<StartPage> {
             backgroundColor: Colors.transparent,
             elevation: 0,
             currentIndex: selectedIndex,
+            type: BottomNavigationBarType.fixed,
+            selectedFontSize: 12,
+            unselectedFontSize: 12,
+            landscapeLayout: BottomNavigationBarLandscapeLayout.centered,
             items: <BottomNavigationBarItem>[
               BottomNavigationBarItem(
                   icon: Icon(
                     Icons.home,
-                    size: 32,
+                    size: 28,
                   ),
                   label: ''),
               BottomNavigationBarItem(
                   icon: Icon(
                     Icons.bar_chart,
-                    size: 32,
+                    size: 28,
+                  ),
+                  label: ''),
+              BottomNavigationBarItem(
+                  icon: Icon(
+                    Icons.account_balance_wallet_outlined,
+                    size: 28,
+                  ),
+                  label: ''),
+              BottomNavigationBarItem(
+                  icon: Icon(
+                    Icons.person_outline,
+                    size: 28,
                   ),
                   label: ''),
             ],
