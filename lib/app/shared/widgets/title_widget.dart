@@ -11,7 +11,7 @@ class TitleWidget extends StatelessWidget {
   Widget build(BuildContext context) => Text(
         text,
         style: TextStyle(
-            color: ColorConstats.kFontColor,
+            color: ColorConstants.kFontColor,
             fontSize: FontSizeConstants.s32,
             fontWeight: FontWeight.bold),
       );

@@ -24,11 +24,11 @@ class IntroductionOnBoarding extends StatelessWidget {
                   titleTextStyle: TextStyle(
                       fontSize: 32,
                       fontWeight: FontWeight.w700,
-                      color: ColorConstats.kPrimaryColor),
+                      color: ColorConstants.kPrimaryColor),
                   bodyTextStyle: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.w500,
-                      color: ColorConstats.kFontColor))))
+                      color: ColorConstants.kFontColor))))
         ],
         done: Text('Avançar'),
         onDone: () {
@@ -38,6 +38,6 @@ class IntroductionOnBoarding extends StatelessWidget {
         skip: Text('Pular'),
         showNextButton: true,
         next: Text('Próximo'),
-        dotsDecorator: DotsDecorator(activeColor: ColorConstats.kPrimaryColor),
+        dotsDecorator: DotsDecorator(activeColor: ColorConstants.kPrimaryColor),
       );
 }

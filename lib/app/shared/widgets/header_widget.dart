@@ -10,6 +10,7 @@ class Header extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Column(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -18,14 +19,14 @@ class Header extends StatelessWidget {
               Text(
                 'Bem-vindo,',
                 style: TextStyle(
-                    color: ColorConstats.kFontColor,
+                    color: ColorConstants.kFontColor,
                     fontWeight: FontWeight.w600,
                     fontSize: 16),
               ),
               Text(
                 name,
                 style: TextStyle(
-                    color: ColorConstats.kFontColor,
+                    color: ColorConstants.kFontColor,
                     fontWeight: FontWeight.bold,
                     fontSize: 22),
               )

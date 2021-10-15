@@ -89,7 +89,7 @@ class _SignUpFormState extends State<SignUpForm> {
                   child: RichText(
                       text: TextSpan(
                           style: TextStyle(
-                              color: ColorConstats.kFontColor,
+                              color: ColorConstants.kFontColor,
                               fontSize: FontSizeConstants.s12),
                           children: <TextSpan>[
                         TextSpan(

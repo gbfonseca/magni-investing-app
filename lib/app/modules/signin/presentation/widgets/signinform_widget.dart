@@ -55,7 +55,7 @@ class _SignInFormState extends State<SignInForm> {
                 width: MediaQuery.of(context).size.width,
                 child: Text('Esqueci minha senha',
                     style: TextStyle(
-                        color: ColorConstats.kFontColor,
+                        color: ColorConstants.kFontColor,
                         fontSize: FontSizeConstants.s12,
                         fontWeight: FontWeight.w500))),
             SizedBox(
@@ -73,7 +73,7 @@ class _SignInFormState extends State<SignInForm> {
                   child: RichText(
                       text: TextSpan(
                           style: TextStyle(
-                              color: ColorConstats.kFontColor,
+                              color: ColorConstants.kFontColor,
                               fontSize: FontSizeConstants.s12),
                           children: <TextSpan>[
                         TextSpan(

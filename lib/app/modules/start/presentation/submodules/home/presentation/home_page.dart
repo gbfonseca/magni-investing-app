@@ -1,8 +1,11 @@
+import '../../../../../../shared/widgets/card_portifolio_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-import './home_store.dart';
-import '../../../../../shared/widgets/header_widget.dart';
+import '../../../../../../shared/widgets/header_widget.dart';
+import '../../../../../../utils/colors.dart';
+import 'stores/home_store.dart';
 
 class HomePage extends StatefulWidget {
   final String title;
@@ -23,7 +26,8 @@ class HomePageState extends State<HomePage> {
               children: <Widget>[
                 Header(
                   name: 'Gabriel F.',
-                )
+                ),
+                CardPortifolio(),
               ],
             ),
           ),

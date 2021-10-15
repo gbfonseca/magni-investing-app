@@ -11,7 +11,7 @@ class SubTitleWidget extends StatelessWidget {
   Widget build(BuildContext context) => Text(
         text,
         style: TextStyle(
-            color: ColorConstats.kSecondaryFontColor,
+            color: ColorConstants.kSecondaryFontColor,
             fontSize: FontSizeConstants.s18,
             fontWeight: FontWeight.w500),
       );

@@ -14,10 +14,10 @@ class AppWidget extends StatelessWidget {
           title: 'EzWallet',
           theme: ThemeData(
             primarySwatch: primaryColor(),
-            backgroundColor: ColorConstats.kBackgroundColor,
+            backgroundColor: ColorConstants.kBackgroundColor,
             textTheme: GoogleFonts.nunitoTextTheme(),
-            splashColor: ColorConstats.kPrimaryColor,
-            primaryColor: ColorConstats.kPrimaryColor,
+            splashColor: ColorConstants.kPrimaryColor,
+            primaryColor: ColorConstants.kPrimaryColor,
           ),
         ).modular(),
       );
