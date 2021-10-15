@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-import '../start_store.dart';
+import 'stores/start_store.dart';
 
 class StartPage extends StatefulWidget {
   final String title;

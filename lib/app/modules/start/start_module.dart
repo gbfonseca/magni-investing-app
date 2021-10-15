@@ -1,8 +1,8 @@
 import 'package:flutter_modular/flutter_modular.dart';
 
 import 'presentation/start_page.dart';
+import 'presentation/stores/start_store.dart';
 import 'presentation/submodules/home/home_module.dart';
-import 'start_store.dart';
 
 class StartModule extends Module {
   @override
