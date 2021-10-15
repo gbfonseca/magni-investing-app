@@ -66,3 +66,4 @@ analyzer:
     missing_return: error
     todo: ignore
     public_member_api_docs: ignore
+    type_annotate_public_apis: ignore
