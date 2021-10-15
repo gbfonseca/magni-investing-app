@@ -1,6 +1,7 @@
-import 'package:flutter_modular/flutter_modular.dart';
-import 'package:ezwallet_mobile/app/modules/home/home_store.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+
+import './home_store.dart';
 
 class HomePage extends StatefulWidget {
   final String title;
@@ -8,6 +9,7 @@ class HomePage extends StatefulWidget {
   @override
   HomePageState createState() => HomePageState();
 }
+
 class HomePageState extends State<HomePage> {
   final HomeStore store = Modular.get();
 

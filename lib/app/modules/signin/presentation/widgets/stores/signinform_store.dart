@@ -48,7 +48,7 @@ abstract class _SigninFormStoreBase with Store {
     if (error.hasErrors) {
       return error;
     }
-    Modular.to.navigate('/home/');
+    Modular.to.navigate('/start/home/');
   }
 }
 

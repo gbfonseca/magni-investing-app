@@ -1,9 +1,9 @@
 import 'package:flutter_modular/flutter_modular.dart';
 
-import 'modules/home/home_module.dart';
 import 'modules/on_boarding/on_boarding_module.dart';
 import 'modules/signin/signin_module.dart';
 import 'modules/signup/signup_module.dart';
+import 'modules/start/start_module.dart';
 
 class AppModule extends Module {
   @override
@@ -23,8 +23,8 @@ class AppModule extends Module {
       transition: TransitionType.rightToLeftWithFade,
     ),
     ModuleRoute(
-      '/home/',
-      module: HomeModule(),
+      '/start/',
+      module: StartModule(),
       transition: TransitionType.rightToLeftWithFade,
     ),
   ];
