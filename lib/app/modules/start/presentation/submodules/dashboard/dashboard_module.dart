@@ -11,6 +11,8 @@ class DashboardModule extends Module {
 
   @override
   final List<ModularRoute> routes = [
-    ChildRoute('/', child: (_, args) => DashboardPage()),
+    ChildRoute('/',
+        child: (_, args) => DashboardPage(),
+        transition: TransitionType.leftToRight),
   ];
 }

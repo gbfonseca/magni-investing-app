@@ -2,6 +2,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 
 import 'presentation/start_page.dart';
 import 'presentation/stores/start_store.dart';
+import 'presentation/submodules/dashboard/dashboard_module.dart';
 import 'presentation/submodules/home/home_module.dart';
 
 class StartModule extends Module {
@@ -16,6 +17,11 @@ class StartModule extends Module {
       ModuleRoute(
         '/home/',
         module: HomeModule(),
+        transition: TransitionType.rightToLeftWithFade,
+      ),
+      ModuleRoute(
+        '/dashboard/',
+        module: DashboardModule(),
         transition: TransitionType.rightToLeftWithFade,
       ),
     ]),
