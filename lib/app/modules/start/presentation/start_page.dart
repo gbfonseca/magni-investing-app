@@ -42,7 +42,7 @@ class StartPageState extends State<StartPage> {
                 label: ''),
             BottomNavigationBarItem(
                 icon: Icon(
-                  Icons.bar_chart_rounded,
+                  Icons.bar_chart,
                   size: 32,
                 ),
                 label: ''),
