@@ -38,6 +38,10 @@ class IntroductionOnBoarding extends StatelessWidget {
         skip: Text('Pular'),
         showNextButton: true,
         next: Text('Próximo'),
-        dotsDecorator: DotsDecorator(activeColor: ColorConstants.kPrimaryColor),
+        dotsDecorator: DotsDecorator(
+            activeColor: ColorConstants.kPrimaryColor,
+            activeSize: Size(25, 5),
+            activeShape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(2))),
       );
 }

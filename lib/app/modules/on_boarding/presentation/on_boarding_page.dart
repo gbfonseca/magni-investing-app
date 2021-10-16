@@ -28,11 +28,11 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset(
-                'lib/app/assets/images/logo/logo.png',
-                width: 189,
-                height: 41,
-              ),
+              // Image.asset(
+              //   'lib/app/assets/images/logo/logo.png',
+              //   width: 189,
+              //   height: 41,
+              // ),
               Expanded(
                   flex: 1, child: IntroductionOnBoarding(items: store.value)),
               // ButtonWidget(
