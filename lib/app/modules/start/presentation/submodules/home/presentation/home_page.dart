@@ -1,11 +1,12 @@
-import '../../../../../../shared/widgets/card_portifolio_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
+import '../../../../../../shared/widgets/card_portifolio_widget.dart';
 import '../../../../../../shared/widgets/header_widget.dart';
-import '../../../../../../utils/colors.dart';
 import 'stores/home_store.dart';
+import 'widgets/card_widget.dart';
+import 'widgets/section_header_widget.dart';
 
 class HomePage extends StatefulWidget {
   final String title;
@@ -28,6 +29,38 @@ class HomePageState extends State<HomePage> {
                   name: 'Gabriel F.',
                 ),
                 CardPortifolio(),
+                SectionHeaderWidget(
+                  title: 'Meu portifólio',
+                  onTap: () {},
+                ),
+                Container(
+                  height: 140,
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    children: [
+                      CardWidget(
+                        title: 'Renda Variável',
+                        imagePath: 'lib/app/assets/images/income/income.png',
+                        balance: '4951,72',
+                        variation: 5.2,
+                      ),
+                      CardWidget(
+                        title: 'Renda Fixa',
+                        imagePath:
+                            'lib/app/assets/images/fixed-interest/fixed-interest.png',
+                        balance: '2012,20',
+                        variation: -2.2,
+                      ),
+                      CardWidget(
+                        title: "FII's",
+                        imagePath:
+                            'lib/app/assets/images/real-state/real-state.png',
+                        balance: '1754,23',
+                        variation: 3.7,
+                      ),
+                    ],
+                  ),
+                )
               ],
             ),
           ),

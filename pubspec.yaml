@@ -71,6 +71,9 @@ flutter:
     - lib/app/assets/images/wallet-image/wallet-image.png
     - lib/app/assets/images/personal_finance/personal_finance.png
     - lib/app/assets/images/analysis/analysis.png
+    - lib/app/assets/images/income/income.png
+    - lib/app/assets/images/fixed-interest/fixed-interest.png
+    - lib/app/assets/images/real-state/real-state.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
