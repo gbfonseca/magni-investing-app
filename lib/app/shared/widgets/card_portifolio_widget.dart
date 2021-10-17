@@ -3,7 +3,15 @@ import 'package:flutter/material.dart';
 import '../../utils/colors.dart';
 
 class CardPortifolio extends StatelessWidget {
-  const CardPortifolio({Key? key}) : super(key: key);
+  double balance;
+  double variation;
+  double variationInCurrency;
+  CardPortifolio(
+      {Key? key,
+      required this.balance,
+      required this.variation,
+      required this.variationInCurrency})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) => Container(
@@ -30,7 +38,7 @@ class CardPortifolio extends StatelessWidget {
                   height: 8,
                 ),
                 Text(
-                  "R\$ 7390,50",
+                  "R\$ $balance",
                   style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
@@ -59,7 +67,7 @@ class CardPortifolio extends StatelessWidget {
                       color: Colors.greenAccent.shade700,
                     ),
                     Text(
-                      "5,6%",
+                      "$variation%",
                       style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.w500,
@@ -71,7 +79,7 @@ class CardPortifolio extends StatelessWidget {
                   height: 8,
                 ),
                 Text(
-                  "R\$35,95",
+                  "R\$ $variationInCurrency",
                   style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.w600,

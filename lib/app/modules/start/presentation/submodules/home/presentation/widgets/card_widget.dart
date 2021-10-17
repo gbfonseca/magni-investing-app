@@ -5,7 +5,7 @@ import '../../../../../../../utils/colors.dart';
 class CardWidget extends StatelessWidget {
   String title;
   String imagePath;
-  String balance;
+  double balance;
   double variation;
   CardWidget(
       {Key? key,

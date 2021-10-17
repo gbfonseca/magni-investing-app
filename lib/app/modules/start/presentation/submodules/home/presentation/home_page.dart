@@ -28,7 +28,11 @@ class HomePageState extends State<HomePage> {
                 Header(
                   name: 'Gabriel F.',
                 ),
-                CardPortifolio(),
+                CardPortifolio(
+                  balance: 7390.52,
+                  variation: 5.4,
+                  variationInCurrency: 32.95,
+                ),
                 SectionHeaderWidget(
                   title: 'Meu portifólio',
                   onTap: () {},
@@ -41,21 +45,21 @@ class HomePageState extends State<HomePage> {
                       CardWidget(
                         title: 'Renda Variável',
                         imagePath: 'lib/app/assets/images/income/income.png',
-                        balance: '4951,72',
+                        balance: 4951.72,
                         variation: 5.2,
                       ),
                       CardWidget(
                         title: 'Renda Fixa',
                         imagePath:
                             'lib/app/assets/images/fixed-interest/fixed-interest.png',
-                        balance: '2012,20',
+                        balance: 2012.20,
                         variation: -2.2,
                       ),
                       CardWidget(
                         title: "FII's",
                         imagePath:
                             'lib/app/assets/images/real-state/real-state.png',
-                        balance: '1754,23',
+                        balance: 1754.23,
                         variation: 3.7,
                       ),
                     ],
