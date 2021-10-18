@@ -10,7 +10,7 @@ class SectionHeaderWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Container(
-        margin: EdgeInsets.only(bottom: 24),
+        margin: EdgeInsets.only(bottom: 16),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
