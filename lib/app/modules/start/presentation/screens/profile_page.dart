@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../utils/colors.dart';
 import 'widgets/back_header_widget.dart';
+import 'widgets/option_widget.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -35,7 +36,13 @@ class ProfilePage extends StatelessWidget {
                           color: ColorConstants.kFontColor,
                           fontWeight: FontWeight.bold,
                           fontSize: 24)),
-                )
+                ),
+                OptionItem(
+                    text: 'Configurações', icon: Icons.settings_outlined),
+                OptionItem(text: 'Atendimento', icon: Icons.call_outlined),
+                OptionItem(
+                    text: 'Avalie o app', icon: Icons.star_outline_rounded),
+                OptionItem(text: 'Sair', icon: Icons.exit_to_app_rounded),
               ],
             ),
           ),
