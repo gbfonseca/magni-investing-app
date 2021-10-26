@@ -1,3 +1,4 @@
+import 'modules/start/presentation/screens/stores/settings_store.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import 'modules/on_boarding/on_boarding_module.dart';
@@ -7,7 +8,9 @@ import 'modules/start/start_module.dart';
 
 class AppModule extends Module {
   @override
-  final List<Bind> binds = [];
+  final List<Bind> binds = [
+    Bind.lazySingleton((i) => SettingsStore()),
+  ];
 
   @override
   final List<ModularRoute> routes = [

@@ -1,7 +1,7 @@
-import 'presentation/screens/settings_page.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import 'presentation/screens/profile_page.dart';
+import 'presentation/screens/settings_page.dart';
 import 'presentation/start_page.dart';
 import 'presentation/stores/start_store.dart';
 import 'presentation/submodules/dashboard/dashboard_module.dart';
