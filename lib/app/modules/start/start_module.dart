@@ -1,3 +1,4 @@
+import 'presentation/screens/settings_page.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import 'presentation/screens/profile_page.dart';
@@ -26,6 +27,7 @@ class StartModule extends Module {
         transition: TransitionType.rightToLeftWithFade,
       ),
     ]),
-    ChildRoute('/profile/', child: (_, args) => ProfilePage())
+    ChildRoute('/profile/', child: (_, args) => ProfilePage()),
+    ChildRoute('/settings/', child: (_, args) => SettingsPage())
   ];
 }

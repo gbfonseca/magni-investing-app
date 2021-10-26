@@ -14,7 +14,10 @@ class ProfilePage extends StatelessWidget {
             padding: EdgeInsets.all(24),
             child: Column(
               children: [
-                BackHeader(title: 'Meu Perfil'),
+                BackHeader(
+                  title: 'Meu Perfil',
+                  showIcon: true,
+                ),
                 Container(
                   margin: EdgeInsets.only(top: 64),
                   child: CircleAvatar(
@@ -38,11 +41,27 @@ class ProfilePage extends StatelessWidget {
                           fontSize: 24)),
                 ),
                 OptionItem(
-                    text: 'Configurações', icon: Icons.settings_outlined),
-                OptionItem(text: 'Atendimento', icon: Icons.call_outlined),
+                  text: 'Configurações',
+                  icon: Icons.settings_outlined,
+                  onTap: () {
+                    Navigator.of(context).pushNamed('/start/settings/');
+                  },
+                ),
                 OptionItem(
-                    text: 'Avalie o app', icon: Icons.star_outline_rounded),
-                OptionItem(text: 'Sair', icon: Icons.exit_to_app_rounded),
+                  text: 'Atendimento',
+                  icon: Icons.call_outlined,
+                  onTap: () {},
+                ),
+                OptionItem(
+                  text: 'Avalie o app',
+                  icon: Icons.star_outline_rounded,
+                  onTap: () {},
+                ),
+                OptionItem(
+                  text: 'Sair',
+                  icon: Icons.exit_to_app_rounded,
+                  onTap: () {},
+                ),
               ],
             ),
           ),

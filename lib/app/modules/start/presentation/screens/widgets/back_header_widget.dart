@@ -4,7 +4,8 @@ import '../../../../../utils/colors.dart';
 
 class BackHeader extends StatelessWidget {
   String title;
-  BackHeader({Key? key, required this.title}) : super(key: key);
+  bool? showIcon = false;
+  BackHeader({Key? key, required this.title, this.showIcon}) : super(key: key);
 
   @override
   Widget build(BuildContext context) => Row(
@@ -28,11 +29,13 @@ class BackHeader extends StatelessWidget {
                 fontWeight: FontWeight.bold,
                 fontSize: 18),
           ),
-          Icon(
-            Icons.person_outline,
-            color: ColorConstants.kFontColor,
-            size: 24,
-          ),
+          showIcon == true
+              ? Icon(
+                  Icons.person_outline,
+                  color: ColorConstants.kFontColor,
+                  size: 24,
+                )
+              : Container()
         ],
       );
 }
