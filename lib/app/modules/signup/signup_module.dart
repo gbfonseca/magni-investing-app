@@ -11,7 +11,7 @@ class SignupModule extends Module {
   final List<Bind> binds = [
     Bind.factory<EmailValidator>((i) => EmailValidatorAdapter()),
     Bind.lazySingleton((i) => SignupStore()),
-    Bind.lazySingleton((i) => SignUpFormStore(i()))
+    Bind.lazySingleton((i) => SignUpFormStore())
   ];
 
   @override

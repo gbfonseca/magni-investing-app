@@ -1,32 +1,33 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:reactive_forms/reactive_forms.dart';
 
 class InputWidget extends StatelessWidget {
   String placeholder;
   IconData? icon;
-  void Function(String) onChanged;
+  String formControlName;
   TextInputType? inputType;
   bool? obscureText;
-  String? error;
-  InputWidget(
-      {Key? key,
-      required this.placeholder,
-      this.icon,
-      required this.onChanged,
-      this.inputType,
-      this.obscureText,
-      this.error})
-      : super(key: key);
+  Map<String, String> Function(FormControl<dynamic>)? validationsMessages;
+  InputWidget({
+    Key? key,
+    required this.placeholder,
+    this.icon,
+    required this.formControlName,
+    this.inputType,
+    this.obscureText,
+    this.validationsMessages,
+  }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) => TextFormField(
-        onChanged: onChanged,
+  Widget build(BuildContext context) => ReactiveTextField(
+        formControlName: formControlName,
         keyboardType: inputType,
         obscureText: obscureText == true ? true : false,
         autocorrect: false,
+        validationMessages: validationsMessages,
         decoration: InputDecoration(
-            hintText: placeholder,
-            prefixIcon: icon != null ? Icon(icon) : null,
-            errorText: error),
+          hintText: placeholder,
+          prefixIcon: icon != null ? Icon(icon) : null,
+        ),
       );
 }
