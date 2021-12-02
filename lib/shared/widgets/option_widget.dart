@@ -6,8 +6,13 @@ class OptionItem extends StatelessWidget {
   String text;
   IconData icon;
   void Function() onTap;
+  bool? rightPosition = false;
   OptionItem(
-      {Key? key, required this.text, required this.icon, required this.onTap})
+      {Key? key,
+      required this.text,
+      required this.icon,
+      required this.onTap,
+      this.rightPosition})
       : super(key: key);
 
   @override
@@ -23,23 +28,41 @@ class OptionItem extends StatelessWidget {
         child: GestureDetector(
           onTap: onTap,
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisAlignment: rightPosition == true
+                ? MainAxisAlignment.spaceBetween
+                : MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Icon(
-                icon,
-                color: ColorConstants.kSecondaryFontColor,
-                size: 24,
-              ),
-              SizedBox(
-                width: 8,
-              ),
-              Text(text,
-                  style: TextStyle(
+            children: rightPosition == true
+                ? [
+                    Text(text,
+                        style: TextStyle(
+                            color: ColorConstants.kSecondaryFontColor,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16)),
+                    SizedBox(
+                      width: 8,
+                    ),
+                    Icon(
+                      icon,
                       color: ColorConstants.kSecondaryFontColor,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18))
-            ],
+                      size: 24,
+                    ),
+                  ]
+                : [
+                    Icon(
+                      icon,
+                      color: ColorConstants.kSecondaryFontColor,
+                      size: 24,
+                    ),
+                    SizedBox(
+                      width: 8,
+                    ),
+                    Text(text,
+                        style: TextStyle(
+                            color: ColorConstants.kSecondaryFontColor,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16))
+                  ],
           ),
         ),
       );
