@@ -31,7 +31,7 @@ class IntroductionOnBoarding extends StatelessWidget {
         ],
         done: Text('Avançar'),
         onDone: () {
-          Navigator.of(context).pushNamed('/signin/');
+          Navigator.of(context).pushReplacementNamed('/signin/');
         },
         showSkipButton: true,
         skip: Text('Pular'),
