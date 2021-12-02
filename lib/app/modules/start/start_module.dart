@@ -1,5 +1,6 @@
 import 'package:flutter_modular/flutter_modular.dart';
 
+import 'presentation/screens/add_options_page.dart';
 import 'presentation/screens/profile_page.dart';
 import 'presentation/screens/settings_page.dart';
 import 'presentation/start_page.dart';
@@ -28,6 +29,7 @@ class StartModule extends Module {
       ),
     ]),
     ChildRoute('/profile/', child: (_, args) => ProfilePage()),
-    ChildRoute('/settings/', child: (_, args) => SettingsPage())
+    ChildRoute('/settings/', child: (_, args) => SettingsPage()),
+    ChildRoute('/add_options/', child: (_, args) => AddOptionsPage())
   ];
 }
