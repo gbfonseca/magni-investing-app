@@ -1,9 +1,6 @@
 import 'package:ezwallet_mobile/core/signup/presentation/protocols/email_validator_protocol.dart';
 import 'package:ezwallet_mobile/core/signup/presentation/widgets/stores/signupform_store.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mockito/mockito.dart';
-
-class EmailValidatorStub extends Mock implements EmailValidator {}
 
 void main() {
   var store = SignUpFormStore();
