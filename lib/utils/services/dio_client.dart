@@ -2,6 +2,8 @@ import 'package:dio/dio.dart';
 
 import 'http_client.dart';
 
+final url = 'https://ezwallet-hml.herokuapp.com/api';
+
 class DioClient implements IHttpClient {
   final Dio dio = Dio();
 
@@ -12,8 +14,14 @@ class DioClient implements IHttpClient {
   }
 
   @override
-  Future post(String url, dynamic data) async {
-    var response = await dio.post(url, data: data);
-    return response;
+  Future<dynamic> post(String path, dynamic data) async {
+    var response = await dio.post("$url/$path", data: data);
+    return response.data;
+  }
+
+  @override
+  Future put(String path, data) {
+    // TODO: implement put
+    throw UnimplementedError();
   }
 }
