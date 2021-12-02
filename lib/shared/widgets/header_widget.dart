@@ -37,11 +37,14 @@ class Header extends StatelessWidget {
               Navigator.of(context).pushNamed('/start/profile/');
             },
             child: Container(
-              child: CircleAvatar(
-                backgroundColor: ColorConstants.kPrimaryColor,
-                radius: 32,
-                backgroundImage: NetworkImage(
-                  'https://images.unsplash.com/photo-1488161628813-04466f872be2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=764&q=80',
+              child: Hero(
+                tag: 'avatar',
+                child: CircleAvatar(
+                  backgroundColor: ColorConstants.kPrimaryColor,
+                  radius: 32,
+                  backgroundImage: NetworkImage(
+                    'https://images.unsplash.com/photo-1488161628813-04466f872be2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=764&q=80',
+                  ),
                 ),
               ),
               decoration: BoxDecoration(
