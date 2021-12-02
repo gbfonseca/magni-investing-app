@@ -21,6 +21,9 @@ class StartPageState extends State<StartPage> {
 
   _onItemTapped(int index) {
     setState(() {
+      if (index == 2) {
+        return null;
+      }
       selectedIndex = index;
       store.pageViewController.animateToPage(index,
           duration: Duration(milliseconds: 300), curve: Curves.easeOut);
@@ -43,45 +46,56 @@ class StartPageState extends State<StartPage> {
         bottomNavigationBar: BottomAppBar(
           shape: CircularNotchedRectangle(),
           notchMargin: 5,
-          child: BottomNavigationBar(
-            backgroundColor: Colors.transparent,
-            elevation: 0,
-            currentIndex: selectedIndex,
-            type: BottomNavigationBarType.fixed,
-            selectedFontSize: 12,
-            unselectedFontSize: 12,
-            landscapeLayout: BottomNavigationBarLandscapeLayout.centered,
-            items: <BottomNavigationBarItem>[
-              BottomNavigationBarItem(
-                  icon: Icon(
-                    Icons.home,
-                    size: 28,
-                  ),
-                  label: ''),
-              BottomNavigationBarItem(
-                  icon: Icon(
-                    Icons.bar_chart,
-                    size: 28,
-                  ),
-                  label: ''),
-              BottomNavigationBarItem(
-                  icon: Icon(
-                    Icons.account_balance_wallet_outlined,
-                    size: 28,
-                  ),
-                  label: ''),
-              BottomNavigationBarItem(
-                  icon: Icon(
-                    Icons.person_outline,
-                    size: 28,
-                  ),
-                  label: ''),
-            ],
-            selectedItemColor: ColorConstants.kPrimaryColor,
-            unselectedItemColor: Colors.grey,
-            showSelectedLabels: false,
-            showUnselectedLabels: false,
-            onTap: _onItemTapped,
+          child: Theme(
+            data: ThemeData(
+                splashColor: Colors.transparent,
+                highlightColor: Colors.transparent),
+            child: BottomNavigationBar(
+              backgroundColor: Colors.transparent,
+              elevation: 0,
+              currentIndex: selectedIndex,
+              type: BottomNavigationBarType.fixed,
+              selectedFontSize: 12,
+              unselectedFontSize: 12,
+              landscapeLayout: BottomNavigationBarLandscapeLayout.centered,
+              items: <BottomNavigationBarItem>[
+                BottomNavigationBarItem(
+                    icon: Icon(
+                      Icons.home,
+                      size: 28,
+                    ),
+                    label: ''),
+                BottomNavigationBarItem(
+                    icon: Icon(
+                      Icons.bar_chart,
+                      size: 28,
+                    ),
+                    label: ''),
+                BottomNavigationBarItem(
+                    icon: Icon(
+                      null,
+                      size: 28,
+                    ),
+                    label: ''),
+                BottomNavigationBarItem(
+                    icon: Icon(
+                      Icons.account_balance_wallet_outlined,
+                      size: 28,
+                    ),
+                    label: ''),
+                BottomNavigationBarItem(
+                    icon: Icon(
+                      Icons.person_outline,
+                      size: 28,
+                    ),
+                    label: ''),
+              ],
+              selectedItemColor: ColorConstants.kPrimaryColor,
+              unselectedItemColor: Colors.grey,
+              showSelectedLabels: false,
+              showUnselectedLabels: false,
+              onTap: _onItemTapped,
+            ),
           ),
         ),
       );
