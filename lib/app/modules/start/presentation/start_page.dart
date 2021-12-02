@@ -35,7 +35,7 @@ class StartPageState extends State<StartPage> {
           child: Icon(Icons.add),
           backgroundColor: ColorConstants.kPrimaryColor,
           onPressed: () {
-            Navigator.of(context).pushNamed('/start/add_options');
+            Navigator.of(context).pushNamed('/start/add_investment/');
           },
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
