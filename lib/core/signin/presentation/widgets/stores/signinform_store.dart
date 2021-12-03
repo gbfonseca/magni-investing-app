@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 import 'package:reactive_forms/reactive_forms.dart';
@@ -13,6 +14,9 @@ class SigninFormStore = _SigninFormStoreBase with _$SigninFormStore;
 abstract class _SigninFormStoreBase with Store {
   final IHttpClient client = DioClient();
 
+  @observable
+  bool loading = false;
+
   FormGroup form = FormGroup({
     'email': FormControl<String>(
         value: '', validators: [Validators.required, Validators.email]),
@@ -21,11 +25,22 @@ abstract class _SigninFormStoreBase with Store {
   });
 
   @action
+  setLoading(isLoading) {
+    loading = isLoading;
+  }
+
+  @action
   Future<void> onSubmit(validForm, context) async {
-    if (validForm) {
-      final signinService = SigninService(client);
-      final response = await signinService.signin(form.value);
-      Navigator.of(context).pushReplacementNamed('/start/');
+    try {
+      setLoading(true);
+      if (validForm) {
+        final signinService = SigninService(client);
+        final response = await signinService.signin(form.value);
+        setLoading(false);
+        await Navigator.of(context).pushReplacementNamed('/start/');
+      }
+    } on DioError catch (e) {
+      setLoading(false);
     }
   }
 }
