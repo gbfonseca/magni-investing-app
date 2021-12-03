@@ -19,13 +19,13 @@ class UserModel {
       required this.updatedAt});
 
   get() => {
-        id: id,
-        name: name,
-        lastName: lastName,
-        email: email,
-        password: password,
-        createdAt: createdAt,
-        updatedAt: updatedAt
+        'id': id,
+        'name': name,
+        'lastName': lastName,
+        'email': email,
+        'password': password,
+        'created_at': createdAt,
+        'updated_at': updatedAt
       };
 
   static UserModel fromJson(Map map) => UserModel(
