@@ -41,6 +41,11 @@ abstract class _SigninFormStoreBase with Store {
       }
     } on DioError catch (e) {
       setLoading(false);
+      final snackBar = SnackBar(
+        content: Text(e.response?.data['name']),
+        backgroundColor: Colors.red,
+      );
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
     }
   }
 }
