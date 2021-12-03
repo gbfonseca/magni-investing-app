@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 
+import '../../../providers/auth_store.dart';
 import '../../../shared/widgets/card_portifolio_widget.dart';
 import '../../../shared/widgets/header_widget.dart';
 import 'stores/home_store.dart';
@@ -17,6 +19,13 @@ class HomePage extends StatefulWidget {
 
 class HomePageState extends State<HomePage> {
   final HomeStore store = HomeStore();
+  final _authStore = AuthStore();
+
+  @override
+  void initState() {
+    _authStore.getUser();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -26,8 +35,11 @@ class HomePageState extends State<HomePage> {
               padding: const EdgeInsets.all(23.0),
               child: Column(
                 children: <Widget>[
-                  Header(
-                    name: 'Gabriel F.',
+                  Observer(
+                    builder: (_) => Header(
+                      name:
+                          "${_authStore.user.name} ${_authStore.user.lastName.substring(0, 1)}.",
+                    ),
                   ),
                   CardPortifolio(
                     balance: 7390.52,
