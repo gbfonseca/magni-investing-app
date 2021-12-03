@@ -29,6 +29,7 @@ abstract class _AuthStoreBase with Store {
     final prefs = await SharedPreferences.getInstance();
     prefs.setString('user', jsonEncode(authData.user.get()));
     prefs.setString('token', authData.token);
+    user = authData.user;
   }
 
   @action

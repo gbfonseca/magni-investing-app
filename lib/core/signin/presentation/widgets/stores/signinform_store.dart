@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
+import 'package:provider/provider.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
 import '../../../../../providers/auth_store.dart';
@@ -14,7 +15,6 @@ class SigninFormStore = _SigninFormStoreBase with _$SigninFormStore;
 
 abstract class _SigninFormStoreBase with Store {
   final IHttpClient client = DioClient();
-  final AuthStore _authStore = AuthStore();
   @observable
   bool loading = false;
 
@@ -37,6 +37,7 @@ abstract class _SigninFormStoreBase with Store {
       if (validForm) {
         final signinService = SigninService(client);
         final response = await signinService.signin(form.value);
+        final _authStore = Provider.of<AuthStore>(context, listen: false);
         _authStore.setAuth(response);
         setLoading(false);
         await Navigator.of(context).pushReplacementNamed('/start/');
