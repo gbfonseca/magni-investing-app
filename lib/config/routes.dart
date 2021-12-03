@@ -9,7 +9,7 @@ import '../modules/settings/settings_page.dart';
 import '../modules/start/presentation/start_page.dart';
 
 Map<String, WidgetBuilder> getRoutes(BuildContext context) => {
-      '/': (context) => OnBoardingPage(),
+      // '/': (context) => OnBoardingPage(),
       '/signin/': (context) => SigninPage(),
       '/signup/': (context) => SignupPage(),
       '/start/': (context) => StartPage(),

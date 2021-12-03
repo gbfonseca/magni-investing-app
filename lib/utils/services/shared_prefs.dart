@@ -1,17 +1,22 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'storage.dart';
+import 'storage_service.dart';
 
 class SharedPrefs implements IStorage {
+  static late SharedPreferences prefs;
+
+  static Future init() async => prefs = await SharedPreferences.getInstance();
+
   @override
-  Future<String>? getData(String key) async {
-    final prefs = await SharedPreferences.getInstance();
-    return prefs.getString(key) as String;
-  }
+  Future<String> getData(String key) async => prefs.getString(key) ?? '';
 
   @override
   setData(String key, String value) async {
-    final prefs = await SharedPreferences.getInstance();
     prefs.setString(key, value);
+  }
+
+  @override
+  removeData(String key) async {
+    await prefs.remove(key);
   }
 }
