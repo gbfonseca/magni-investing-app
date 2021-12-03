@@ -1,16 +1,19 @@
 import 'dart:convert';
 
 import 'package:mobx/mobx.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../shared/models/auth_model.dart';
 import '../shared/models/user_model.dart';
+import '../utils/services/shared_prefs.dart';
+import '../utils/services/storage.dart';
 
 part 'auth_store.g.dart';
 
 class AuthStore = _AuthStoreBase with _$AuthStore;
 
 abstract class _AuthStoreBase with Store {
+  final IStorage storage = SharedPrefs();
+
   @observable
   UserModel user = UserModel(
       id: '',
@@ -26,23 +29,20 @@ abstract class _AuthStoreBase with Store {
 
   @action
   setAuth(AuthModel authData) async {
-    final prefs = await SharedPreferences.getInstance();
-    prefs.setString('user', jsonEncode(authData.user.get()));
-    prefs.setString('token', authData.token);
+    storage.setData('user', jsonEncode(authData.user.get()));
+    storage.setData('token', authData.token);
     user = authData.user;
   }
 
   @action
   getUser() async {
-    final prefs = await SharedPreferences.getInstance();
-    final userDecoded = jsonDecode(prefs.getString('user') as String);
+    final userDecoded = jsonDecode(await storage.getData('user') as String);
     user = UserModel.fromJson(userDecoded);
   }
 
   @action
   getToken() async {
-    final prefs = await SharedPreferences.getInstance();
-    final tokenDecoded = jsonDecode(prefs.getString('token') as String);
+    final tokenDecoded = jsonDecode(storage.getData('token') as String);
     token = tokenDecoded;
   }
 }
