@@ -24,11 +24,26 @@ mixin _$AuthStore on _AuthStoreBase, Store {
     });
   }
 
-  final _$setUserAsyncAction = AsyncAction('_AuthStoreBase.setUser');
+  final _$tokenAtom = Atom(name: '_AuthStoreBase.token');
 
   @override
-  Future setUser(UserModel userToStore) {
-    return _$setUserAsyncAction.run(() => super.setUser(userToStore));
+  String get token {
+    _$tokenAtom.reportRead();
+    return super.token;
+  }
+
+  @override
+  set token(String value) {
+    _$tokenAtom.reportWrite(value, super.token, () {
+      super.token = value;
+    });
+  }
+
+  final _$setAuthAsyncAction = AsyncAction('_AuthStoreBase.setAuth');
+
+  @override
+  Future setAuth(AuthModel authData) {
+    return _$setAuthAsyncAction.run(() => super.setAuth(authData));
   }
 
   final _$getUserAsyncAction = AsyncAction('_AuthStoreBase.getUser');
@@ -38,10 +53,18 @@ mixin _$AuthStore on _AuthStoreBase, Store {
     return _$getUserAsyncAction.run(() => super.getUser());
   }
 
+  final _$getTokenAsyncAction = AsyncAction('_AuthStoreBase.getToken');
+
+  @override
+  Future getToken() {
+    return _$getTokenAsyncAction.run(() => super.getToken());
+  }
+
   @override
   String toString() {
     return '''
-user: ${user}
+user: ${user},
+token: ${token}
     ''';
   }
 }

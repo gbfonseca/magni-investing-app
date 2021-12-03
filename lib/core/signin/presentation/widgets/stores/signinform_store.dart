@@ -1,9 +1,9 @@
 import 'package:dio/dio.dart';
-import '../../../../../providers/auth_store.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
+import '../../../../../providers/auth_store.dart';
 import '../../../../../utils/services/dio_client.dart';
 import '../../../../../utils/services/http_client.dart';
 import '../../../../../utils/services/signin_service.dart';
@@ -37,7 +37,7 @@ abstract class _SigninFormStoreBase with Store {
       if (validForm) {
         final signinService = SigninService(client);
         final response = await signinService.signin(form.value);
-        _authStore.setUser(response.user);
+        _authStore.setAuth(response);
         setLoading(false);
         await Navigator.of(context).pushReplacementNamed('/start/');
       }
