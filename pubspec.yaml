@@ -39,6 +39,7 @@ dependencies:
   introduction_screen: ^2.1.0
   reactive_forms: ^10.6.4
   dio: ^4.0.4
+  lottie: ^1.2.1
 
 dev_dependencies:
   flutter_test:
@@ -80,6 +81,7 @@ flutter:
     - lib/assets/images/income/income.png
     - lib/assets/images/fixed-interest/fixed-interest.png
     - lib/assets/images/real-state/real-state.png
+    - lib/assets/animations/loading.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
