@@ -33,6 +33,11 @@ class StartPageState extends State<StartPage> {
   @override
   Widget build(BuildContext context) => Scaffold(
         body: PageView(
+            onPageChanged: (value) {
+              setState(() {
+                selectedIndex = value;
+              });
+            },
             controller: store.pageViewController,
             children: [HomePage(), DashboardPage()]),
         floatingActionButton: FloatingActionButton(
