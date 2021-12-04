@@ -9,6 +9,10 @@ import 'utils/color.dart';
 import 'utils/colors.dart';
 
 class AppWidget extends StatelessWidget {
+  Widget homePage;
+
+  AppWidget(this.homePage);
+
   @override
   Widget build(BuildContext context) => MultiProvider(
       providers: [Provider<AuthStore>(create: (_) => AuthStore())],
@@ -23,6 +27,6 @@ class AppWidget extends StatelessWidget {
                 splashColor: ColorConstants.kPrimaryColor,
                 primaryColor: ColorConstants.kPrimaryColor,
               ),
-              initialRoute: '/',
+              home: homePage,
               routes: getRoutes(context))));
 }
