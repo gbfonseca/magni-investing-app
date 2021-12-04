@@ -6,5 +6,5 @@ class LoadingWiget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) =>
-      Lottie.asset('lib/assets/animations/loading.json');
+      Lottie.asset('lib/assets/animations/loading.json', width: 120);
 }

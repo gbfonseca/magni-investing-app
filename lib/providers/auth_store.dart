@@ -33,15 +33,15 @@ abstract class _AuthStoreBase with Store {
 
   @action
   setAuth(AuthModel authData) async {
-    storage.setData('user', jsonEncode(authData.user.get()));
-    storage.setData('token', authData.token);
+    storage.setData('@EzWallet: user', jsonEncode(authData.user.get()));
+    storage.setData('@EzWallet: token', authData.token);
     user = authData.user;
     authenticated = true;
   }
 
   @action
   getUser() async {
-    final storageData = await storage.getData('user');
+    final storageData = await storage.getData('@EzWallet: user');
     if (storageData == '') {
       authenticated = false;
       return;
@@ -53,7 +53,7 @@ abstract class _AuthStoreBase with Store {
 
   @action
   getToken() async {
-    final storageData = await storage.getData('token');
+    final storageData = await storage.getData('@EzWallet: token');
     if (storageData == '') {
       authenticated = false;
       return;
@@ -65,7 +65,7 @@ abstract class _AuthStoreBase with Store {
 
   @action
   logout(BuildContext context) async {
-    await storage.removeData('user');
+    await storage.removeData('@EzWallet: user');
     user = UserModel(
         id: '',
         email: '',
