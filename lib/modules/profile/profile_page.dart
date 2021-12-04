@@ -41,7 +41,8 @@ class ProfilePage extends StatelessWidget {
               ),
               Container(
                 margin: EdgeInsets.only(top: 36, bottom: 72),
-                child: Text('Gabriel Fonseca',
+                child: Text(
+                    "${_authStore.user.name} ${_authStore.user.lastName}",
                     style: TextStyle(
                         color: ColorConstants.kFontColor,
                         fontWeight: FontWeight.bold,
