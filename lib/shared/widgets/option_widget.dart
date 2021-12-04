@@ -16,17 +16,17 @@ class OptionItem extends StatelessWidget {
       : super(key: key);
 
   @override
-  Widget build(BuildContext context) => Container(
-        margin: EdgeInsets.only(bottom: 16),
-        padding: EdgeInsets.all(12),
-        decoration: BoxDecoration(
-            border: Border(
-                bottom: BorderSide(
-          width: 0.5,
-          color: ColorConstants.kSecondaryFontColor,
-        ))),
-        child: GestureDetector(
-          onTap: onTap,
+  Widget build(BuildContext context) => GestureDetector(
+        onTap: onTap,
+        child: Container(
+          margin: EdgeInsets.only(bottom: 16),
+          padding: EdgeInsets.all(12),
+          decoration: BoxDecoration(
+              border: Border(
+                  bottom: BorderSide(
+            width: 0.5,
+            color: ColorConstants.kSecondaryFontColor,
+          ))),
           child: Row(
             mainAxisAlignment: rightPosition == true
                 ? MainAxisAlignment.spaceBetween
