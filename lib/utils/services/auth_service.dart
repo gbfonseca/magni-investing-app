@@ -1,5 +1,5 @@
 import '../../shared/models/auth_model.dart';
-
+import '../../shared/models/user_model.dart';
 import 'http_client.dart';
 
 class AuthService {
@@ -11,5 +11,11 @@ class AuthService {
     final response = await client.post('auth/signin', data);
     final authData = AuthModel.fromJson(response);
     return authData;
+  }
+
+  Future<UserModel> loggedUser() async {
+    final response = await client.get('auth/logged-user');
+    final user = UserModel.fromJson(response);
+    return user;
   }
 }

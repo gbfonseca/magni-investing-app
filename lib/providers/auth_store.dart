@@ -1,10 +1,13 @@
 import 'dart:convert';
 
+import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:mobx/mobx.dart';
 
 import '../shared/models/auth_model.dart';
 import '../shared/models/user_model.dart';
+import '../utils/services/auth_service.dart';
+import '../utils/services/dio_client.dart';
 import '../utils/services/shared_prefs.dart';
 import '../utils/services/storage_service.dart';
 
@@ -14,6 +17,7 @@ class AuthStore = _AuthStoreBase with _$AuthStore;
 
 abstract class _AuthStoreBase with Store {
   final IStorage storage = SharedPrefs();
+  final dio = DioClient();
 
   @observable
   UserModel user = UserModel(
@@ -41,14 +45,20 @@ abstract class _AuthStoreBase with Store {
 
   @action
   getUser() async {
-    final storageData = await storage.getData('@EzWallet: user');
-    if (storageData == '') {
-      authenticated = false;
-      return;
+    try {
+      final _authService = AuthService(dio);
+      final storageData = await storage.getData('@EzWallet: user');
+      if (storageData == '') {
+        authenticated = false;
+        return;
+      }
+      await getToken();
+      final response = await _authService.loggedUser();
+      user = response;
+      authenticated = true;
+    } on DioError catch (e) {
+      print(e.requestOptions.headers['Authorization']);
     }
-    final userDecoded = jsonDecode(storageData as String);
-    user = UserModel.fromJson(userDecoded);
-    authenticated = true;
   }
 
   @action
@@ -58,8 +68,9 @@ abstract class _AuthStoreBase with Store {
       authenticated = false;
       return;
     }
-    final tokenDecoded = jsonDecode(storageData as String);
+    final tokenDecoded = storageData as String;
     token = tokenDecoded;
+    dio.dio.options.headers['Authorization'] = "Bearer $token";
     authenticated = true;
   }
 

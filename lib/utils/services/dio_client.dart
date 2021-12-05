@@ -8,9 +8,9 @@ class DioClient implements IHttpClient {
   final Dio dio = Dio();
 
   @override
-  Future get(String url) async {
-    // TODO: implement get
-    throw UnimplementedError();
+  Future get(String path) async {
+    var response = await dio.get("$baseUrl/$path");
+    return response.data;
   }
 
   @override
