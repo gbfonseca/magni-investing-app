@@ -5,9 +5,9 @@ import 'package:provider/provider.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
 import '../../../../../providers/auth_store.dart';
+import '../../../../../utils/services/auth_service.dart';
 import '../../../../../utils/services/dio_client.dart';
 import '../../../../../utils/services/http_client.dart';
-import '../../../../../utils/services/signin_service.dart';
 
 part 'signinform_store.g.dart';
 
@@ -35,8 +35,8 @@ abstract class _SigninFormStoreBase with Store {
     try {
       setLoading(true);
       if (validForm) {
-        final signinService = SigninService(client);
-        final response = await signinService.signin(form.value);
+        final authService = AuthService(client);
+        final response = await authService.signin(form.value);
         final _authStore = Provider.of<AuthStore>(context, listen: false);
         _authStore.setAuth(response);
         setLoading(false);

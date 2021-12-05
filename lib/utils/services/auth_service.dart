@@ -2,10 +2,10 @@ import '../../shared/models/auth_model.dart';
 
 import 'http_client.dart';
 
-class SigninService {
+class AuthService {
   final IHttpClient client;
 
-  SigninService(this.client);
+  AuthService(this.client);
 
   Future<AuthModel> signin(dynamic data) async {
     final response = await client.post('auth/signin', data);

@@ -14,7 +14,6 @@ Future main() async {
   await authStore.getUser();
   Widget homepage = OnBoardingPage();
   if (authStore.authenticated) {
-    print(authStore.authenticated);
     homepage = StartPage();
   } else {
     homepage = OnBoardingPage();

@@ -1,7 +1,7 @@
 import 'dart:convert';
 
+import 'package:ezwallet_mobile/utils/services/auth_service.dart';
 import 'package:ezwallet_mobile/utils/services/http_client.dart';
-import 'package:ezwallet_mobile/utils/services/signin_service.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
@@ -32,9 +32,8 @@ void main() {
     when(() => client.post('auth/signin', data))
         .thenAnswer((_) async => jsonDecode(jsonResponse));
 
-    final service = SigninService(client);
+    final service = AuthService(client);
     final response = await service.signin(data);
-    print(response);
     expect(response.user.name, 'Gabriel');
   });
 }
