@@ -5,7 +5,6 @@ class UserModel {
   final String name;
   final String lastName;
   final String email;
-  final String password;
   final String createdAt;
   final String updatedAt;
 
@@ -14,7 +13,6 @@ class UserModel {
       required this.name,
       required this.lastName,
       required this.email,
-      required this.password,
       required this.createdAt,
       required this.updatedAt});
 
@@ -23,7 +21,6 @@ class UserModel {
         'name': name,
         'lastName': lastName,
         'email': email,
-        'password': password,
         'created_at': createdAt,
         'updated_at': updatedAt
       };
@@ -33,7 +30,6 @@ class UserModel {
       name: map['name'],
       lastName: map['lastName'],
       email: map['email'],
-      password: map['password'],
       createdAt: map['created_at'],
       updatedAt: map['updated_at']);
 }

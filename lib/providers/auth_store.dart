@@ -21,13 +21,13 @@ abstract class _AuthStoreBase with Store {
 
   @observable
   UserModel user = UserModel(
-      id: '',
-      email: '',
-      lastName: '',
-      updatedAt: '',
-      createdAt: '',
-      name: '',
-      password: '');
+    id: '',
+    email: '',
+    lastName: '',
+    updatedAt: '',
+    createdAt: '',
+    name: '',
+  );
 
   @observable
   String token = '';
@@ -83,8 +83,7 @@ abstract class _AuthStoreBase with Store {
         lastName: '',
         updatedAt: '',
         createdAt: '',
-        name: '',
-        password: '');
+        name: '');
     authenticated = false;
     Navigator.of(context).pushReplacementNamed('/signin/');
   }
