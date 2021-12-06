@@ -39,6 +39,21 @@ mixin _$AuthStore on _AuthStoreBase, Store {
     });
   }
 
+  final _$authenticatedAtom = Atom(name: '_AuthStoreBase.authenticated');
+
+  @override
+  bool get authenticated {
+    _$authenticatedAtom.reportRead();
+    return super.authenticated;
+  }
+
+  @override
+  set authenticated(bool value) {
+    _$authenticatedAtom.reportWrite(value, super.authenticated, () {
+      super.authenticated = value;
+    });
+  }
+
   final _$setAuthAsyncAction = AsyncAction('_AuthStoreBase.setAuth');
 
   @override
@@ -60,11 +75,19 @@ mixin _$AuthStore on _AuthStoreBase, Store {
     return _$getTokenAsyncAction.run(() => super.getToken());
   }
 
+  final _$logoutAsyncAction = AsyncAction('_AuthStoreBase.logout');
+
+  @override
+  Future logout(BuildContext context) {
+    return _$logoutAsyncAction.run(() => super.logout(context));
+  }
+
   @override
   String toString() {
     return '''
 user: ${user},
-token: ${token}
+token: ${token},
+authenticated: ${authenticated}
     ''';
   }
 }

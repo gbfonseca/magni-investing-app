@@ -9,18 +9,12 @@ part of 'signupform_store.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
 mixin _$SignUpFormStore on _SignUpFormStoreBase, Store {
-  final _$_SignUpFormStoreBaseActionController =
-      ActionController(name: '_SignUpFormStoreBase');
+  final _$onSubmitAsyncAction = AsyncAction('_SignUpFormStoreBase.onSubmit');
 
   @override
-  dynamic onSubmit() {
-    final _$actionInfo = _$_SignUpFormStoreBaseActionController.startAction(
-        name: '_SignUpFormStoreBase.onSubmit');
-    try {
-      return super.onSubmit();
-    } finally {
-      _$_SignUpFormStoreBaseActionController.endAction(_$actionInfo);
-    }
+  Future onSubmit(dynamic formIsValid, BuildContext context) {
+    return _$onSubmitAsyncAction
+        .run(() => super.onSubmit(formIsValid, context));
   }
 
   @override
