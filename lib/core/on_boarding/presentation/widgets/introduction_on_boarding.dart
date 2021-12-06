@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 
-import '../../../../utils/colors.dart';
+import '../../../../utils/ui/colors.dart';
 import '../../domain/models/carousel_items.dart';
 
 /// A Slider to OnBoarding Page

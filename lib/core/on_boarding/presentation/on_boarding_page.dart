@@ -1,4 +1,4 @@
-import '../../../utils/colors.dart';
+import '../../../utils/ui/colors.dart';
 import 'package:flutter/material.dart';
 
 import 'on_boarding_store.dart';

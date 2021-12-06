@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../shared/widgets/subtitle_widget.dart';
 import '../../../shared/widgets/title_widget.dart';
-import '../../../utils/colors.dart';
+import '../../../utils/ui/colors.dart';
 import 'stores/signup_store.dart';
 import 'widgets/signupform_widget.dart';
 

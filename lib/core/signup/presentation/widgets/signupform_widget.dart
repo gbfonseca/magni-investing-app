@@ -5,8 +5,8 @@ import 'package:reactive_forms/reactive_forms.dart';
 
 import '../../../../shared/widgets/button_widget.dart';
 import '../../../../shared/widgets/input_widget.dart';
-import '../../../../utils/colors.dart';
-import '../../../../utils/sizes.dart';
+import '../../../../utils/constants/sizes.dart';
+import '../../../../utils/ui/colors.dart';
 import 'stores/signupform_store.dart';
 
 class SignUpForm extends StatefulWidget {

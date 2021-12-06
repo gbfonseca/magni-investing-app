@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../utils/colors.dart';
+import '../../../../../utils/ui/colors.dart';
 
 class OptionItem extends StatelessWidget {
   String text;

@@ -5,8 +5,8 @@ import 'package:provider/provider.dart';
 
 import 'config/routes.dart';
 import 'providers/auth_store.dart';
-import 'utils/color.dart';
-import 'utils/colors.dart';
+import 'utils/ui/color.dart';
+import 'utils/ui/colors.dart';
 
 class AppWidget extends StatelessWidget {
   Widget homePage;

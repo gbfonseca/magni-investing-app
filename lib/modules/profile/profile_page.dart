@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import '../../providers/auth_store.dart';
 import '../../shared/widgets/back_header_widget.dart';
 import '../../shared/widgets/option_widget.dart';
-import '../../utils/colors.dart';
+import '../../utils/ui/colors.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({Key? key}) : super(key: key);

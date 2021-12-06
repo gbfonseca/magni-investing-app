@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
 import '../../shared/widgets/back_header_widget.dart';
-import '../../utils/colors.dart';
+import '../../utils/ui/colors.dart';
 import 'stores/settings_store.dart';
 
 class SettingsPage extends StatelessWidget {

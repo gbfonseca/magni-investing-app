@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../utils/colors.dart';
-import '../../utils/sizes.dart';
+import '../../utils/constants/sizes.dart';
+import '../../utils/ui/colors.dart';
 
 class SubTitleWidget extends StatelessWidget {
   String text;

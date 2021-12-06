@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
-import '../../utils/colors.dart';
+import '../../utils/ui/colors.dart';
 
 class InputWidget extends StatelessWidget {
   String placeholder;
