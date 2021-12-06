@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
+import '../../utils/colors.dart';
+
 class InputWidget extends StatelessWidget {
   String placeholder;
   IconData? icon;
@@ -26,7 +28,11 @@ class InputWidget extends StatelessWidget {
         autocorrect: false,
         validationMessages: validationsMessages,
         decoration: InputDecoration(
-          hintText: placeholder,
+          contentPadding: EdgeInsets.all(16),
+          labelText: placeholder,
+          border: OutlineInputBorder(
+              borderSide: BorderSide(color: Color(0xFFe2e2e2)),
+              borderRadius: BorderRadius.all(Radius.circular(5))),
           prefixIcon: icon != null ? Icon(icon) : null,
         ),
       );
