@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import '../../../../../utils/ui/snack_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 import 'package:provider/provider.dart';
@@ -15,6 +16,8 @@ class SigninFormStore = _SigninFormStoreBase with _$SigninFormStore;
 
 abstract class _SigninFormStoreBase with Store {
   final IHttpClient client = DioClient();
+  final SnackBarUtil _snackBarUtil = SnackBarUtil();
+
   @observable
   bool loading = false;
 
@@ -44,11 +47,7 @@ abstract class _SigninFormStoreBase with Store {
       }
     } on DioError catch (e) {
       setLoading(false);
-      final snackBar = SnackBar(
-        content: Text(e.response?.data['name']),
-        backgroundColor: Colors.red,
-      );
-      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+      _snackBarUtil.showSnackBar(context, e.response?.data['name'], Colors.red);
     }
   }
 }
