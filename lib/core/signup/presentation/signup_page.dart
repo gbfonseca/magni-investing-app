@@ -1,3 +1,4 @@
+import '../../../utils/colors.dart';
 import 'package:flutter/material.dart';
 
 import '../../../shared/widgets/subtitle_widget.dart';
@@ -17,6 +18,7 @@ class SignupPageState extends State<SignupPage> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
+        backgroundColor: ColorConstants.kBackgroundColor,
         body: SafeArea(
           child: Padding(
             padding: EdgeInsets.only(left: 43, top: 23, right: 43, bottom: 0),

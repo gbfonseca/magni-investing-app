@@ -1,3 +1,4 @@
+import '../../../utils/colors.dart';
 import 'package:flutter/material.dart';
 
 import 'on_boarding_store.dart';
@@ -16,8 +17,9 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-          body: SafeArea(
-              child: SizedBox(
+      backgroundColor: ColorConstants.kBackgroundColor,
+      body: SafeArea(
+          child: SizedBox(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         child: Padding(

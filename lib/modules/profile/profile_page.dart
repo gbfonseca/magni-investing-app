@@ -13,6 +13,7 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final _authStore = Provider.of<AuthStore>(context);
     return Scaffold(
+      backgroundColor: ColorConstants.kBackgroundColor,
       body: SafeArea(
         child: Container(
           padding: EdgeInsets.all(24),

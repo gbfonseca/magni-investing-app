@@ -32,6 +32,7 @@ class StartPageState extends State<StartPage> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
+        backgroundColor: ColorConstants.kBackgroundColor,
         body: PageView(
             onPageChanged: (value) {
               setState(() {

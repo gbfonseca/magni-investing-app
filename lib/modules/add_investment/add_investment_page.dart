@@ -1,3 +1,4 @@
+import '../../utils/colors.dart';
 import 'package:flutter/material.dart';
 
 import '../../shared/widgets/back_header_widget.dart';
@@ -8,6 +9,7 @@ class AddInvestmentPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Scaffold(
+        backgroundColor: ColorConstants.kBackgroundColor,
         body: SafeArea(
           child: Container(
               padding: EdgeInsets.all(24),
