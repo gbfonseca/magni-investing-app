@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart';
-import '../../../../../utils/ui/snack_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 import 'package:provider/provider.dart';
@@ -9,6 +8,7 @@ import '../../../../../providers/auth_store.dart';
 import '../../../../../utils/services/auth_service.dart';
 import '../../../../../utils/services/dio_client.dart';
 import '../../../../../utils/services/http_client.dart';
+import '../../../../../utils/ui/snack_bar.dart';
 
 part 'signinform_store.g.dart';
 
@@ -45,6 +45,7 @@ abstract class _SigninFormStoreBase with Store {
         setLoading(false);
         await Navigator.of(context).pushReplacementNamed('/start/');
       }
+      setLoading(false);
     } on DioError catch (e) {
       setLoading(false);
       _snackBarUtil.showSnackBar(context, e.response?.data['name'], Colors.red);

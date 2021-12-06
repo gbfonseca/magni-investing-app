@@ -7,6 +7,7 @@ import '../../../../shared/widgets/button_widget.dart';
 import '../../../../shared/widgets/input_widget.dart';
 import '../../../../utils/constants/sizes.dart';
 import '../../../../utils/ui/colors.dart';
+import '../../../../utils/ui/loading.dart';
 import 'stores/signupform_store.dart';
 
 class SignUpForm extends StatefulWidget {
@@ -105,13 +106,17 @@ class _SignUpFormState extends State<SignUpForm> {
                 SizedBox(
                   height: 24,
                 ),
-                ReactiveFormConsumer(
-                  builder: (context, form, child) => ButtonWidget(
-                      text: 'Salvar',
-                      onPressed: () {
-                        store.onSubmit(form.valid, context);
-                      }),
-                ),
+                Observer(
+                    builder: (_) => store.loading == true
+                        ? LoadingWiget()
+                        : ReactiveFormConsumer(
+                            builder: (context, form, child) => ButtonWidget(
+                                text: 'Salvar',
+                                onPressed: () {
+                                  store.onSubmit(
+                                      form.valid, _formKey.currentContext);
+                                }),
+                          )),
                 SizedBox(
                   height: 24,
                 ),

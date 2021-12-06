@@ -17,6 +17,10 @@ class SignUpFormStore = _SignUpFormStoreBase with _$SignUpFormStore;
 abstract class _SignUpFormStoreBase with Store {
   final IHttpClient dio = DioClient();
   final SnackBarUtil _snackBarUtil = SnackBarUtil();
+
+  @observable
+  bool loading = false;
+
   FormGroup form = FormGroup({
     'name': FormControl<String>(value: '', validators: [Validators.required]),
     'lastName':
@@ -30,16 +34,26 @@ abstract class _SignUpFormStoreBase with Store {
   });
 
   @action
-  onSubmit(formIsValid, BuildContext context) async {
+  setLoading(isLoading) {
+    loading = isLoading;
+  }
+
+  @action
+  onSubmit(formIsValid, context) async {
+    setLoading(true);
     try {
       if (formIsValid) {
         final IAuthService _authService = AuthService(dio);
         await _authService.signup(form.value);
         _snackBarUtil.showSnackBar(
             context, 'Usuário cadastrado com sucesso!', Colors.green);
-        Navigator.of(context).pushReplacementNamed('/signin/');
+        setLoading(false);
+        Navigator.of(context).pushNamed('/signin/');
       }
+      setLoading(false);
     } on DioError catch (e) {
+      setLoading(false);
+
       _snackBarUtil.showSnackBar(context, e.response?.data['name'], Colors.red);
     }
   }
