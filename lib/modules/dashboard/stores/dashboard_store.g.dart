@@ -9,18 +9,33 @@ part of 'dashboard_store.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
 mixin _$DashboardStore on _DashboardStoreBase, Store {
-  final _$valueAtom = Atom(name: '_DashboardStoreBase.value');
+  final _$tabItemsAtom = Atom(name: '_DashboardStoreBase.tabItems');
 
   @override
-  int get value {
-    _$valueAtom.reportRead();
-    return super.value;
+  List<dynamic> get tabItems {
+    _$tabItemsAtom.reportRead();
+    return super.tabItems;
   }
 
   @override
-  set value(int value) {
-    _$valueAtom.reportWrite(value, super.value, () {
-      super.value = value;
+  set tabItems(List<dynamic> value) {
+    _$tabItemsAtom.reportWrite(value, super.tabItems, () {
+      super.tabItems = value;
+    });
+  }
+
+  final _$selectedIdAtom = Atom(name: '_DashboardStoreBase.selectedId');
+
+  @override
+  int get selectedId {
+    _$selectedIdAtom.reportRead();
+    return super.selectedId;
+  }
+
+  @override
+  set selectedId(int value) {
+    _$selectedIdAtom.reportWrite(value, super.selectedId, () {
+      super.selectedId = value;
     });
   }
 
@@ -28,11 +43,11 @@ mixin _$DashboardStore on _DashboardStoreBase, Store {
       ActionController(name: '_DashboardStoreBase');
 
   @override
-  void increment() {
+  void setSelectedId(int id) {
     final _$actionInfo = _$_DashboardStoreBaseActionController.startAction(
-        name: '_DashboardStoreBase.increment');
+        name: '_DashboardStoreBase.setSelectedId');
     try {
-      return super.increment();
+      return super.setSelectedId(id);
     } finally {
       _$_DashboardStoreBaseActionController.endAction(_$actionInfo);
     }
@@ -41,7 +56,8 @@ mixin _$DashboardStore on _DashboardStoreBase, Store {
   @override
   String toString() {
     return '''
-value: ${value}
+tabItems: ${tabItems},
+selectedId: ${selectedId}
     ''';
   }
 }

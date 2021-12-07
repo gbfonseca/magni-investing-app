@@ -1,4 +1,3 @@
-import '../../../utils/constants/spacing_sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -7,6 +6,7 @@ import 'package:provider/provider.dart';
 import '../../../providers/auth_store.dart';
 import '../../../shared/widgets/card_portifolio_widget.dart';
 import '../../../shared/widgets/header_widget.dart';
+import '../../../utils/constants/spacing_sizes.dart';
 import 'stores/home_store.dart';
 import 'widgets/card_widget.dart';
 import 'widgets/recent_card_widget.dart';
