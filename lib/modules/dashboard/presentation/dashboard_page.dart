@@ -1,3 +1,4 @@
+import '../../../utils/ui/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:provider/provider.dart';
@@ -23,6 +24,7 @@ class DashboardPageState extends State<DashboardPage> {
   Widget build(BuildContext context) {
     final _authStore = Provider.of<AuthStore>(context);
     return Scaffold(
+      backgroundColor: ColorConstants.kBackgroundColor,
       body: SafeArea(
           child: Container(
         padding: EdgeInsets.all(SpacingSizes.s24),
