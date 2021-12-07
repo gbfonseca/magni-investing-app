@@ -13,7 +13,7 @@ abstract class _DashboardStoreBase with Store {
   ];
 
   @observable
-  int selectedId = 0;
+  int selectedId = 1;
 
   @action
   // ignore: use_setters_to_change_properties
