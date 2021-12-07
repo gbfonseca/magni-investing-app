@@ -1,3 +1,4 @@
+import '../../../utils/constants/spacing_sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -34,7 +35,7 @@ class HomePageState extends State<HomePage> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.all(23.0),
+            padding: const EdgeInsets.all(SpacingSizes.s24),
             child: Column(
               children: <Widget>[
                 Observer(

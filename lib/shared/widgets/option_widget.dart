@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../utils/ui/colors.dart';
+import '../../utils/constants/spacing_sizes.dart';
 
 class OptionItem extends StatelessWidget {
   String text;
@@ -19,8 +20,8 @@ class OptionItem extends StatelessWidget {
   Widget build(BuildContext context) => GestureDetector(
         onTap: onTap,
         child: Container(
-          margin: EdgeInsets.only(bottom: 16),
-          padding: EdgeInsets.all(12),
+          margin: EdgeInsets.only(bottom: SpacingSizes.s16),
+          padding: EdgeInsets.all(SpacingSizes.s8),
           decoration: BoxDecoration(
               border: Border(
                   bottom: BorderSide(

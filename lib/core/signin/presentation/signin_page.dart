@@ -1,3 +1,5 @@
+import '../../../utils/constants/spacing_sizes.dart';
+
 import '../../../utils/ui/colors.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +22,11 @@ class SigninPageState extends State<SigninPage> {
         backgroundColor: ColorConstants.kBackgroundColor,
         body: SafeArea(
           child: Padding(
-            padding: EdgeInsets.only(left: 43, top: 23, right: 43, bottom: 0),
+            padding: EdgeInsets.only(
+                left: SpacingSizes.s40,
+                top: SpacingSizes.s24,
+                right: SpacingSizes.s40,
+                bottom: 0),
             child: SingleChildScrollView(
               child: SizedBox(
                 width: MediaQuery.of(context).size.width,

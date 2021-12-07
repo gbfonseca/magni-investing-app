@@ -1,8 +1,9 @@
-import '../../utils/ui/colors.dart';
+import '../../utils/constants/spacing_sizes.dart';
 import 'package:flutter/material.dart';
 
 import '../../shared/widgets/back_header_widget.dart';
 import '../../shared/widgets/option_widget.dart';
+import '../../utils/ui/colors.dart';
 
 class AddInvestmentPage extends StatelessWidget {
   const AddInvestmentPage({Key? key}) : super(key: key);
@@ -12,7 +13,7 @@ class AddInvestmentPage extends StatelessWidget {
         backgroundColor: ColorConstants.kBackgroundColor,
         body: SafeArea(
           child: Container(
-              padding: EdgeInsets.all(24),
+              padding: EdgeInsets.all(SpacingSizes.s24),
               child: Column(
                 children: [
                   BackHeader(
@@ -20,7 +21,7 @@ class AddInvestmentPage extends StatelessWidget {
                     showIcon: false,
                   ),
                   Container(
-                      margin: EdgeInsets.only(top: 64),
+                      margin: EdgeInsets.only(top: SpacingSizes.s64),
                       child: Column(
                         children: [
                           OptionItem(

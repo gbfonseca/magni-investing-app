@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../../../utils/ui/colors.dart';
+import '../../../../utils/constants/spacing_sizes.dart';
 
 class CardWidget extends StatelessWidget {
   String title;
@@ -17,10 +18,14 @@ class CardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Container(
-        width: 180,
+        width: 200,
         height: 130,
-        padding: EdgeInsets.all(12),
-        margin: EdgeInsets.only(right: 12, top: 8, bottom: 8, left: 4),
+        padding: EdgeInsets.all(SpacingSizes.s16),
+        margin: EdgeInsets.only(
+            right: SpacingSizes.s16,
+            top: SpacingSizes.s8,
+            bottom: SpacingSizes.s8,
+            left: SpacingSizes.s8),
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
             color: Colors.white,

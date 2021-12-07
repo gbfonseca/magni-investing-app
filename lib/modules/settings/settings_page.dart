@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
 import '../../shared/widgets/back_header_widget.dart';
+import '../../utils/constants/spacing_sizes.dart';
 import '../../utils/ui/colors.dart';
 import 'stores/settings_store.dart';
 
@@ -14,7 +15,7 @@ class SettingsPage extends StatelessWidget {
         backgroundColor: ColorConstants.kBackgroundColor,
         body: SafeArea(
             child: Container(
-          padding: EdgeInsets.all(23),
+          padding: EdgeInsets.all(SpacingSizes.s24),
           child: Column(
             children: [
               BackHeader(
@@ -22,11 +23,11 @@ class SettingsPage extends StatelessWidget {
                 showIcon: false,
               ),
               SizedBox(
-                height: 40,
+                height: 45,
               ),
               Container(
-                margin: EdgeInsets.only(bottom: 16),
-                padding: EdgeInsets.all(12),
+                margin: EdgeInsets.only(bottom: SpacingSizes.s16),
+                padding: EdgeInsets.all(SpacingSizes.s16),
                 decoration: BoxDecoration(
                     border: Border(
                         bottom: BorderSide(

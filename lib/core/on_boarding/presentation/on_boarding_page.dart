@@ -1,3 +1,5 @@
+import '../../../utils/constants/spacing_sizes.dart';
+
 import '../../../utils/ui/colors.dart';
 import 'package:flutter/material.dart';
 
@@ -23,8 +25,11 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         child: Padding(
-          padding:
-              const EdgeInsets.only(left: 8.0, right: 8.0, top: 24, bottom: 32),
+          padding: const EdgeInsets.only(
+              left: SpacingSizes.s8,
+              right: SpacingSizes.s8,
+              top: SpacingSizes.s24,
+              bottom: SpacingSizes.s32),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,

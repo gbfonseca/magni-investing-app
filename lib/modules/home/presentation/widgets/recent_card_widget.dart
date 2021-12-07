@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../../../utils/ui/colors.dart';
+import '../../../../utils/constants/spacing_sizes.dart';
 
 class RecentCardWidget extends StatelessWidget {
   String type;
@@ -17,8 +18,12 @@ class RecentCardWidget extends StatelessWidget {
   Widget build(BuildContext context) => Container(
         width: 192,
         height: 110,
-        padding: EdgeInsets.all(16),
-        margin: EdgeInsets.only(right: 12, top: 8, bottom: 8, left: 4),
+        padding: EdgeInsets.all(SpacingSizes.s16),
+        margin: EdgeInsets.only(
+            right: SpacingSizes.s16,
+            top: SpacingSizes.s8,
+            bottom: SpacingSizes.s8,
+            left: SpacingSizes.s8),
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(18),
             color: Colors.white,
@@ -38,7 +43,7 @@ class RecentCardWidget extends StatelessWidget {
               color: type == 'Compra'
                   ? ColorConstants.kPurple
                   : ColorConstants.kGreen,
-              margin: EdgeInsets.only(right: 16),
+              margin: EdgeInsets.only(right: SpacingSizes.s16),
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,

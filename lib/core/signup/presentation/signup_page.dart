@@ -1,3 +1,4 @@
+import '../../../utils/constants/spacing_sizes.dart';
 import 'package:flutter/material.dart';
 
 import '../../../shared/widgets/subtitle_widget.dart';
@@ -22,7 +23,11 @@ class SignupPageState extends State<SignupPage> {
         body: SafeArea(
           child: SingleChildScrollView(
             child: Container(
-              padding: EdgeInsets.only(left: 43, top: 23, right: 43, bottom: 0),
+              padding: EdgeInsets.only(
+                  left: SpacingSizes.s40,
+                  top: SpacingSizes.s24,
+                  right: SpacingSizes.s40,
+                  bottom: 0),
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height - 120,
               child: Column(

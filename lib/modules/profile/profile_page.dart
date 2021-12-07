@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import '../../providers/auth_store.dart';
 import '../../shared/widgets/back_header_widget.dart';
 import '../../shared/widgets/option_widget.dart';
+import '../../utils/constants/spacing_sizes.dart';
 import '../../utils/ui/colors.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -16,7 +17,7 @@ class ProfilePage extends StatelessWidget {
       backgroundColor: ColorConstants.kBackgroundColor,
       body: SafeArea(
         child: Container(
-          padding: EdgeInsets.all(24),
+          padding: EdgeInsets.all(SpacingSizes.s24),
           child: Column(
             children: [
               BackHeader(
@@ -24,7 +25,7 @@ class ProfilePage extends StatelessWidget {
                 showIcon: true,
               ),
               Container(
-                margin: EdgeInsets.only(top: 64),
+                margin: EdgeInsets.only(top: SpacingSizes.s64),
                 child: Hero(
                   tag: 'avatar',
                   child: CircleAvatar(
@@ -41,7 +42,8 @@ class ProfilePage extends StatelessWidget {
                         color: ColorConstants.kPrimaryColor, width: 4)),
               ),
               Container(
-                margin: EdgeInsets.only(top: 36, bottom: 72),
+                margin: EdgeInsets.only(
+                    top: SpacingSizes.s32, bottom: SpacingSizes.s72),
                 child: Text(
                     "${_authStore.user.name} ${_authStore.user.lastName}",
                     style: TextStyle(

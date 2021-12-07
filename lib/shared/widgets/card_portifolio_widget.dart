@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../utils/constants/spacing_sizes.dart';
 import '../../utils/ui/colors.dart';
 
 class CardPortifolio extends StatelessWidget {
@@ -15,8 +16,9 @@ class CardPortifolio extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Container(
-        margin: EdgeInsets.only(top: 42, bottom: 42),
-        padding: EdgeInsets.all(16),
+        margin:
+            EdgeInsets.only(top: SpacingSizes.s40, bottom: SpacingSizes.s40),
+        padding: EdgeInsets.all(SpacingSizes.s16),
         width: MediaQuery.of(context).size.width,
         height: 120,
         child: Row(

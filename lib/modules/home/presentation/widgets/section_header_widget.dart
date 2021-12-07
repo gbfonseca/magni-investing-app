@@ -1,3 +1,4 @@
+import '../../../../utils/constants/spacing_sizes.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../../../utils/ui/colors.dart';
@@ -10,7 +11,7 @@ class SectionHeaderWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Container(
-        margin: EdgeInsets.only(bottom: 16),
+        margin: EdgeInsets.only(bottom: SpacingSizes.s16),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
