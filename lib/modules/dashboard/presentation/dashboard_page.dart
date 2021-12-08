@@ -26,40 +26,41 @@ class DashboardPageState extends State<DashboardPage> {
     return Scaffold(
       backgroundColor: ColorConstants.kBackgroundColor,
       body: SafeArea(
-          child: Container(
-        padding: EdgeInsets.all(SpacingSizes.s24),
-        child: Column(
-          children: [
-            Observer(
-              builder: (_) => Header(
-                name: "${_authStore.user.name} ${_authStore.user.lastName}",
+          child: SingleChildScrollView(
+        child: Container(
+          padding: EdgeInsets.all(SpacingSizes.s24),
+          child: Column(
+            children: [
+              Observer(
+                builder: (_) => Header(
+                  name: "${_authStore.user.name} ${_authStore.user.lastName}",
+                ),
               ),
-            ),
-            Container(
-              margin: EdgeInsets.only(top: SpacingSizes.s16),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: store.tabItems
-                    .map((item) => Observer(
-                          builder: (_) => CustomTab(
-                            id: item['id'],
-                            title: item['title'],
-                            selectedId: store.selectedId,
-                            setSelectedId: store.setSelectedId,
-                          ),
-                        ))
-                    .toList(),
+              Container(
+                margin: EdgeInsets.only(top: SpacingSizes.s16),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: store.tabItems
+                      .map((item) => Observer(
+                            builder: (_) => CustomTab(
+                              id: item['id'],
+                              title: item['title'],
+                              selectedId: store.selectedId,
+                              setSelectedId: store.setSelectedId,
+                            ),
+                          ))
+                      .toList(),
+                ),
               ),
-            ),
-            Observer(
-                builder: (_) => Container(
-                      margin: EdgeInsets.only(top: SpacingSizes.s24),
-                      height: 240,
-                      width: MediaQuery.of(context).size.width,
-                      child: store.renderSection(store.selectedId),
-                    ))
-          ],
+              Observer(
+                  builder: (_) => Container(
+                        margin: EdgeInsets.only(top: SpacingSizes.s24),
+                        width: MediaQuery.of(context).size.width,
+                        child: store.renderSection(store.selectedId),
+                      ))
+            ],
+          ),
         ),
       )),
     );
