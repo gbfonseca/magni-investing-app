@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 
+import '../presentation/widgets/portifolio_section.dart';
 import '../presentation/widgets/yield_section.dart';
 
 part 'dashboard_store.g.dart';
@@ -21,6 +22,8 @@ abstract class _DashboardStoreBase with Store {
   @action
   Widget renderSection(int id) {
     switch (id) {
+      case 0:
+        return PortfolioSection();
       case 1:
         return YieldSection();
 
