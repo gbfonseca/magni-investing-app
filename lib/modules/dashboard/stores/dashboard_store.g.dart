@@ -43,6 +43,17 @@ mixin _$DashboardStore on _DashboardStoreBase, Store {
       ActionController(name: '_DashboardStoreBase');
 
   @override
+  Widget renderSection(int id) {
+    final _$actionInfo = _$_DashboardStoreBaseActionController.startAction(
+        name: '_DashboardStoreBase.renderSection');
+    try {
+      return super.renderSection(id);
+    } finally {
+      _$_DashboardStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   void setSelectedId(int id) {
     final _$actionInfo = _$_DashboardStoreBaseActionController.startAction(
         name: '_DashboardStoreBase.setSelectedId');

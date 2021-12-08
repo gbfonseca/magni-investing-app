@@ -1,4 +1,3 @@
-import '../../../utils/ui/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:provider/provider.dart';
@@ -7,6 +6,7 @@ import '../../../providers/auth_store.dart';
 import '../../../shared/widgets/custom_tab_widget.dart';
 import '../../../shared/widgets/header_widget.dart';
 import '../../../utils/constants/spacing_sizes.dart';
+import '../../../utils/ui/colors.dart';
 import '../stores/dashboard_store.dart';
 
 class DashboardPage extends StatefulWidget {
@@ -51,7 +51,14 @@ class DashboardPageState extends State<DashboardPage> {
                         ))
                     .toList(),
               ),
-            )
+            ),
+            Observer(
+                builder: (_) => Container(
+                      margin: EdgeInsets.only(top: SpacingSizes.s24),
+                      height: 240,
+                      width: MediaQuery.of(context).size.width,
+                      child: store.renderSection(store.selectedId),
+                    ))
           ],
         ),
       )),

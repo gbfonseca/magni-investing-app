@@ -1,4 +1,7 @@
+import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
+
+import '../presentation/widgets/yield_section.dart';
 
 part 'dashboard_store.g.dart';
 
@@ -14,6 +17,17 @@ abstract class _DashboardStoreBase with Store {
 
   @observable
   int selectedId = 1;
+
+  @action
+  Widget renderSection(int id) {
+    switch (id) {
+      case 1:
+        return YieldSection();
+
+      default:
+        return YieldSection();
+    }
+  }
 
   @action
   // ignore: use_setters_to_change_properties
