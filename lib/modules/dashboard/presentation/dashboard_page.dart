@@ -59,7 +59,8 @@ class DashboardPageState extends State<DashboardPage> {
                         width: MediaQuery.of(context).size.width,
                         child: AnimatedSwitcher(
                           duration: Duration(milliseconds: 400),
-                          child: store.renderSection(store.selectedId),
+                          child: store.renderSection(
+                              store.selectedId, store.items),
                         ),
                       ))
             ],
