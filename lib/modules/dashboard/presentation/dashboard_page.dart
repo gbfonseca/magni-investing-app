@@ -58,7 +58,7 @@ class DashboardPageState extends State<DashboardPage> {
                         margin: EdgeInsets.only(top: SpacingSizes.s24),
                         width: MediaQuery.of(context).size.width,
                         child: AnimatedSwitcher(
-                          duration: Duration(milliseconds: 100),
+                          duration: Duration(milliseconds: 400),
                           child: store.renderSection(store.selectedId),
                         ),
                       ))
