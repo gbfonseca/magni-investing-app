@@ -57,7 +57,10 @@ class DashboardPageState extends State<DashboardPage> {
                   builder: (_) => Container(
                         margin: EdgeInsets.only(top: SpacingSizes.s24),
                         width: MediaQuery.of(context).size.width,
-                        child: store.renderSection(store.selectedId),
+                        child: AnimatedSwitcher(
+                          duration: Duration(milliseconds: 100),
+                          child: store.renderSection(store.selectedId),
+                        ),
                       ))
             ],
           ),
