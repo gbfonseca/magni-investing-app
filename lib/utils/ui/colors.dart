@@ -9,6 +9,7 @@ class ColorConstants {
   static const kBackgroundColor = Color(0xFFF5F6FD);
   static const kPurple = Color(0xFF6972C3);
   static const kGreen = Color(0xFF8DD070);
+  static const kRed = Color(0xFFC53030);
   static final List<Color> kGradientColorsPrimary = [
     const Color(0xff23b6e6),
     const Color(0xff02d39a),

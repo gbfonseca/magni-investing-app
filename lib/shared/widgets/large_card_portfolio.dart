@@ -87,8 +87,12 @@ class LargeCardPortifolio extends StatelessWidget {
                 Row(
                   children: [
                     Icon(
-                      Icons.arrow_drop_up,
-                      color: Colors.greenAccent.shade700,
+                      variation > 0
+                          ? Icons.arrow_drop_up
+                          : Icons.arrow_drop_down,
+                      color: variation > 0
+                          ? ColorConstants.kSecondaryColor
+                          : ColorConstants.kRed,
                     ),
                     Text('$variation %',
                         style: TextStyle(
@@ -111,7 +115,9 @@ class LargeCardPortifolio extends StatelessWidget {
                 Text(
                   'R\$ $variationInCurrency',
                   style: TextStyle(
-                      color: ColorConstants.kFontColor,
+                      color: variationInCurrency >= balance
+                          ? ColorConstants.kSecondaryColor
+                          : ColorConstants.kRed,
                       fontWeight: FontWeight.bold,
                       fontSize: FontSizeConstants.s18),
                 )

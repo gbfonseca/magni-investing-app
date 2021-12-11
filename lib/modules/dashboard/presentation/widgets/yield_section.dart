@@ -13,7 +13,7 @@ class YieldSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Container(
       width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.height,
+      // height: MediaQuery.of(context).size.height,
       child: Column(
         children: [
           Row(

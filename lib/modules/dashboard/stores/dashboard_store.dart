@@ -43,8 +43,8 @@ abstract class _DashboardStoreBase with Store {
       'id': 4,
       'title': 'Fundos Imobiliários',
       'balance': 2000.00,
-      'variation': 15.0,
-      'variationInCurrency': 2300.00
+      'variation': -1.0,
+      'variationInCurrency': 1900.00
     },
     {
       'id': 5,
