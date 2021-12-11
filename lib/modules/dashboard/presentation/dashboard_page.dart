@@ -40,7 +40,7 @@ class DashboardPageState extends State<DashboardPage> {
                 margin: EdgeInsets.only(top: SpacingSizes.s16),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: store.tabItems
                       .map((item) => Observer(
                             builder: (_) => CustomTab(

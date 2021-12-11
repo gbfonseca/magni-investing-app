@@ -13,7 +13,7 @@ abstract class _DashboardStoreBase with Store {
   List<dynamic> tabItems = [
     {'id': 0, 'title': 'Portifólio'},
     {'id': 1, 'title': 'Rendimento'},
-    {'id': 2, 'title': 'Patrimônio'},
+    // {'id': 2, 'title': 'Patrimônio'},
   ];
 
   @observable
