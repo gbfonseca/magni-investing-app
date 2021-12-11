@@ -56,20 +56,42 @@ abstract class _DashboardStoreBase with Store {
   ];
 
   @observable
+  List<List<dynamic>> itemsYield = [
+    [
+      {'amount': 250.0, 'month': 1.0},
+      {'amount': 500.25, 'month': 3.0},
+      {'amount': 550.0, 'month': 6.0},
+      {'amount': 700.50, 'month': 10.0},
+    ],
+    [
+      {'amount': 350.0, 'month': 1.0},
+      {'amount': 400.25, 'month': 3.0},
+      {'amount': 850.0, 'month': 6.0},
+      {'amount': 900.50, 'month': 10.0},
+    ],
+  ];
+
+  @observable
   int selectedId = 1;
 
   @action
-  Widget renderSection(int id, List<dynamic> data) {
+  Widget renderSection(
+    int id,
+  ) {
     switch (id) {
       case 0:
         return PortfolioSection(
-          items: data,
+          items: items,
         );
       case 1:
-        return YieldSection();
+        return YieldSection(
+          items: itemsYield,
+        );
 
       default:
-        return YieldSection();
+        return YieldSection(
+          items: itemsYield,
+        );
     }
   }
 

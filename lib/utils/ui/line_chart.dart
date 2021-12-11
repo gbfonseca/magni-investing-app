@@ -4,22 +4,22 @@ import 'package:flutter/material.dart';
 import '../constants/line_titles.dart';
 
 class LineChartWidget extends StatelessWidget {
-  LineChartWidget({Key? key}) : super(key: key);
+  final List<Color> gradientColorsPrimary;
+  final List<Color> gradientColorsSecondary;
+  final List<List<dynamic>> items;
 
-  final List<Color> gradientColorsPrimary = [
-    const Color(0xff23b6e6),
-    const Color(0xff02d39a),
-  ];
-  final List<Color> gradientColorsSecondary = [
-    const Color(0xff42275a),
-    const Color(0xff734b6d),
-  ];
+  LineChartWidget(
+      {Key? key,
+      required this.gradientColorsPrimary,
+      required this.gradientColorsSecondary,
+      required this.items})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) => LineChart(
         LineChartData(
             titlesData: LineTitles.getTitleData(context),
-            minX: 0,
+            minX: 1,
             maxX: 12,
             minY: 0,
             maxY: 1000,
@@ -27,39 +27,27 @@ class LineChartWidget extends StatelessWidget {
               show: false,
             ),
             borderData: FlBorderData(show: true, border: Border.all()),
-            lineBarsData: [
-              LineChartBarData(
-                  isCurved: true,
-                  colors: gradientColorsPrimary,
-                  // dotData: FlDotData(show: true),
-                  belowBarData: BarAreaData(
-                      show: true,
-                      colors: gradientColorsPrimary
-                          .map((color) => color.withOpacity(0.3))
-                          .toList()),
-                  spots: [
-                    FlSpot(0, 0),
-                    FlSpot(1, 250),
-                    FlSpot(3, 500),
-                    FlSpot(10, 900)
-                  ]),
-              LineChartBarData(
-                  isCurved: true,
-                  colors: gradientColorsSecondary,
-                  // dotData: FlDotData(show: false),
-                  belowBarData: BarAreaData(
-                      show: true,
-                      colors: gradientColorsSecondary
-                          .map((color) => color.withOpacity(0.3))
-                          .toList()),
-                  spots: [
-                    FlSpot(0, 0),
-                    FlSpot(1, 400),
-                    FlSpot(3, 700),
-                    FlSpot(10, 800)
-                  ])
-            ]),
+            lineBarsData: _renderData(
+                items, [gradientColorsPrimary, gradientColorsSecondary])),
         swapAnimationDuration: Duration(milliseconds: 150), // Optional
         swapAnimationCurve: Curves.linear, // Optional
       );
 }
+
+List<LineChartBarData> _renderData(
+        final List<List<dynamic>> data, List<List<Color>> colors) =>
+    data.map((item) {
+      final color = data.indexOf(item) == 0 ? colors[0] : colors[1];
+      return LineChartBarData(
+          isCurved: true,
+          colors: color,
+          // dotData: FlDotData(show: false),
+          belowBarData: BarAreaData(
+              show: true,
+              colors: color.map((color) => color.withOpacity(0.3)).toList()),
+          spots: item
+              .map(
+                (spot) => FlSpot(spot['month'], spot['amount']),
+              )
+              .toList());
+    }).toList();

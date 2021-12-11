@@ -39,6 +39,21 @@ mixin _$DashboardStore on _DashboardStoreBase, Store {
     });
   }
 
+  final _$itemsYieldAtom = Atom(name: '_DashboardStoreBase.itemsYield');
+
+  @override
+  List<List<dynamic>> get itemsYield {
+    _$itemsYieldAtom.reportRead();
+    return super.itemsYield;
+  }
+
+  @override
+  set itemsYield(List<List<dynamic>> value) {
+    _$itemsYieldAtom.reportWrite(value, super.itemsYield, () {
+      super.itemsYield = value;
+    });
+  }
+
   final _$selectedIdAtom = Atom(name: '_DashboardStoreBase.selectedId');
 
   @override
@@ -58,11 +73,11 @@ mixin _$DashboardStore on _DashboardStoreBase, Store {
       ActionController(name: '_DashboardStoreBase');
 
   @override
-  Widget renderSection(int id, List<dynamic> data) {
+  Widget renderSection(int id) {
     final _$actionInfo = _$_DashboardStoreBaseActionController.startAction(
         name: '_DashboardStoreBase.renderSection');
     try {
-      return super.renderSection(id, data);
+      return super.renderSection(id);
     } finally {
       _$_DashboardStoreBaseActionController.endAction(_$actionInfo);
     }
@@ -84,6 +99,7 @@ mixin _$DashboardStore on _DashboardStoreBase, Store {
     return '''
 tabItems: ${tabItems},
 items: ${items},
+itemsYield: ${itemsYield},
 selectedId: ${selectedId}
     ''';
   }
