@@ -23,6 +23,7 @@ class PieCharWidget extends StatelessWidget {
 List<PieChartSectionData> _renderData(List<dynamic> data) => data
     .map((item) => PieChartSectionData(
         value: item['variationInCurrency'],
+        titleStyle: TextStyle(color: Colors.white),
         color: ColorRender.getColor(item['title']),
         radius: 120))
     .toList();
