@@ -7,6 +7,7 @@ import '../../../providers/auth_store.dart';
 import '../../../shared/widgets/card_portifolio_widget.dart';
 import '../../../shared/widgets/header_widget.dart';
 import '../../../utils/constants/spacing_sizes.dart';
+import '../../../utils/ui/colors.dart';
 import 'stores/home_store.dart';
 import 'widgets/card_widget.dart';
 import 'widgets/recent_card_widget.dart';
@@ -32,6 +33,7 @@ class HomePageState extends State<HomePage> {
     final _authStore = Provider.of<AuthStore>(context);
     _authStore.getUser();
     return Scaffold(
+      backgroundColor: ColorConstants.kBackgroundColor,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
