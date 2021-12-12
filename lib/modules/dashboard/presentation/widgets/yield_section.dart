@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../utils/constants/sizes.dart';
 import '../../../../utils/constants/spacing_sizes.dart';
 import '../../../../utils/ui/colors.dart';
 import '../../../../utils/ui/line_chart.dart';
@@ -32,13 +33,61 @@ class YieldSection extends StatelessWidget {
           ),
           Container(
             height: 240,
-            margin: EdgeInsets.only(top: SpacingSizes.s32),
+            margin: EdgeInsets.symmetric(vertical: SpacingSizes.s32),
             child: LineChartWidget(
                 gradientColorsPrimary: ColorConstants.kGradientColorsPrimary,
                 gradientColorsSecondary:
                     ColorConstants.kGradientColorsSecondary,
                 items: items),
           ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  _renderSectionItems('Saldo Bruto', 'R\$ 5000,00'),
+                  Container(
+                    margin: EdgeInsets.symmetric(vertical: SpacingSizes.s8),
+                  ),
+                  _renderSectionItems('Valor Aplicado', 'R\$ 4700,00'),
+                ],
+              ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  _renderSectionItems('Rentabilidade Total', '3,5%'),
+                  Container(
+                    margin: EdgeInsets.symmetric(vertical: SpacingSizes.s8),
+                  ),
+                  _renderSectionItems('Primeiro Aporte', '01 de JUL 2021'),
+                ],
+              ),
+            ],
+          ),
         ],
       ));
 }
+
+Widget _renderSectionItems(String title, String value) => Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          title,
+          style: TextStyle(
+              color: ColorConstants.kSecondaryFontColor,
+              fontSize: FontSizeConstants.s14),
+        ),
+        Text(
+          value,
+          style: TextStyle(
+              color: ColorConstants.kFontColor,
+              fontSize: FontSizeConstants.s18,
+              fontWeight: FontWeight.bold),
+        )
+      ],
+    );
