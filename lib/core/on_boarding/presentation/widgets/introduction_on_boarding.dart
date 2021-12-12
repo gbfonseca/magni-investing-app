@@ -24,7 +24,9 @@ class IntroductionOnBoarding extends StatelessWidget {
                       fontSize: 32,
                       fontWeight: FontWeight.w700,
                       color: ColorConstants.kPrimaryColor),
+                  pageColor: ColorConstants.kBackgroundColor,
                   bodyTextStyle: TextStyle(
+                      backgroundColor: ColorConstants.kBackgroundColor,
                       fontSize: 24,
                       fontWeight: FontWeight.w500,
                       color: ColorConstants.kFontColor))))
@@ -33,6 +35,7 @@ class IntroductionOnBoarding extends StatelessWidget {
         onDone: () {
           Navigator.of(context).pushReplacementNamed('/signin/');
         },
+        globalBackgroundColor: ColorConstants.kBackgroundColor,
         showSkipButton: true,
         skip: Text('Pular'),
         showNextButton: true,
