@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../utils/ui/colors.dart';
-import '../../dashboard/dashboard_page.dart';
+import '../../dashboard/presentation/dashboard_page.dart';
 import '../../home/presentation/home_page.dart';
 import 'stores/start_store.dart';
 
