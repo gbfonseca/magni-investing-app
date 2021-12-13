@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttericon/font_awesome5_icons.dart';
 import 'package:provider/provider.dart';
 
 import '../../providers/auth_store.dart';
@@ -23,6 +24,7 @@ class ProfilePage extends StatelessWidget {
               BackHeader(
                 title: 'Meu Perfil',
                 showIcon: true,
+                icon: FontAwesome5.user_edit,
               ),
               Container(
                 margin: EdgeInsets.only(top: SpacingSizes.s64),

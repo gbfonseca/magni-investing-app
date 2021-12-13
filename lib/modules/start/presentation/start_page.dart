@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:fluttericon/font_awesome5_icons.dart';
+import 'package:fluttericon/linearicons_free_icons.dart';
 
 import '../../../utils/ui/colors.dart';
 import '../../dashboard/presentation/dashboard_page.dart';
@@ -68,31 +70,31 @@ class StartPageState extends State<StartPage> {
                 BottomNavigationBarItem(
                     icon: Icon(
                       Icons.home,
-                      size: 28,
+                      size: 24,
                     ),
                     label: ''),
                 BottomNavigationBarItem(
                     icon: Icon(
-                      Icons.bar_chart,
-                      size: 28,
+                      LineariconsFree.pie_chart,
+                      size: 21,
                     ),
                     label: ''),
                 BottomNavigationBarItem(
                     icon: Icon(
                       null,
-                      size: 28,
+                      size: 24,
                     ),
                     label: ''),
                 BottomNavigationBarItem(
                     icon: Icon(
-                      Icons.account_balance_wallet_outlined,
-                      size: 28,
+                      FontAwesome5.wallet,
+                      size: 21,
                     ),
                     label: ''),
                 BottomNavigationBarItem(
                     icon: Icon(
                       Icons.person_outline,
-                      size: 28,
+                      size: 24,
                     ),
                     label: ''),
               ],

@@ -5,7 +5,9 @@ import '../../../../../utils/ui/colors.dart';
 class BackHeader extends StatelessWidget {
   String title;
   bool? showIcon = false;
-  BackHeader({Key? key, required this.title, this.showIcon}) : super(key: key);
+  IconData? icon;
+  BackHeader({Key? key, required this.title, this.showIcon, this.icon})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) => Row(
@@ -29,11 +31,11 @@ class BackHeader extends StatelessWidget {
                 fontWeight: FontWeight.bold,
                 fontSize: 18),
           ),
-          showIcon == true
+          showIcon == true && icon != null
               ? Icon(
-                  Icons.person_outline,
+                  icon,
                   color: ColorConstants.kFontColor,
-                  size: 24,
+                  size: 18,
                 )
               : Container()
         ],
