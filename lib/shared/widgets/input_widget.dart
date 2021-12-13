@@ -1,8 +1,7 @@
-import '../../utils/constants/spacing_sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
-import '../../utils/ui/colors.dart';
+import '../../utils/constants/spacing_sizes.dart';
 
 class InputWidget extends StatelessWidget {
   String placeholder;
@@ -29,7 +28,7 @@ class InputWidget extends StatelessWidget {
         autocorrect: false,
         validationMessages: validationsMessages,
         decoration: InputDecoration(
-          contentPadding: EdgeInsets.all(SpacingSizes.s24),
+          contentPadding: EdgeInsets.all(SpacingSizes.s16),
           labelText: placeholder,
           border: OutlineInputBorder(
               borderSide: BorderSide(color: Color(0xFFe2e2e2)),
