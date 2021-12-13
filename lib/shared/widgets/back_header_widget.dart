@@ -6,7 +6,9 @@ class BackHeader extends StatelessWidget {
   String title;
   bool? showIcon = false;
   IconData? icon;
-  BackHeader({Key? key, required this.title, this.showIcon, this.icon})
+  void Function()? onTap;
+  BackHeader(
+      {Key? key, required this.title, this.showIcon, this.icon, this.onTap})
       : super(key: key);
 
   @override
@@ -32,10 +34,13 @@ class BackHeader extends StatelessWidget {
                 fontSize: 18),
           ),
           showIcon == true && icon != null
-              ? Icon(
-                  icon,
-                  color: ColorConstants.kFontColor,
-                  size: 18,
+              ? GestureDetector(
+                  onTap: onTap,
+                  child: Icon(
+                    icon,
+                    color: ColorConstants.kFontColor,
+                    size: 18,
+                  ),
                 )
               : Container()
         ],
