@@ -9,10 +9,15 @@ import '../../../shared/widgets/header_widget.dart';
 import '../../../utils/ui/colors.dart';
 import '../../dashboard/presentation/dashboard_page.dart';
 import '../../home/presentation/home_page.dart';
+import '../../wallet/wallet_page.dart';
 import 'notifiers/start.dart';
 
 class StartPage extends HookWidget {
-  final List<Widget> screensList = [HomePage(), DashboardPage()];
+  final List<Widget> screensList = [
+    HomePage(),
+    DashboardPage(),
+    WalletPage(),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +37,12 @@ class StartPage extends HookWidget {
           body: PageView(
               onPageChanged: state.onItemTapped,
               controller: pageViewController,
-              children: [HomePage(), DashboardPage()]),
+              children: [
+                HomePage(),
+                DashboardPage(),
+                Container(),
+                WalletPage()
+              ]),
           floatingActionButton: FloatingActionButton(
             child: Icon(Icons.add),
             backgroundColor: ColorConstants.kPrimaryColor,
