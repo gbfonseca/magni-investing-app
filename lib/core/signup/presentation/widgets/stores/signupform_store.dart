@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
-import '../../../../../shared/models/user_service_model.dart';
+import '../../../../../shared/models/auth_service_model.dart';
 import '../../../../../utils/services/auth_service.dart';
 import '../../../../../utils/services/dio_client.dart';
 import '../../../../../utils/services/http_client.dart';

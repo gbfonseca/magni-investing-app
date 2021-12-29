@@ -1,10 +1,11 @@
-import 'auth_model.dart';
 import 'user_model.dart';
 
-abstract class IAuthService {
-  Future<AuthModel> signin(dynamic data);
+abstract class UpdateUserData {
+  late String name;
+  late String lastName;
+  late String? email;
+}
 
-  Future<UserModel> signup(dynamic data);
-
-  Future<UserModel> loggedUser();
+abstract class IUserService {
+  Future<UserModel> updateUser(UpdateUserData data);
 }

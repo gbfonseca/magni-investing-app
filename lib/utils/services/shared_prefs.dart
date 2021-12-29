@@ -12,7 +12,7 @@ class SharedPrefs implements IStorage {
 
   @override
   setData(String key, String value) async {
-    prefs.setString(key, value);
+    await prefs.setString(key, value);
   }
 
   @override
@@ -20,3 +20,5 @@ class SharedPrefs implements IStorage {
     await prefs.remove(key);
   }
 }
+
+final IStorage storage = SharedPrefs();

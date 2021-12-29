@@ -1,6 +1,6 @@
 import '../../shared/models/auth_model.dart';
+import '../../shared/models/auth_service_model.dart';
 import '../../shared/models/user_model.dart';
-import '../../shared/models/user_service_model.dart';
 import 'http_client.dart';
 
 class AuthService implements IAuthService {

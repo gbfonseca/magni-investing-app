@@ -25,6 +25,9 @@ class ProfilePage extends StatelessWidget {
                 title: 'Meu Perfil',
                 showIcon: true,
                 icon: FontAwesome5.user_edit,
+                onTap: () {
+                  Navigator.of(context).pushNamed('/start/edit_profile/');
+                },
               ),
               Container(
                 margin: EdgeInsets.only(top: SpacingSizes.s64),
