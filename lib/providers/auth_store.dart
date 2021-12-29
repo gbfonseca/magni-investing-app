@@ -9,16 +9,13 @@ import '../shared/models/user_model.dart';
 import '../utils/services/auth_service.dart';
 import '../utils/services/dio_client.dart';
 import '../utils/services/shared_prefs.dart';
-import '../utils/services/storage_service.dart';
+import '../utils/services/user_service.dart';
 
 part 'auth_store.g.dart';
 
 class AuthStore = _AuthStoreBase with _$AuthStore;
 
 abstract class _AuthStoreBase with Store {
-  final IStorage storage = SharedPrefs();
-  final dio = DioClient();
-
   @observable
   UserModel user = UserModel(
     id: '',
@@ -72,6 +69,18 @@ abstract class _AuthStoreBase with Store {
     token = tokenDecoded;
     dio.dio.options.headers['Authorization'] = "Bearer $token";
     authenticated = true;
+  }
+
+  @action
+  updateUser(dynamic data) async {
+    try {
+      final userService = UserService(dio);
+      final response = await userService.updateUser(data);
+      storage.setData('@EzWallet: user', jsonEncode(response.get()));
+      user = response;
+    } on DioError catch (e) {
+      print(e);
+    }
   }
 
   @action

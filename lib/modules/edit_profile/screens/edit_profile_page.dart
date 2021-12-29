@@ -1,4 +1,3 @@
-import '../../../utils/ui/loading.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:provider/provider.dart';
@@ -10,6 +9,7 @@ import '../../../shared/widgets/button_widget.dart';
 import '../../../shared/widgets/input_widget.dart';
 import '../../../utils/constants/spacing_sizes.dart';
 import '../../../utils/ui/colors.dart';
+import '../../../utils/ui/loading.dart';
 import '../stores/edit_profile_store.dart';
 
 class EditProfilePage extends StatefulWidget {
@@ -102,6 +102,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                                     inputType: TextInputType.emailAddress,
                                     icon: Icons.mail_outline,
                                     formControlName: 'email',
+                                    readOnly: true,
                                     validationsMessages: (control) => {
                                       ValidationMessage.required:
                                           'E-mail obrigatório.',

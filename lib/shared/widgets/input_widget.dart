@@ -9,16 +9,18 @@ class InputWidget extends StatelessWidget {
   String formControlName;
   TextInputType? inputType;
   bool? obscureText;
+  bool? readOnly;
   Map<String, String> Function(FormControl<dynamic>)? validationsMessages;
-  InputWidget({
-    Key? key,
-    required this.placeholder,
-    this.icon,
-    required this.formControlName,
-    this.inputType,
-    this.obscureText,
-    this.validationsMessages,
-  }) : super(key: key);
+  InputWidget(
+      {Key? key,
+      required this.placeholder,
+      this.icon,
+      required this.formControlName,
+      this.inputType,
+      this.obscureText,
+      this.validationsMessages,
+      this.readOnly})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) => ReactiveTextField(
@@ -27,6 +29,7 @@ class InputWidget extends StatelessWidget {
         obscureText: obscureText == true ? true : false,
         autocorrect: false,
         validationMessages: validationsMessages,
+        readOnly: readOnly == true ? true : false,
         decoration: InputDecoration(
           contentPadding: EdgeInsets.all(SpacingSizes.s16),
           labelText: placeholder,

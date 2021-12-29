@@ -20,8 +20,10 @@ class DioClient implements IHttpClient {
   }
 
   @override
-  Future put(String path, data) {
-    // TODO: implement put
-    throw UnimplementedError();
+  Future put(String path, data) async {
+    final response = await dio.put("$baseUrl/$path", data: data);
+    return response.data;
   }
 }
+
+final dio = DioClient();
