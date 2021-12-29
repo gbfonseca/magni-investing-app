@@ -10,16 +10,11 @@ import '../../../../../utils/services/dio_client.dart';
 import '../../../../../utils/services/http_client.dart';
 import '../../../../../utils/ui/snack_bar.dart';
 
-part 'signupform_store.g.dart';
-
-class SignUpFormStore = _SignUpFormStoreBase with _$SignUpFormStore;
-
-abstract class _SignUpFormStoreBase with Store {
+class SignUpFormNotifier extends ChangeNotifier {
   final IHttpClient dio = DioClient();
   final SnackBarUtil _snackBarUtil = SnackBarUtil();
 
-  @observable
-  bool loading = false;
+  ValueNotifier<bool> loading = ValueNotifier(false);
 
   FormGroup form = FormGroup({
     'name': FormControl<String>(value: '', validators: [Validators.required]),
@@ -33,12 +28,11 @@ abstract class _SignUpFormStoreBase with Store {
         FormControl<String>(value: '', validators: [Validators.required]),
   });
 
-  @action
   setLoading(isLoading) {
-    loading = isLoading;
+    loading.value = isLoading;
+    loading.notifyListeners();
   }
 
-  @action
   onSubmit(formIsValid, context) async {
     setLoading(true);
     try {
