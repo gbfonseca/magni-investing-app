@@ -1,25 +1,17 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:mobx/mobx.dart';
 import 'package:provider/provider.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
-import '../../../../../providers/auth_store.dart';
+import '../../../../../providers/auth_provider.dart';
 import '../../../../../utils/services/auth_service.dart';
 import '../../../../../utils/services/dio_client.dart';
-import '../../../../../utils/services/http_client.dart';
 import '../../../../../utils/ui/snack_bar.dart';
 
-part 'signinform_store.g.dart';
-
-class SigninFormStore = _SigninFormStoreBase with _$SigninFormStore;
-
-abstract class _SigninFormStoreBase with Store {
-  final IHttpClient client = DioClient();
+class SigninFormNotifier extends ChangeNotifier {
   final SnackBarUtil _snackBarUtil = SnackBarUtil();
 
-  @observable
-  bool loading = false;
+  ValueNotifier<bool> loading = ValueNotifier(false);
 
   FormGroup form = FormGroup({
     'email': FormControl<String>(
@@ -28,19 +20,19 @@ abstract class _SigninFormStoreBase with Store {
         FormControl<String>(value: '', validators: [Validators.required]),
   });
 
-  @action
   setLoading(isLoading) {
-    loading = isLoading;
+    loading.value = isLoading;
+    loading.notifyListeners();
   }
 
-  @action
-  Future<void> onSubmit(validForm, context) async {
+  Future<void> onSubmit(validForm, context, formValue) async {
     try {
       setLoading(true);
       if (validForm) {
-        final authService = AuthService(client);
-        final response = await authService.signin(form.value);
-        final _authStore = Provider.of<AuthStore>(context, listen: false);
+        final authService = AuthService(dio);
+        final response = await authService.signin(formValue);
+        final _authStore =
+            Provider.of<AuthProviderNotifier>(context, listen: false);
         _authStore.setAuth(response);
         setLoading(false);
         await Navigator.of(context).pushReplacementNamed('/start/');
@@ -50,5 +42,6 @@ abstract class _SigninFormStoreBase with Store {
       setLoading(false);
       _snackBarUtil.showSnackBar(context, e.response?.data['name'], Colors.red);
     }
+    // notifyListeners();
   }
 }

@@ -1,22 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:mobx/mobx.dart';
 
 import '../presentation/widgets/portifolio_section.dart';
 import '../presentation/widgets/yield_section.dart';
 
-part 'dashboard_store.g.dart';
-
-class DashboardStore = _DashboardStoreBase with _$DashboardStore;
-
-abstract class _DashboardStoreBase with Store {
-  @observable
+class DashboardNotifier extends ChangeNotifier {
   List<dynamic> tabItems = [
     {'id': 0, 'title': 'Portifólio'},
     {'id': 1, 'title': 'Rendimento'},
     // {'id': 2, 'title': 'Patrimônio'},
   ];
 
-  @observable
   List<dynamic> items = [
     {
       'id': 1,
@@ -55,7 +48,6 @@ abstract class _DashboardStoreBase with Store {
     },
   ];
 
-  @observable
   List<List<dynamic>> itemsYield = [
     [
       {'amount': 250.0, 'month': 1.0},
@@ -71,10 +63,8 @@ abstract class _DashboardStoreBase with Store {
     ],
   ];
 
-  @observable
-  int selectedId = 1;
+  ValueNotifier<int> selectedId = ValueNotifier(1);
 
-  @action
   Widget renderSection(
     int id,
   ) {
@@ -95,9 +85,8 @@ abstract class _DashboardStoreBase with Store {
     }
   }
 
-  @action
-  // ignore: use_setters_to_change_properties
   void setSelectedId(int id) {
-    selectedId = id;
+    selectedId.value = id;
+    selectedId.notifyListeners();
   }
 }

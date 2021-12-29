@@ -1,19 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:mobx/mobx.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
 import '../../../main.dart';
 import '../../../utils/ui/snack_bar.dart';
 
-part 'edit_profile_store.g.dart';
-
-class EditProfileStore = _EditProfileStore with _$EditProfileStore;
-
-abstract class _EditProfileStore with Store {
+class EditProfileNotifier extends ChangeNotifier {
   final SnackBarUtil _snackBarUtil = SnackBarUtil();
 
-  @observable
-  bool loading = false;
+  ValueNotifier<bool> loading = ValueNotifier(false);
 
   FormGroup form = FormGroup({
     'name': FormControl<String>(value: '', validators: [Validators.required]),
@@ -23,9 +17,8 @@ abstract class _EditProfileStore with Store {
         value: '', validators: [Validators.required, Validators.email]),
   });
 
-  @action
   onSubmit(isValid, context) async {
-    loading = true;
+    loading.value = true;
     if (isValid) {
       final data = {
         'name': form.value['name'],
@@ -34,12 +27,13 @@ abstract class _EditProfileStore with Store {
       await authStore.updateUser(data);
       _snackBarUtil.showSnackBar(
           context, 'Usuário atualizado com sucesso!', Colors.green);
-      loading = false;
+      loading.value = false;
     } else {
-      loading = false;
+      loading.value = false;
 
       print('inválid');
     }
-    loading = false;
+    loading.value = false;
+    loading.notifyListeners();
   }
 }

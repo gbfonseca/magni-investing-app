@@ -1,8 +1,7 @@
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:mobx/mobx.dart';
+import 'package:flutter/material.dart';
 
 import '../shared/models/auth_model.dart';
 import '../shared/models/user_model.dart';
@@ -11,36 +10,28 @@ import '../utils/services/dio_client.dart';
 import '../utils/services/shared_prefs.dart';
 import '../utils/services/user_service.dart';
 
-part 'auth_store.g.dart';
-
-class AuthStore = _AuthStoreBase with _$AuthStore;
-
-abstract class _AuthStoreBase with Store {
-  @observable
-  UserModel user = UserModel(
+class AuthProviderNotifier extends ChangeNotifier {
+  ValueNotifier<UserModel> user = ValueNotifier(UserModel(
     id: '',
     email: '',
     lastName: '',
     updatedAt: '',
     createdAt: '',
     name: '',
-  );
+  ));
 
-  @observable
   String token = '';
 
-  @observable
   bool authenticated = false;
 
-  @action
   setAuth(AuthModel authData) async {
     storage.setData('@EzWallet: user', jsonEncode(authData.user.get()));
     storage.setData('@EzWallet: token', authData.token);
-    user = authData.user;
+    user.value = authData.user;
     authenticated = true;
+    user.notifyListeners();
   }
 
-  @action
   getUser() async {
     try {
       final _authService = AuthService(dio);
@@ -51,14 +42,14 @@ abstract class _AuthStoreBase with Store {
       }
       await getToken();
       final response = await _authService.loggedUser();
-      user = response;
+      user.value = response;
       authenticated = true;
+      user.notifyListeners();
     } on DioError catch (e) {
       print(e.requestOptions.headers['Authorization']);
     }
   }
 
-  @action
   getToken() async {
     final storageData = await storage.getData('@EzWallet: token');
     if (storageData == '') {
@@ -71,22 +62,21 @@ abstract class _AuthStoreBase with Store {
     authenticated = true;
   }
 
-  @action
   updateUser(dynamic data) async {
     try {
       final userService = UserService(dio);
       final response = await userService.updateUser(data);
       storage.setData('@EzWallet: user', jsonEncode(response.get()));
-      user = response;
+      user.value = response;
+      user.notifyListeners();
     } on DioError catch (e) {
       print(e);
     }
   }
 
-  @action
   logout(BuildContext context) async {
     await storage.removeData('@EzWallet: user');
-    user = UserModel(
+    user.value = UserModel(
         id: '',
         email: '',
         lastName: '',
@@ -94,6 +84,7 @@ abstract class _AuthStoreBase with Store {
         createdAt: '',
         name: '');
     authenticated = false;
+    user.notifyListeners();
     Navigator.of(context).pushReplacementNamed('/signin/');
   }
 }

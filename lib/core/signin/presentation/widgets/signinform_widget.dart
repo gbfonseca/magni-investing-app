@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
+
 import 'package:reactive_forms/reactive_forms.dart';
 
 import '../../../../shared/widgets/button_widget.dart';
@@ -8,29 +9,24 @@ import '../../../../shared/widgets/input_widget.dart';
 import '../../../../utils/constants/sizes.dart';
 import '../../../../utils/ui/colors.dart';
 import '../../../../utils/ui/loading.dart';
-import 'stores/signinform_store.dart';
+import 'notifiers/signin_form.dart';
 
-class SignInForm extends StatefulWidget {
-  SignInForm({Key? key}) : super(key: key);
-
-  @override
-  State<SignInForm> createState() => _SignInFormState();
-}
-
-class _SignInFormState extends State<SignInForm> {
-  final SigninFormStore store = SigninFormStore();
-
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+class SignInForm extends HookWidget {
+  final store = SigninFormNotifier();
 
   @override
-  Widget build(BuildContext context) => Form(
+  Widget build(BuildContext context) {
+    final store = useListenable<SigninFormNotifier>(SigninFormNotifier());
+    final _formKey = useMemoized(() => GlobalKey<ScaffoldState>());
+
+    return Form(
       key: _formKey,
       child: SizedBox(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
-        child: ReactiveForm(
-          formGroup: store.form,
-          child: Column(
+        child: ReactiveFormBuilder(
+          form: () => store.form,
+          builder: (context, form, child) => Column(
             children: [
               InputWidget(
                 placeholder: 'E-mail',
@@ -67,18 +63,19 @@ class _SignInFormState extends State<SignInForm> {
               SizedBox(
                 height: 42,
               ),
-              Observer(
-                builder: (_) => store.loading == true
-                    ? LoadingWiget()
-                    : ReactiveFormConsumer(
-                        builder: (context, form, child) => ButtonWidget(
-                            text: 'Entrar',
-                            onPressed: () {
-                              store.onSubmit(
-                                  form.valid, _formKey.currentContext);
-                            }),
-                      ),
-              ),
+              ValueListenableBuilder(
+                  valueListenable: store.loading,
+                  builder: (context, state, _) => state == true
+                      ? LoadingWiget()
+                      : ReactiveFormConsumer(
+                          builder: (context, form, child) => ButtonWidget(
+                              text: 'Entrar',
+                              onPressed: () {
+                                store.onSubmit(form.valid,
+                                    _formKey.currentContext, form.value);
+                              }),
+                        )),
+
               Expanded(
                 flex: 1,
                 child: Container(
@@ -109,5 +106,7 @@ class _SignInFormState extends State<SignInForm> {
             ],
           ),
         ),
-      ));
+      ),
+    );
+  }
 }

@@ -1,22 +1,13 @@
-import '../../../utils/constants/spacing_sizes.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 
 import '../../../shared/widgets/subtitle_widget.dart';
 import '../../../shared/widgets/title_widget.dart';
+import '../../../utils/constants/spacing_sizes.dart';
 import '../../../utils/ui/colors.dart';
-import 'stores/signup_store.dart';
 import 'widgets/signupform_widget.dart';
 
-class SignupPage extends StatefulWidget {
-  final String title;
-  const SignupPage({Key? key, this.title = 'SignupPage'}) : super(key: key);
-  @override
-  SignupPageState createState() => SignupPageState();
-}
-
-class SignupPageState extends State<SignupPage> {
-  final SignupStore store = SignupStore();
-
+class SignupPage extends HookWidget {
   @override
   Widget build(BuildContext context) => Scaffold(
         backgroundColor: ColorConstants.kBackgroundColor,

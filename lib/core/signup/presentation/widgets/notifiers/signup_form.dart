@@ -1,7 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:mobx/mobx.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
 import '../../../../../shared/models/auth_service_model.dart';
@@ -10,16 +9,11 @@ import '../../../../../utils/services/dio_client.dart';
 import '../../../../../utils/services/http_client.dart';
 import '../../../../../utils/ui/snack_bar.dart';
 
-part 'signupform_store.g.dart';
-
-class SignUpFormStore = _SignUpFormStoreBase with _$SignUpFormStore;
-
-abstract class _SignUpFormStoreBase with Store {
+class SignUpFormNotifier extends ChangeNotifier {
   final IHttpClient dio = DioClient();
   final SnackBarUtil _snackBarUtil = SnackBarUtil();
 
-  @observable
-  bool loading = false;
+  ValueNotifier<bool> loading = ValueNotifier(false);
 
   FormGroup form = FormGroup({
     'name': FormControl<String>(value: '', validators: [Validators.required]),
@@ -33,18 +27,17 @@ abstract class _SignUpFormStoreBase with Store {
         FormControl<String>(value: '', validators: [Validators.required]),
   });
 
-  @action
   setLoading(isLoading) {
-    loading = isLoading;
+    loading.value = isLoading;
+    loading.notifyListeners();
   }
 
-  @action
-  onSubmit(formIsValid, context) async {
+  onSubmit(formIsValid, context, formValue) async {
     setLoading(true);
     try {
       if (formIsValid) {
         final IAuthService _authService = AuthService(dio);
-        await _authService.signup(form.value);
+        await _authService.signup(formValue);
         _snackBarUtil.showSnackBar(
             context, 'Usuário cadastrado com sucesso!', Colors.green);
         setLoading(false);
