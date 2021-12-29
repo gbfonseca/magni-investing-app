@@ -1,13 +1,12 @@
-import 'package:ezwallet_mobile/core/signup/presentation/protocols/email_validator_protocol.dart';
-import 'package:ezwallet_mobile/core/signup/presentation/widgets/stores/signupform_store.dart';
+import 'package:ezwallet_mobile/core/signup/presentation/widgets/notifiers/signup_form.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  var store = SignUpFormStore();
+  var store = SignUpFormNotifier();
 
   tearDown(() => {
         store.form.updateValue(
-            {'email': '', 'name': '', 'password': '', 'last_name': ''})
+            {'email': '', 'name': '', 'password': '', 'lastName': ''})
       });
 
   test('should calls email controller with correct value', () async {
@@ -29,8 +28,8 @@ void main() {
   });
 
   test('should calls last_name controller with correct value', () async {
-    expect(store.form.value['last_name'], equals(''));
-    store.form.updateValue({'last_name': 'any_last_name'});
-    expect(store.form.value['last_name'], equals('any_last_name'));
+    expect(store.form.value['lastName'], equals(''));
+    store.form.updateValue({'lastName': 'any_last_name'});
+    expect(store.form.value['lastName'], equals('any_last_name'));
   });
 }
