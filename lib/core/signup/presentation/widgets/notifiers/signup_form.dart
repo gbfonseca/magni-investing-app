@@ -32,12 +32,12 @@ class SignUpFormNotifier extends ChangeNotifier {
     loading.notifyListeners();
   }
 
-  onSubmit(formIsValid, context) async {
+  onSubmit(formIsValid, context, formValue) async {
     setLoading(true);
     try {
       if (formIsValid) {
         final IAuthService _authService = AuthService(dio);
-        await _authService.signup(form.value);
+        await _authService.signup(formValue);
         _snackBarUtil.showSnackBar(
             context, 'Usuário cadastrado com sucesso!', Colors.green);
         setLoading(false);

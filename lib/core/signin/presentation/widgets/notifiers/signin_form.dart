@@ -25,12 +25,12 @@ class SigninFormNotifier extends ChangeNotifier {
     loading.notifyListeners();
   }
 
-  Future<void> onSubmit(validForm, context) async {
+  Future<void> onSubmit(validForm, context, formValue) async {
     try {
       setLoading(true);
       if (validForm) {
         final authService = AuthService(dio);
-        final response = await authService.signin(form.value);
+        final response = await authService.signin(formValue);
         final _authStore =
             Provider.of<AuthProviderNotifier>(context, listen: false);
         _authStore.setAuth(response);

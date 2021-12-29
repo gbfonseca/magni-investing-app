@@ -13,11 +13,10 @@ import '../../../utils/ui/loading.dart';
 import '../notifiers/edit_profile.dart';
 
 class EditProfilePage extends HookWidget {
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-
   @override
   Widget build(BuildContext context) {
     final store = useListenable(EditProfileNotifier());
+    final _formKey = useMemoized(() => GlobalKey<ScaffoldState>());
 
     return Scaffold(
         backgroundColor: ColorConstants.kBackgroundColor,

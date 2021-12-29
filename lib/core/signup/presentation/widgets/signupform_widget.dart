@@ -11,20 +11,20 @@ import '../../../../utils/ui/loading.dart';
 import 'notifiers/signup_form.dart';
 
 class SignUpForm extends HookWidget {
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-
   @override
   Widget build(BuildContext context) {
     final store = useListenable<SignUpFormNotifier>(SignUpFormNotifier());
+    final _formKey = useMemoized(() => GlobalKey<ScaffoldState>());
+
     return Form(
         key: _formKey,
         child: SingleChildScrollView(
           child: SizedBox(
             // height: MediaQuery.of(context).size.height,
             // width: MediaQuery.of(context).size.width,
-            child: ReactiveForm(
-              formGroup: store.form,
-              child: Column(
+            child: ReactiveFormBuilder(
+              form: () => store.form,
+              builder: (context, form, child) => Column(
                 children: [
                   SizedBox(
                     height: 12,
@@ -99,8 +99,8 @@ class SignUpForm extends HookWidget {
                               builder: (context, form, child) => ButtonWidget(
                                   text: 'Entrar',
                                   onPressed: () {
-                                    store.onSubmit(
-                                        form.valid, _formKey.currentContext);
+                                    store.onSubmit(form.valid,
+                                        _formKey.currentContext, form.value);
                                   }),
                             )),
                   SizedBox(
