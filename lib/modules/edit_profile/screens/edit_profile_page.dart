@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:provider/provider.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
@@ -10,22 +10,15 @@ import '../../../shared/widgets/input_widget.dart';
 import '../../../utils/constants/spacing_sizes.dart';
 import '../../../utils/ui/colors.dart';
 import '../../../utils/ui/loading.dart';
-import '../stores/edit_profile_store.dart';
+import '../notifiers/edit_profile.dart';
 
-class EditProfilePage extends StatefulWidget {
-  const EditProfilePage({Key? key}) : super(key: key);
-
-  @override
-  State<EditProfilePage> createState() => _EditProfilePageState();
-}
-
-class _EditProfilePageState extends State<EditProfilePage> {
+class EditProfilePage extends HookWidget {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     final authStore = Provider.of<AuthStore>(context);
-    final store = EditProfileStore();
+    final store = useListenable(EditProfileNotifier());
     store.form.updateValue({
       'name': authStore.user.name,
       'lastName': authStore.user.lastName,
@@ -66,65 +59,62 @@ class _EditProfilePageState extends State<EditProfilePage> {
                       formGroup: store.form,
                       child: Column(
                         children: [
-                          Observer(
-                              builder: (_) => InputWidget(
-                                    placeholder: 'Nome',
-                                    inputType: TextInputType.name,
-                                    icon: Icons.person_outline,
-                                    formControlName: 'name',
-                                    validationsMessages: (control) => {
-                                      ValidationMessage.required:
-                                          'Nome obrigatório.'
-                                    },
-                                  )),
+                          InputWidget(
+                            placeholder: 'Nome',
+                            inputType: TextInputType.name,
+                            icon: Icons.person_outline,
+                            formControlName: 'name',
+                            validationsMessages: (control) => {
+                              ValidationMessage.required: 'Nome obrigatório.'
+                            },
+                          ),
                           // Text(store.error.email),
                           SizedBox(
                             height: SpacingSizes.s16,
                           ),
-                          Observer(
-                              builder: (_) => InputWidget(
-                                    placeholder: 'Sobrenome',
-                                    inputType: TextInputType.name,
-                                    icon: Icons.badge_outlined,
-                                    formControlName: 'lastName',
-                                    validationsMessages: (control) => {
-                                      ValidationMessage.required:
-                                          'Sobrenome obrigatório.'
-                                    },
-                                  )),
+                          InputWidget(
+                            placeholder: 'Sobrenome',
+                            inputType: TextInputType.name,
+                            icon: Icons.badge_outlined,
+                            formControlName: 'lastName',
+                            validationsMessages: (control) => {
+                              ValidationMessage.required:
+                                  'Sobrenome obrigatório.'
+                            },
+                          ),
                           // Text(store.error.email),
                           SizedBox(
                             height: SpacingSizes.s16,
                           ),
-                          Observer(
-                              builder: (_) => InputWidget(
-                                    placeholder: 'E-mail',
-                                    inputType: TextInputType.emailAddress,
-                                    icon: Icons.mail_outline,
-                                    formControlName: 'email',
-                                    readOnly: true,
-                                    validationsMessages: (control) => {
-                                      ValidationMessage.required:
-                                          'E-mail obrigatório.',
-                                      ValidationMessage.email:
-                                          'Insira um e-mail válido.'
-                                    },
-                                  )),
+                          InputWidget(
+                            placeholder: 'E-mail',
+                            inputType: TextInputType.emailAddress,
+                            icon: Icons.mail_outline,
+                            formControlName: 'email',
+                            readOnly: true,
+                            validationsMessages: (control) => {
+                              ValidationMessage.required: 'E-mail obrigatório.',
+                              ValidationMessage.email:
+                                  'Insira um e-mail válido.'
+                            },
+                          ),
                           SizedBox(
                             height: SpacingSizes.s72,
                           ),
-                          Observer(
-                              builder: (_) => store.loading == true
-                                  ? LoadingWiget()
-                                  : ReactiveFormConsumer(
-                                      builder: (context, form, child) =>
-                                          ButtonWidget(
-                                              text: 'Salvar',
-                                              onPressed: () {
-                                                store.onSubmit(form.valid,
-                                                    _formKey.currentContext);
-                                              }),
-                                    )),
+                          ValueListenableBuilder(
+                            valueListenable: store.loading,
+                            builder: (context, state, ___) => state == true
+                                ? LoadingWiget()
+                                : ReactiveFormConsumer(
+                                    builder: (context, form, child) =>
+                                        ButtonWidget(
+                                            text: 'Salvar',
+                                            onPressed: () {
+                                              store.onSubmit(form.valid,
+                                                  _formKey.currentContext);
+                                            }),
+                                  ),
+                          )
                         ],
                       ),
                     ),
