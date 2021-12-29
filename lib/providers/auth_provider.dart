@@ -11,14 +11,14 @@ import '../utils/services/shared_prefs.dart';
 import '../utils/services/user_service.dart';
 
 class AuthProviderNotifier extends ChangeNotifier {
-  UserModel user = UserModel(
+  ValueNotifier<UserModel> user = ValueNotifier(UserModel(
     id: '',
     email: '',
     lastName: '',
     updatedAt: '',
     createdAt: '',
     name: '',
-  );
+  ));
 
   String token = '';
 
@@ -27,8 +27,9 @@ class AuthProviderNotifier extends ChangeNotifier {
   setAuth(AuthModel authData) async {
     storage.setData('@EzWallet: user', jsonEncode(authData.user.get()));
     storage.setData('@EzWallet: token', authData.token);
-    user = authData.user;
+    user.value = authData.user;
     authenticated = true;
+    user.notifyListeners();
   }
 
   getUser() async {
@@ -41,8 +42,9 @@ class AuthProviderNotifier extends ChangeNotifier {
       }
       await getToken();
       final response = await _authService.loggedUser();
-      user = response;
+      user.value = response;
       authenticated = true;
+      user.notifyListeners();
     } on DioError catch (e) {
       print(e.requestOptions.headers['Authorization']);
     }
@@ -65,7 +67,8 @@ class AuthProviderNotifier extends ChangeNotifier {
       final userService = UserService(dio);
       final response = await userService.updateUser(data);
       storage.setData('@EzWallet: user', jsonEncode(response.get()));
-      user = response;
+      user.value = response;
+      user.notifyListeners();
     } on DioError catch (e) {
       print(e);
     }
@@ -73,7 +76,7 @@ class AuthProviderNotifier extends ChangeNotifier {
 
   logout(BuildContext context) async {
     await storage.removeData('@EzWallet: user');
-    user = UserModel(
+    user.value = UserModel(
         id: '',
         email: '',
         lastName: '',
@@ -81,6 +84,7 @@ class AuthProviderNotifier extends ChangeNotifier {
         createdAt: '',
         name: '');
     authenticated = false;
+    user.notifyListeners();
     Navigator.of(context).pushReplacementNamed('/signin/');
   }
 }

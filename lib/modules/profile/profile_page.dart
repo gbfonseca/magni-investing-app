@@ -50,7 +50,7 @@ class ProfilePage extends HookWidget {
                     margin: EdgeInsets.only(
                         top: SpacingSizes.s32, bottom: SpacingSizes.s72),
                     child: Text(
-                        "${_authStore.user.name} ${_authStore.user.lastName}",
+                        "${_authStore.user.value.name} ${_authStore.user.value.lastName}",
                         style: TextStyle(
                             color: ColorConstants.kFontColor,
                             fontWeight: FontWeight.bold,

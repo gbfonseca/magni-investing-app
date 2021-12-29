@@ -23,8 +23,7 @@ class StartPage extends HookWidget {
       _authStore.getUser();
       return Scaffold(
           appBar: AppBar(
-            title: Header(
-                name: "${_authStore.user.name} ${_authStore.user.lastName}"),
+            title: Header(),
             backgroundColor: ColorConstants.kBackgroundColor,
             elevation: 0,
             toolbarHeight: 90,

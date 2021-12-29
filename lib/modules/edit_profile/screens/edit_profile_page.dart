@@ -24,9 +24,9 @@ class EditProfilePage extends HookWidget {
         body: Consumer<AuthProviderNotifier>(
             builder: (context, authStore, child) {
           store.form.updateValue({
-            'name': authStore.user.name,
-            'lastName': authStore.user.lastName,
-            'email': authStore.user.email,
+            'name': authStore.user.value.name,
+            'lastName': authStore.user.value.lastName,
+            'email': authStore.user.value.email,
           });
           return SafeArea(
               child: SingleChildScrollView(
