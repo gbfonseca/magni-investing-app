@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'app_widget.dart';
 import 'core/on_boarding/presentation/on_boarding_page.dart';
 import 'modules/start/presentation/start_page.dart';
-import 'providers/auth_store.dart';
+import 'providers/auth_provider.dart';
 import 'utils/services/shared_prefs.dart';
 
-AuthStore authStore = AuthStore();
+AuthProviderNotifier authStore = AuthProviderNotifier();
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();

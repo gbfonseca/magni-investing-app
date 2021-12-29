@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mobx/mobx.dart';
 
 import '../presentation/widgets/portifolio_section.dart';
 import '../presentation/widgets/yield_section.dart';

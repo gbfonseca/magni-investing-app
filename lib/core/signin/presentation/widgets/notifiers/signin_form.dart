@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
-import '../../../../../providers/auth_store.dart';
+import '../../../../../providers/auth_provider.dart';
 import '../../../../../utils/services/auth_service.dart';
 import '../../../../../utils/services/dio_client.dart';
 import '../../../../../utils/ui/snack_bar.dart';
@@ -31,7 +31,8 @@ class SigninFormNotifier extends ChangeNotifier {
       if (validForm) {
         final authService = AuthService(dio);
         final response = await authService.signin(form.value);
-        final _authStore = Provider.of<AuthStore>(context, listen: false);
+        final _authStore =
+            Provider.of<AuthProviderNotifier>(context, listen: false);
         _authStore.setAuth(response);
         setLoading(false);
         await Navigator.of(context).pushReplacementNamed('/start/');

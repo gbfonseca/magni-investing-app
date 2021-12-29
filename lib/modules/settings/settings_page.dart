@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
 
 import '../../shared/widgets/back_header_widget.dart';
 import '../../utils/constants/spacing_sizes.dart';

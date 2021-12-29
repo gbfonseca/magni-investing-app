@@ -1,8 +1,7 @@
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:mobx/mobx.dart';
+import 'package:flutter/material.dart';
 
 import '../shared/models/auth_model.dart';
 import '../shared/models/user_model.dart';
@@ -11,12 +10,7 @@ import '../utils/services/dio_client.dart';
 import '../utils/services/shared_prefs.dart';
 import '../utils/services/user_service.dart';
 
-part 'auth_store.g.dart';
-
-class AuthStore = _AuthStoreBase with _$AuthStore;
-
-abstract class _AuthStoreBase with Store {
-  @observable
+class AuthProviderNotifier extends ChangeNotifier {
   UserModel user = UserModel(
     id: '',
     email: '',
@@ -26,13 +20,10 @@ abstract class _AuthStoreBase with Store {
     name: '',
   );
 
-  @observable
   String token = '';
 
-  @observable
   bool authenticated = false;
 
-  @action
   setAuth(AuthModel authData) async {
     storage.setData('@EzWallet: user', jsonEncode(authData.user.get()));
     storage.setData('@EzWallet: token', authData.token);
@@ -40,7 +31,6 @@ abstract class _AuthStoreBase with Store {
     authenticated = true;
   }
 
-  @action
   getUser() async {
     try {
       final _authService = AuthService(dio);
@@ -58,7 +48,6 @@ abstract class _AuthStoreBase with Store {
     }
   }
 
-  @action
   getToken() async {
     final storageData = await storage.getData('@EzWallet: token');
     if (storageData == '') {
@@ -71,7 +60,6 @@ abstract class _AuthStoreBase with Store {
     authenticated = true;
   }
 
-  @action
   updateUser(dynamic data) async {
     try {
       final userService = UserService(dio);
@@ -83,7 +71,6 @@ abstract class _AuthStoreBase with Store {
     }
   }
 
-  @action
   logout(BuildContext context) async {
     await storage.removeData('@EzWallet: user');
     user = UserModel(
