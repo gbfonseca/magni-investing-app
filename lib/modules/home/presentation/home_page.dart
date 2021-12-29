@@ -6,7 +6,6 @@ import 'package:provider/provider.dart';
 
 import '../../../providers/auth_store.dart';
 import '../../../shared/widgets/card_portifolio_widget.dart';
-import '../../../shared/widgets/header_widget.dart';
 import '../../../utils/constants/spacing_sizes.dart';
 import '../../../utils/ui/colors.dart';
 import 'widgets/card_widget.dart';
@@ -23,14 +22,9 @@ class HomePage extends HookWidget {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.all(SpacingSizes.s24),
+            padding: const EdgeInsets.symmetric(horizontal: SpacingSizes.s24),
             child: Column(
               children: <Widget>[
-                Observer(
-                  builder: (_) => Header(
-                    name: "${_authStore.user.name} ${_authStore.user.lastName}",
-                  ),
-                ),
                 CardPortifolio(
                   balance: 7390.52,
                   variation: 5.4,

@@ -17,7 +17,7 @@ class CardPortifolio extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Container(
         margin:
-            EdgeInsets.only(top: SpacingSizes.s40, bottom: SpacingSizes.s40),
+            EdgeInsets.only(top: SpacingSizes.s24, bottom: SpacingSizes.s40),
         padding: EdgeInsets.all(SpacingSizes.s16),
         width: MediaQuery.of(context).size.width,
         height: 120,
