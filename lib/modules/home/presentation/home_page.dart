@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:provider/provider.dart';
 
@@ -8,26 +9,11 @@ import '../../../shared/widgets/card_portifolio_widget.dart';
 import '../../../shared/widgets/header_widget.dart';
 import '../../../utils/constants/spacing_sizes.dart';
 import '../../../utils/ui/colors.dart';
-import 'stores/home_store.dart';
 import 'widgets/card_widget.dart';
 import 'widgets/recent_card_widget.dart';
 import 'widgets/section_header_widget.dart';
 
-class HomePage extends StatefulWidget {
-  final String title;
-  const HomePage({Key? key, this.title = 'HomePage'}) : super(key: key);
-  @override
-  HomePageState createState() => HomePageState();
-}
-
-class HomePageState extends State<HomePage> {
-  final HomeStore store = HomeStore();
-
-  @override
-  void initState() {
-    super.initState();
-  }
-
+class HomePage extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final _authStore = Provider.of<AuthStore>(context);
