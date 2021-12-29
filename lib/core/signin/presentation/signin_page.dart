@@ -1,11 +1,9 @@
-import '../../../utils/constants/spacing_sizes.dart';
-
-import '../../../utils/ui/colors.dart';
 import 'package:flutter/material.dart';
 
 import '../../../shared/widgets/subtitle_widget.dart';
 import '../../../shared/widgets/title_widget.dart';
-import 'stores/signin_store.dart';
+import '../../../utils/constants/spacing_sizes.dart';
+import '../../../utils/ui/colors.dart';
 import 'widgets/signinform_widget.dart';
 
 class SigninPage extends StatefulWidget {
@@ -16,7 +14,6 @@ class SigninPage extends StatefulWidget {
 }
 
 class SigninPageState extends State<SigninPage> {
-  final SigninStore store = SigninStore();
   @override
   Widget build(BuildContext context) => Scaffold(
         backgroundColor: ColorConstants.kBackgroundColor,

@@ -1,8 +1,8 @@
-import 'package:ezwallet_mobile/core/signin/presentation/widgets/stores/signinform_store.dart';
+import 'package:ezwallet_mobile/core/signin/presentation/widgets/notifiers/signin_form.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  var store = SigninFormStore();
+  var store = SigninFormNotifier();
 
   tearDown(() => {
         store.form.updateValue({'email': '', 'password': ''})
