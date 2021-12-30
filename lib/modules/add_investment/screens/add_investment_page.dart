@@ -1,9 +1,9 @@
-import '../../utils/constants/spacing_sizes.dart';
 import 'package:flutter/material.dart';
 
-import '../../shared/widgets/back_header_widget.dart';
-import '../../shared/widgets/option_widget.dart';
-import '../../utils/ui/colors.dart';
+import '../../../shared/widgets/back_header_widget.dart';
+import '../../../shared/widgets/option_widget.dart';
+import '../../../utils/constants/spacing_sizes.dart';
+import '../../../utils/ui/colors.dart';
 
 class AddInvestmentPage extends StatelessWidget {
   const AddInvestmentPage({Key? key}) : super(key: key);
@@ -27,7 +27,10 @@ class AddInvestmentPage extends StatelessWidget {
                           OptionItem(
                             text: 'Ações/Fundos Imobiliários/ETF’s/BDR’s',
                             icon: Icons.chevron_right,
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.of(context).pushNamed(
+                                  '/start/add_investment/add_stocks/');
+                            },
                             rightPosition: true,
                           ),
                           OptionItem(
