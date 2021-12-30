@@ -96,7 +96,7 @@ class StartPage extends HookWidget {
                         label: ''),
                     BottomNavigationBarItem(
                         icon: Icon(
-                          Icons.person_outline,
+                          Icons.notifications_outlined,
                           size: 24,
                         ),
                         label: ''),
