@@ -47,7 +47,7 @@ class StartPage extends HookWidget {
             child: Icon(Icons.add),
             backgroundColor: ColorConstants.kPrimaryColor,
             onPressed: () {
-              Navigator.of(context).pushNamed('/start/add_investment/');
+              state.renderModalAddActions(context);
             },
           ),
           floatingActionButtonLocation:
