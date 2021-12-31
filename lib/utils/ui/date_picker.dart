@@ -13,6 +13,7 @@ class DatePicker extends StatelessWidget {
   @override
   Widget build(BuildContext context) => TextFormField(
         controller: controller,
+        readOnly: true,
         decoration: InputDecoration(
             suffixIcon: Icon(
               Icons.date_range,

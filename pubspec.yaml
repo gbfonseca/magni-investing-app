@@ -45,6 +45,8 @@ dependencies:
   fluttericon: ^2.0.0
   flutter_hooks: ^0.18.1
   intl: ^0.17.0
+  flutter_localizations:
+    sdk: flutter
 
 dev_dependencies:
   flutter_test:
