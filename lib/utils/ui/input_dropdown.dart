@@ -6,7 +6,7 @@ import '../constants/sizes.dart';
 import '../constants/spacing_sizes.dart';
 import 'colors.dart';
 
-class InputDropdown extends HookWidget {
+class InputDropdown extends StatelessWidget {
   final List<String> items;
   final TextEditingController controller;
   final ValueNotifier<FocusNode> focusNode;
@@ -52,13 +52,13 @@ class InputDropdown extends HookWidget {
                   ? AnimatedContainer(
                       duration: Duration(seconds: 1),
                       curve: Curves.bounceInOut,
-                      height: 240,
+                      height: 180,
                       width: MediaQuery.of(context).size.width,
                       margin: EdgeInsets.only(top: SpacingSizes.s8),
                       child: Material(
                         elevation: 2,
                         color: Colors.white,
-                        borderRadius: BorderRadius.circular(15),
+                        borderRadius: BorderRadius.circular(10),
                         child: Container(
                           width: MediaQuery.of(context).size.width,
                           padding: EdgeInsets.all(SpacingSizes.s16),

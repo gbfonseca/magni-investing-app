@@ -35,7 +35,7 @@ class InputWidget extends StatelessWidget {
           labelText: placeholder,
           border: OutlineInputBorder(
               borderSide: BorderSide(color: Color(0xFFe2e2e2)),
-              borderRadius: BorderRadius.all(Radius.circular(5))),
+              borderRadius: BorderRadius.all(Radius.circular(10))),
           prefixIcon: icon != null ? Icon(icon) : null,
         ),
       );
