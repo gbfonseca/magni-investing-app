@@ -104,6 +104,7 @@ class AddStocksPage extends HookWidget {
                       inputType: TextInputType.number,
                       formControlName: 'fees',
                       icon: Icons.attach_money,
+                      inputFormatts: currencyFormat,
                       validationsMessages: (control) =>
                           {ValidationMessage.required: 'Taxas obrigatória.'},
                     ),
