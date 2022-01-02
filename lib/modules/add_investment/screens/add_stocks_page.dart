@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
@@ -6,6 +7,7 @@ import '../../../shared/widgets/back_header_widget.dart';
 import '../../../shared/widgets/button_widget.dart';
 import '../../../shared/widgets/input_widget.dart';
 import '../../../utils/constants/spacing_sizes.dart';
+import '../../../utils/masks/currency_mask.dart';
 import '../../../utils/ui/colors.dart';
 import '../../../utils/ui/date_picker.dart';
 import '../../../utils/ui/input_dropdown.dart';
@@ -80,6 +82,7 @@ class AddStocksPage extends HookWidget {
                           inputType: TextInputType.number,
                           formControlName: 'price',
                           icon: Icons.attach_money,
+                          inputFormatts: currencyFormat,
                           validationsMessages: (control) => {
                             ValidationMessage.required: 'Preço obrigatória.'
                           },
