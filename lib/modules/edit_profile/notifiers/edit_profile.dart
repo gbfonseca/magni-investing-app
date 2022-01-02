@@ -11,8 +11,8 @@ class EditProfileNotifier extends ChangeNotifier {
 
   FormGroup form = FormGroup({
     'name': FormControl<String>(value: '', validators: [Validators.required]),
-    'lastName':
-        FormControl<String>(value: '', validators: [Validators.required]),
+    'lastName': FormControl<String>(
+        value: '', validators: [Validators.required, Validators.maxLength(15)]),
     'email': FormControl<String>(
         value: '', validators: [Validators.required, Validators.email]),
   });

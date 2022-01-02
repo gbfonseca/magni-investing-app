@@ -29,15 +29,14 @@ class Header extends StatelessWidget {
                         fontSize: 16),
                   ),
                   ValueListenableBuilder(
-                    valueListenable: _authProvider.user,
-                    builder: (context, _, __) => Text(
-                      '${_authProvider.user.value.name} ${_authProvider.user.value.lastName}',
-                      style: TextStyle(
-                          color: ColorConstants.kFontColor,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 22),
-                    ),
-                  )
+                      valueListenable: _authProvider.user,
+                      builder: (context, _, __) => Text(
+                            '${_authProvider.user.value.name} ${_authProvider.user.value.lastName}',
+                            style: TextStyle(
+                                color: ColorConstants.kFontColor,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 22),
+                          ))
                 ],
               ),
               GestureDetector(
