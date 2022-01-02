@@ -26,95 +26,110 @@ class StartPage extends HookWidget {
     return Consumer<AuthProviderNotifier>(
         builder: (context, _authStore, child) {
       _authStore.getUser();
-      return Scaffold(
-          appBar: AppBar(
-            title: Header(),
-            backgroundColor: ColorConstants.kBackgroundColor,
-            elevation: 0,
-            toolbarHeight: 90,
-          ),
-          backgroundColor: ColorConstants.kBackgroundColor,
-          body: PageView(
-              onPageChanged: state.onItemTapped,
-              controller: pageViewController,
-              children: [
-                HomePage(),
-                DashboardPage(),
-                Container(),
-                WalletPage()
-              ]),
-          floatingActionButton: FloatingActionButton(
-            child: Icon(Icons.add),
-            backgroundColor: ColorConstants.kPrimaryColor,
-            onPressed: () {
-              state.renderModalAddActions(context);
-            },
-          ),
-          floatingActionButtonLocation:
-              FloatingActionButtonLocation.centerDocked,
-          bottomNavigationBar: ValueListenableBuilder(
-            valueListenable: state.selectedIndex,
-            builder: (_, __, ___) => BottomAppBar(
-              shape: CircularNotchedRectangle(),
-              notchMargin: 5,
-              child: Theme(
-                data: ThemeData(
-                    splashColor: Colors.transparent,
-                    highlightColor: Colors.transparent),
-                child: BottomNavigationBar(
-                  backgroundColor: Colors.transparent,
+      return ValueListenableBuilder(
+          valueListenable: state.selectedIndex,
+          builder: (_, __, ___) => Scaffold(
+                appBar: AppBar(
+                  title: Header(),
+                  backgroundColor: ColorConstants.kBackgroundColor,
                   elevation: 0,
-                  currentIndex: state.selectedIndex.value,
-                  type: BottomNavigationBarType.fixed,
-                  selectedFontSize: 12,
-                  unselectedFontSize: 12,
-                  landscapeLayout: BottomNavigationBarLandscapeLayout.centered,
-                  items: <BottomNavigationBarItem>[
-                    BottomNavigationBarItem(
-                        icon: Icon(
-                          Icons.home,
-                          size: 24,
-                        ),
-                        label: ''),
-                    BottomNavigationBarItem(
-                        icon: Icon(
-                          LineariconsFree.pie_chart,
-                          size: 21,
-                        ),
-                        label: ''),
-                    BottomNavigationBarItem(
-                        icon: Icon(
-                          null,
-                          size: 24,
-                        ),
-                        label: ''),
-                    BottomNavigationBarItem(
-                        icon: Icon(
-                          FontAwesome5.wallet,
-                          size: 21,
-                        ),
-                        label: ''),
-                    BottomNavigationBarItem(
-                        icon: Icon(
-                          Icons.notifications_outlined,
-                          size: 24,
-                        ),
-                        label: ''),
-                  ],
-                  selectedItemColor: ColorConstants.kPrimaryColor,
-                  unselectedItemColor: Colors.grey,
-                  showSelectedLabels: false,
-                  showUnselectedLabels: false,
-                  onTap: (index) {
-                    state.onItemTapped(index);
-                    pageViewController.animateToPage(index,
-                        duration: Duration(milliseconds: 300),
-                        curve: Curves.easeOut);
+                  toolbarHeight: 90,
+                ),
+                backgroundColor: ColorConstants.kBackgroundColor,
+                body: PageView(
+                    onPageChanged: (index) {
+                      if (index == 2 && state.selectedIndex.value < 2) {
+                        pageViewController.animateToPage(3,
+                            duration: Duration(milliseconds: 300),
+                            curve: Curves.easeOut);
+                      } else if (index == 2 && state.selectedIndex.value > 2) {
+                        pageViewController.animateToPage(1,
+                            duration: Duration(milliseconds: 300),
+                            curve: Curves.easeOut);
+                      } else {
+                        pageViewController.animateToPage(index,
+                            duration: Duration(milliseconds: 300),
+                            curve: Curves.easeOut);
+                      }
+                      state.onItemTapped(index);
+                    },
+                    controller: pageViewController,
+                    children: [
+                      HomePage(),
+                      DashboardPage(),
+                      Container(),
+                      WalletPage()
+                    ]),
+                floatingActionButton: FloatingActionButton(
+                  child: Icon(Icons.add),
+                  backgroundColor: ColorConstants.kPrimaryColor,
+                  onPressed: () {
+                    state.renderModalAddActions(context);
                   },
                 ),
-              ),
-            ),
-          ));
+                floatingActionButtonLocation:
+                    FloatingActionButtonLocation.centerDocked,
+                bottomNavigationBar: BottomAppBar(
+                  shape: CircularNotchedRectangle(),
+                  notchMargin: 5,
+                  child: Theme(
+                    data: ThemeData(
+                        splashColor: Colors.transparent,
+                        highlightColor: Colors.transparent),
+                    child: BottomNavigationBar(
+                      backgroundColor: Colors.transparent,
+                      elevation: 0,
+                      currentIndex: state.selectedIndex.value,
+                      type: BottomNavigationBarType.fixed,
+                      selectedFontSize: 12,
+                      unselectedFontSize: 12,
+                      landscapeLayout:
+                          BottomNavigationBarLandscapeLayout.centered,
+                      items: <BottomNavigationBarItem>[
+                        BottomNavigationBarItem(
+                            icon: Icon(
+                              Icons.home,
+                              size: 24,
+                            ),
+                            label: ''),
+                        BottomNavigationBarItem(
+                            icon: Icon(
+                              LineariconsFree.pie_chart,
+                              size: 21,
+                            ),
+                            label: ''),
+                        BottomNavigationBarItem(
+                            icon: Icon(
+                              null,
+                              size: 24,
+                            ),
+                            label: ''),
+                        BottomNavigationBarItem(
+                            icon: Icon(
+                              FontAwesome5.wallet,
+                              size: 21,
+                            ),
+                            label: ''),
+                        BottomNavigationBarItem(
+                            icon: Icon(
+                              Icons.notifications_outlined,
+                              size: 24,
+                            ),
+                            label: ''),
+                      ],
+                      selectedItemColor: ColorConstants.kPrimaryColor,
+                      unselectedItemColor: Colors.grey,
+                      showSelectedLabels: false,
+                      showUnselectedLabels: false,
+                      onTap: (index) {
+                        pageViewController.animateToPage(index,
+                            duration: Duration(milliseconds: 300),
+                            curve: Curves.easeOut);
+                      },
+                    ),
+                  ),
+                ),
+              ));
     });
   }
 }

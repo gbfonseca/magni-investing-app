@@ -1,20 +1,15 @@
-import '../../../../utils/ui/option_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttericon/font_awesome5_icons.dart';
 import 'package:fluttericon/modern_pictograms_icons.dart';
 
 import '../../../../utils/constants/spacing_sizes.dart';
+import '../../../../utils/ui/option_widget.dart';
 
 class StartNotifier extends ChangeNotifier {
   ValueNotifier<int> selectedIndex = ValueNotifier(0);
 
-  // ignore: use_setters_to_change_properties
   void onItemTapped(int index) {
-    if (index == 2) {
-      selectedIndex.value = 3;
-    } else {
-      selectedIndex.value = index;
-    }
+    selectedIndex.value = index;
 
     selectedIndex.notifyListeners();
   }
