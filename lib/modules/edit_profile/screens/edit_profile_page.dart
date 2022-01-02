@@ -4,11 +4,11 @@ import 'package:provider/provider.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
 import '../../../providers/auth_provider.dart';
-import '../../../shared/widgets/back_header_widget.dart';
-import '../../../shared/widgets/button_widget.dart';
-import '../../../shared/widgets/input_widget.dart';
 import '../../../utils/constants/spacing_sizes.dart';
+import '../../../utils/ui/back_header_widget.dart';
+import '../../../utils/ui/button_widget.dart';
 import '../../../utils/ui/colors.dart';
+import '../../../utils/ui/input_widget.dart';
 import '../../../utils/ui/loading.dart';
 import '../notifiers/edit_profile.dart';
 

@@ -1,8 +1,8 @@
+import '../../../../utils/ui/option_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttericon/font_awesome5_icons.dart';
 import 'package:fluttericon/modern_pictograms_icons.dart';
 
-import '../../../../shared/widgets/option_widget.dart';
 import '../../../../utils/constants/spacing_sizes.dart';
 
 class StartNotifier extends ChangeNotifier {

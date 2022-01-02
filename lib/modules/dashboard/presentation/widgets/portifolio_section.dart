@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../../shared/widgets/large_card_portfolio.dart';
 import '../../../../utils/constants/spacing_sizes.dart';
+import '../../../../utils/ui/large_card_portfolio.dart';
 import '../../../../utils/ui/pie_chart.dart';
 
 class PortfolioSection extends StatelessWidget {

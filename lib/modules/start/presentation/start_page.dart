@@ -5,8 +5,8 @@ import 'package:fluttericon/linearicons_free_icons.dart';
 import 'package:provider/provider.dart';
 
 import '../../../providers/auth_provider.dart';
-import '../../../shared/widgets/header_widget.dart';
 import '../../../utils/ui/colors.dart';
+import '../../../utils/ui/header_widget.dart';
 import '../../dashboard/presentation/dashboard_page.dart';
 import '../../home/presentation/home_page.dart';
 import '../../wallet/wallet_page.dart';

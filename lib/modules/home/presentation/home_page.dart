@@ -4,8 +4,8 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:provider/provider.dart';
 
 import '../../../providers/auth_provider.dart';
-import '../../../shared/widgets/card_portifolio_widget.dart';
 import '../../../utils/constants/spacing_sizes.dart';
+import '../../../utils/ui/card_portifolio_widget.dart';
 import '../../../utils/ui/colors.dart';
 import 'widgets/card_widget.dart';
 import 'widgets/recent_card_widget.dart';

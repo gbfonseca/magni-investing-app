@@ -3,14 +3,14 @@ import 'package:flutter/services.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
-import '../../../shared/widgets/back_header_widget.dart';
-import '../../../shared/widgets/button_widget.dart';
-import '../../../shared/widgets/input_widget.dart';
 import '../../../utils/constants/spacing_sizes.dart';
 import '../../../utils/masks/currency_mask.dart';
+import '../../../utils/ui/back_header_widget.dart';
+import '../../../utils/ui/button_widget.dart';
 import '../../../utils/ui/colors.dart';
 import '../../../utils/ui/date_picker.dart';
 import '../../../utils/ui/input_dropdown.dart';
+import '../../../utils/ui/input_widget.dart';
 import '../../../utils/ui/loading.dart';
 import '../notifiers/add_stocks_notifier.dart';
 

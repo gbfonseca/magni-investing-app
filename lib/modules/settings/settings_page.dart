@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
-import '../../shared/widgets/back_header_widget.dart';
 import '../../utils/constants/spacing_sizes.dart';
+import '../../utils/ui/back_header_widget.dart';
 import '../../utils/ui/colors.dart';
 import 'notifiers/settings.dart';
 

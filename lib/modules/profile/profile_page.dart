@@ -4,10 +4,10 @@ import 'package:fluttericon/font_awesome5_icons.dart';
 import 'package:provider/provider.dart';
 
 import '../../providers/auth_provider.dart';
-import '../../shared/widgets/back_header_widget.dart';
-import '../../shared/widgets/option_widget.dart';
 import '../../utils/constants/spacing_sizes.dart';
+import '../../utils/ui/back_header_widget.dart';
 import '../../utils/ui/colors.dart';
+import '../../utils/ui/option_widget.dart';
 
 class ProfilePage extends HookWidget {
   const ProfilePage({Key? key}) : super(key: key);

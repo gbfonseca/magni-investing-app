@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../../../shared/widgets/subtitle_widget.dart';
-import '../../../shared/widgets/title_widget.dart';
 import '../../../utils/constants/spacing_sizes.dart';
 import '../../../utils/ui/colors.dart';
+import '../../../utils/ui/subtitle_widget.dart';
+import '../../../utils/ui/title_widget.dart';
 import 'widgets/signinform_widget.dart';
 
 class SigninPage extends StatefulWidget {

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
-import '../../../shared/widgets/custom_tab_widget.dart';
 import '../../../utils/constants/spacing_sizes.dart';
 import '../../../utils/ui/colors.dart';
+import '../../../utils/ui/custom_tab_widget.dart';
 import '../notifiers/dashboard.dart';
 
 class DashboardPage extends HookWidget {

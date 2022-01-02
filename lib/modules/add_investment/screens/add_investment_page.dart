@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../../../shared/widgets/back_header_widget.dart';
-import '../../../shared/widgets/option_widget.dart';
 import '../../../utils/constants/spacing_sizes.dart';
+import '../../../utils/ui/back_header_widget.dart';
 import '../../../utils/ui/colors.dart';
+import '../../../utils/ui/option_widget.dart';
 
 class AddInvestmentPage extends StatelessWidget {
   const AddInvestmentPage({Key? key}) : super(key: key);

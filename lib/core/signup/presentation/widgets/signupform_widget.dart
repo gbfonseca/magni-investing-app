@@ -3,10 +3,10 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
-import '../../../../shared/widgets/button_widget.dart';
-import '../../../../shared/widgets/input_widget.dart';
 import '../../../../utils/constants/sizes.dart';
+import '../../../../utils/ui/button_widget.dart';
 import '../../../../utils/ui/colors.dart';
+import '../../../../utils/ui/input_widget.dart';
 import '../../../../utils/ui/loading.dart';
 import 'notifiers/signup_form.dart';
 
