@@ -9,6 +9,9 @@ class StartNotifier extends ChangeNotifier {
   ValueNotifier<int> selectedIndex = ValueNotifier(0);
 
   void onItemTapped(int index) {
+    if (index == 2) {
+      return null;
+    }
     selectedIndex.value = index;
 
     selectedIndex.notifyListeners();

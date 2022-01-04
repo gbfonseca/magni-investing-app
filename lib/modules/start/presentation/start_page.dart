@@ -1,3 +1,4 @@
+import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:fluttericon/font_awesome5_icons.dart';
@@ -16,6 +17,7 @@ class StartPage extends HookWidget {
   final List<Widget> screensList = [
     HomePage(),
     DashboardPage(),
+    Container(),
     WalletPage(),
   ];
 
@@ -36,30 +38,15 @@ class StartPage extends HookWidget {
                   toolbarHeight: 90,
                 ),
                 backgroundColor: ColorConstants.kBackgroundColor,
-                body: PageView(
-                    onPageChanged: (index) {
-                      if (index == 2 && state.selectedIndex.value < 2) {
-                        pageViewController.animateToPage(3,
-                            duration: Duration(milliseconds: 300),
-                            curve: Curves.easeOut);
-                      } else if (index == 2 && state.selectedIndex.value > 2) {
-                        pageViewController.animateToPage(1,
-                            duration: Duration(milliseconds: 300),
-                            curve: Curves.easeOut);
-                      } else {
-                        pageViewController.animateToPage(index,
-                            duration: Duration(milliseconds: 300),
-                            curve: Curves.easeOut);
-                      }
-                      state.onItemTapped(index);
-                    },
-                    controller: pageViewController,
-                    children: [
-                      HomePage(),
-                      DashboardPage(),
-                      Container(),
-                      WalletPage()
-                    ]),
+                body: PageTransitionSwitcher(
+                    transitionBuilder:
+                        (child, primaryAnimation, secondaryAnimation) =>
+                            FadeThroughTransition(
+                              animation: primaryAnimation,
+                              secondaryAnimation: secondaryAnimation,
+                              child: child,
+                            ),
+                    child: screensList[state.selectedIndex.value]),
                 floatingActionButton: FloatingActionButton(
                   child: Icon(Icons.add),
                   backgroundColor: ColorConstants.kPrimaryColor,
@@ -121,11 +108,7 @@ class StartPage extends HookWidget {
                       unselectedItemColor: Colors.grey,
                       showSelectedLabels: false,
                       showUnselectedLabels: false,
-                      onTap: (index) {
-                        pageViewController.animateToPage(index,
-                            duration: Duration(milliseconds: 300),
-                            curve: Curves.easeOut);
-                      },
+                      onTap: state.onItemTapped,
                     ),
                   ),
                 ),
