@@ -97,7 +97,8 @@ class InputDropdown extends StatelessWidget {
                                                   ),
                                                 ),
                                                 Text(
-                                                  item,
+                                                  item.replaceAll(
+                                                      RegExp(r'\...'), ''),
                                                   style: TextStyle(
                                                       color: ColorConstants
                                                           .kFontColor,
