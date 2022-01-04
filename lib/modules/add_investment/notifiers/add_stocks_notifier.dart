@@ -1,6 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
+import '../../../shared/models/stock_list_model.dart';
+import '../../../utils/services/dio_client.dart';
+import '../../../utils/services/stocks_service.dart';
+
 class AddStocksNotifier extends ChangeNotifier {
   final ValueNotifier<FocusNode> focusNode = ValueNotifier(FocusNode());
   final ValueNotifier<TextEditingController> controller =
@@ -11,6 +15,9 @@ class AddStocksNotifier extends ChangeNotifier {
 
   final ValueNotifier<bool> loading = ValueNotifier(false);
 
+  ValueNotifier<List<StockListModel>> stocksList = ValueNotifier([]);
+  ValueNotifier<List<StockListModel>> stocksListFull = ValueNotifier([]);
+
   FormGroup form = FormGroup({
     'institute': FormControl(value: ''),
     'quantity': FormControl(value: ''),
@@ -18,8 +25,21 @@ class AddStocksNotifier extends ChangeNotifier {
     'fees': FormControl(value: ''),
   });
 
+  getListStocks() async {
+    final stocksService = StocksService(dio);
+    final response = await stocksService.getStocks();
+    stocksList.value = response;
+    stocksListFull.value = response;
+    stocksList.notifyListeners();
+    stocksListFull.notifyListeners();
+  }
+
   onChangeText(String value) {
+    stocksList.value = stocksListFull.value
+        .where((stock) => stock.code.startsWith(value.toUpperCase()))
+        .toList();
     focusNode.notifyListeners();
+    stocksList.notifyListeners();
   }
 
   onSelectItem(String item) {

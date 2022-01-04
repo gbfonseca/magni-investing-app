@@ -5,6 +5,8 @@ import 'package:reactive_forms/reactive_forms.dart';
 
 import '../../../utils/constants/spacing_sizes.dart';
 import '../../../utils/masks/currency_mask.dart';
+import '../../../utils/services/dio_client.dart';
+import '../../../utils/services/stocks_service.dart';
 import '../../../utils/ui/back_header_widget.dart';
 import '../../../utils/ui/button_widget.dart';
 import '../../../utils/ui/colors.dart';
@@ -15,12 +17,17 @@ import '../../../utils/ui/loading.dart';
 import '../notifiers/add_stocks_notifier.dart';
 
 class AddStocksPage extends HookWidget {
-  var items = <String>['BBAS3.SA', 'CPLE6.SA', 'FBOK34.SA', 'AAPL.US'];
   AddStocksPage({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     final addStocksNotifier = useListenable(AddStocksNotifier());
     final _formKey = useMemoized(() => GlobalKey<ScaffoldState>());
+
+    useEffect(() {
+      addStocksNotifier.getListStocks();
+      print('');
+    }, []);
+
     return Scaffold(
         backgroundColor: ColorConstants.kBackgroundColor,
         body: SafeArea(
@@ -51,12 +58,17 @@ class AddStocksPage extends HookWidget {
                     SizedBox(
                       height: SpacingSizes.s16,
                     ),
-                    InputDropdown(
-                      items: items,
-                      controller: addStocksNotifier.controller.value,
-                      onChangeText: addStocksNotifier.onChangeText,
-                      onSelectItem: addStocksNotifier.onSelectItem,
-                      focusNode: addStocksNotifier.focusNode,
+                    ValueListenableBuilder(
+                      valueListenable: addStocksNotifier.stocksList,
+                      builder: (_, stockList, ___) => InputDropdown(
+                        items: addStocksNotifier.stocksList.value
+                            .map((stock) => stock.code)
+                            .toList(),
+                        controller: addStocksNotifier.controller.value,
+                        onChangeText: addStocksNotifier.onChangeText,
+                        onSelectItem: addStocksNotifier.onSelectItem,
+                        focusNode: addStocksNotifier.focusNode,
+                      ),
                     ),
                     SizedBox(
                       height: SpacingSizes.s16,
