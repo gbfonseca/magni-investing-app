@@ -44,6 +44,8 @@ class NotificationsPage extends HookWidget {
                           key: ValueKey<String>(notification['id'].toString()),
                           background: Container(
                             margin: EdgeInsets.only(top: SpacingSizes.s32),
+                            padding: EdgeInsets.symmetric(
+                                horizontal: SpacingSizes.s16),
                             decoration: BoxDecoration(
                                 color: Colors.red.shade400,
                                 borderRadius: BorderRadius.circular(10)),
