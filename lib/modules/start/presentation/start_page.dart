@@ -10,6 +10,7 @@ import '../../../utils/ui/colors.dart';
 import '../../../utils/ui/header_widget.dart';
 import '../../dashboard/presentation/dashboard_page.dart';
 import '../../home/presentation/home_page.dart';
+import '../../notifications/screens/notifications_page.dart';
 import '../../wallet/wallet_page.dart';
 import 'notifiers/start.dart';
 
@@ -19,6 +20,7 @@ class StartPage extends HookWidget {
     DashboardPage(),
     Container(),
     WalletPage(),
+    NotificationsPage(),
   ];
 
   @override
