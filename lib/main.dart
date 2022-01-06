@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'app_widget.dart';
 import 'core/on_boarding/presentation/on_boarding_page.dart';
@@ -10,6 +11,9 @@ AuthProviderNotifier authStore = AuthProviderNotifier();
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+    statusBarColor: Colors.transparent,
+  ));
   await SharedPrefs.init();
   await authStore.getUser();
   Widget homepage = OnBoardingPage();
