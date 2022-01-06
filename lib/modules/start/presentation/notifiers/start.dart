@@ -30,19 +30,19 @@ class StartNotifier extends ChangeNotifier {
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
                   OptionItem(
-                      text: 'Nova Aplicação',
-                      icon: FontAwesome5.hand_holding_usd,
+                      text: 'Novo Produto',
+                      icon: Icons.add_shopping_cart,
                       onTap: () {
                         Navigator.of(context)
                             .pushNamed('/start/add_investment/');
                       }),
                   OptionItem(
-                      text: 'Resgatar Produto',
-                      icon: ModernPictograms.money,
+                      text: 'Nova Aplicação',
+                      icon: FontAwesome5.hand_holding_usd,
                       onTap: () {}),
                   OptionItem(
-                      text: 'Novo Produto',
-                      icon: Icons.add_shopping_cart,
+                      text: 'Resgatar Produto',
+                      icon: ModernPictograms.money,
                       onTap: () {}),
                 ],
               )));
