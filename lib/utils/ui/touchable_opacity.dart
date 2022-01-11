@@ -25,6 +25,11 @@ class _TouchableOpacityState extends State<TouchableOpacity> {
   }
 
   @override
+  void dispose() {
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) => GestureDetector(
         onTapDown: (_) => setState(() => isDown = true),
         onTapUp: (_) => setState(() => isDown = false),
