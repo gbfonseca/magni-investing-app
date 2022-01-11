@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../utils/ui/colors.dart';
+import 'touchable_opacity.dart';
 
 class BackHeader extends StatelessWidget {
   String title;
@@ -16,7 +17,7 @@ class BackHeader extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          GestureDetector(
+          TouchableOpacity(
             onTap: () {
               Navigator.of(context).pop();
             },
@@ -34,7 +35,7 @@ class BackHeader extends StatelessWidget {
                 fontSize: 18),
           ),
           showIcon == true && icon != null
-              ? GestureDetector(
+              ? TouchableOpacity(
                   onTap: onTap,
                   child: Icon(
                     icon,

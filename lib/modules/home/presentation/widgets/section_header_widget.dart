@@ -1,3 +1,5 @@
+import '../../../../utils/ui/touchable_opacity.dart';
+
 import '../../../../utils/constants/spacing_sizes.dart';
 import 'package:flutter/material.dart';
 
@@ -23,7 +25,7 @@ class SectionHeaderWidget extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                   color: ColorConstants.kFontColor),
             ),
-            GestureDetector(
+            TouchableOpacity(
               onTap: onTap,
               child: Text(
                 'Ver mais',

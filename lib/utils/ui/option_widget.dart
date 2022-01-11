@@ -1,3 +1,4 @@
+import 'touchable_opacity.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../utils/ui/colors.dart';
@@ -17,7 +18,7 @@ class OptionItem extends StatelessWidget {
       : super(key: key);
 
   @override
-  Widget build(BuildContext context) => GestureDetector(
+  Widget build(BuildContext context) => TouchableOpacity(
         onTap: onTap,
         child: Container(
           margin: EdgeInsets.only(bottom: SpacingSizes.s16),
