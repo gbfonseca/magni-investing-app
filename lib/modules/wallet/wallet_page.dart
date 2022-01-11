@@ -1,3 +1,4 @@
+import '../../utils/ui/touchable_opacity.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttericon/entypo_icons.dart';
 
@@ -108,7 +109,7 @@ Widget renderWallet(BuildContext context, String name) => Container(
       ),
     );
 
-Widget renderButton(IconData icon, void Function() onTap) => GestureDetector(
+Widget renderButton(IconData icon, void Function() onTap) => TouchableOpacity(
       onTap: onTap,
       child: Container(
         height: 40,
