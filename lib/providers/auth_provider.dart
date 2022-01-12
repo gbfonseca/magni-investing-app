@@ -29,6 +29,7 @@ class AuthProviderNotifier extends ChangeNotifier {
     storage.setData('@EzWallet: token', authData.token);
     user.value = authData.user;
     authenticated = true;
+    dio.dio.options.headers['Authorization'] = "Bearer ${authData.token}";
     user.notifyListeners();
   }
 
