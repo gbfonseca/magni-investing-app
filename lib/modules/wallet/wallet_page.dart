@@ -142,7 +142,7 @@ Widget renderWallet(BuildContext context, WalletModel wallet, Color color) =>
                     SizedBox(
                       height: 8,
                     ),
-                    Text('${wallet.variableIncome.currentValue}',
+                    Text('R\$ ${wallet.investedValue.toStringAsFixed(2)}',
                         style: TextStyle(
                           color: ColorConstants.kSecondaryColor,
                           fontSize: FontSizeConstants.s14,

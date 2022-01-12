@@ -1,8 +1,13 @@
 import 'dart:convert';
 
+import '../../utils/constants/check_type.dart';
+
 class WalletModel {
   String id;
   String name;
+  double investedValue;
+  double currentValue;
+  double percentageYield;
   String createdAt;
   String updatedAt;
   VariableIncome variableIncome;
@@ -10,6 +15,9 @@ class WalletModel {
   WalletModel({
     required this.id,
     required this.name,
+    required this.investedValue,
+    required this.currentValue,
+    required this.percentageYield,
     required this.createdAt,
     required this.updatedAt,
     required this.variableIncome,
@@ -26,6 +34,9 @@ class WalletModel {
   factory WalletModel.fromMap(Map<String, dynamic> map) => WalletModel(
         id: map['id'] ?? '',
         name: map['name'] ?? '',
+        investedValue: checkDouble(map['investedValue']) ?? 0.00,
+        currentValue: checkDouble(map['currentValue']) ?? 0.00,
+        percentageYield: checkDouble(map['percentageYield']) ?? 0.00,
         createdAt: map['createdAt'] ?? '',
         updatedAt: map['updatedAt'] ?? '',
         variableIncome: VariableIncome.fromMap(map['variable_income']),
@@ -40,9 +51,9 @@ class WalletModel {
 class VariableIncome {
   String id;
   String name;
-  String investedValue;
-  String currentValue;
-  int percentageYield;
+  double investedValue;
+  double currentValue;
+  double percentageYield;
   List<Product> products;
 
   VariableIncome({
@@ -66,9 +77,9 @@ class VariableIncome {
   factory VariableIncome.fromMap(Map<String, dynamic> map) => VariableIncome(
         id: map['id'] ?? '',
         name: map['name'] ?? '',
-        investedValue: map['investedValue'] ?? '',
-        currentValue: map['currentValue'] ?? '',
-        percentageYield: map['percentageYield']?.toInt() ?? 0,
+        investedValue: checkDouble(map['investedValue']) ?? 0.0,
+        currentValue: checkDouble(map['currentValue']) ?? 0.0,
+        percentageYield: checkDouble(map['percentageYield']) ?? 0.0,
         products:
             List<Product>.from(map['products']?.map((x) => Product.fromMap(x))),
       );
@@ -85,9 +96,9 @@ class Product {
   String id;
   String name;
   int quantity;
-  String price;
+  double price;
   String purchaseDate;
-  String fees;
+  double fees;
 
   Product({
     required this.id,
@@ -111,9 +122,9 @@ class Product {
         id: map['id'] ?? '',
         name: map['name'] ?? '',
         quantity: map['quantity']?.toInt() ?? 0,
-        price: map['price'] ?? '',
+        price: checkDouble(map['price']) ?? 0.0,
         purchaseDate: map['purchaseDate'] ?? '',
-        fees: map['fees'] ?? '',
+        fees: checkDouble(map['fees']) ?? 0.0,
       );
 
   String toJson() => json.encode(toMap());
