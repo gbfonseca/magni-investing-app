@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 
 import 'config/routes.dart';
 import 'providers/auth_provider.dart';
+import 'providers/wallet_provider.dart';
 import 'utils/ui/color.dart';
 import 'utils/ui/colors.dart';
 
@@ -18,7 +19,9 @@ class AppWidget extends StatelessWidget {
   Widget build(BuildContext context) => MultiProvider(
           providers: [
             ChangeNotifierProvider<AuthProviderNotifier>(
-                create: (_) => AuthProviderNotifier())
+                create: (_) => AuthProviderNotifier()),
+            ChangeNotifierProvider<WalletProvider>(
+                create: (_) => WalletProvider())
           ],
           child: AnnotatedRegion(
               value: SystemUiOverlayStyle.dark,
