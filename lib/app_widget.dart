@@ -35,9 +35,11 @@ class AppWidget extends StatelessWidget {
                     primaryColor: ColorConstants.kPrimaryColor,
                   ),
                   localizationsDelegates: [
-                    GlobalMaterialLocalizations.delegate
+                    GlobalMaterialLocalizations.delegate,
+                    GlobalCupertinoLocalizations.delegate,
+                    GlobalWidgetsLocalizations.delegate,
                   ],
-                  supportedLocales: [const Locale('pt')],
+                  supportedLocales: [const Locale('pt', 'BR')],
                   home: homePage,
                   routes: getRoutes(context))));
 }
