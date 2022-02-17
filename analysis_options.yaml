@@ -28,7 +28,7 @@ linter:
     - library_names
     - file_names
     - library_prefixes
-    - non_constant_identifier_names
+    # - non_constant_identifier_names
     - constant_identifier_names
     - directives_ordering
     - lines_longer_than_80_chars
@@ -67,3 +67,4 @@ analyzer:
     todo: ignore
     public_member_api_docs: ignore
     type_annotate_public_apis: ignore
+    non_constant_identifier_names: ignore

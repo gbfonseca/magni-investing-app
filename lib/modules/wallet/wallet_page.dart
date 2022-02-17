@@ -7,6 +7,7 @@ import '../../providers/wallet_provider.dart';
 import '../../shared/models/wallet_model.dart';
 import '../../utils/constants/sizes.dart';
 import '../../utils/constants/spacing_sizes.dart';
+import '../../utils/functions/calculate_wallet.dart';
 import '../../utils/ui/colors.dart';
 import '../../utils/ui/touchable_opacity.dart';
 
@@ -142,7 +143,8 @@ Widget renderWallet(BuildContext context, WalletModel wallet, Color color) =>
                     SizedBox(
                       height: 8,
                     ),
-                    Text('R\$ ${wallet.investedValue.toStringAsFixed(2)}',
+                    Text(
+                        'R\$ ${CalculateWallet.calculateInvestedValue(wallet)}',
                         style: TextStyle(
                           color: ColorConstants.kSecondaryColor,
                           fontSize: FontSizeConstants.s14,

@@ -25,15 +25,8 @@ class WalletService implements WalletServiceModel {
       final response = await client.get('$baseUrl/wallet/find-all');
       final walletsData = <WalletModel>[];
       for (var wallet in response) {
-        print(wallet);
-        wallet['percentageYield'] = wallet['percentage_yield'];
-        wallet['investedValue'] = wallet['invested_value'];
-        wallet['currentValue'] = wallet['current_value'];
-        wallet['createdAt'] = wallet['created_at'];
-        wallet['updatedAt'] = wallet['updated_at'];
         walletsData.add(WalletModel.fromJson(jsonEncode(wallet)));
       }
-
       return walletsData;
     } catch (e) {
       print(e);
