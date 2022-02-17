@@ -43,7 +43,10 @@ class WalletPage extends StatelessWidget {
                                   fontWeight: FontWeight.w800,
                                 ),
                               ),
-                              renderButton(Icons.add, () {})
+                              renderButton(Icons.add, () {
+                                Navigator.of(context)
+                                    .pushNamed('/start/wallet/create_wallet');
+                              })
                             ],
                           ),
                           wallets.isEmpty

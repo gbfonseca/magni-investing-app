@@ -23,4 +23,9 @@ class WalletProvider extends ChangeNotifier {
     }
     return [];
   }
+
+  saveWallet(WalletModel wallet) {
+    wallets.value.add(wallet);
+    wallets.notifyListeners();
+  }
 }
