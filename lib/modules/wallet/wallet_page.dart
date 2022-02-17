@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:fluttericon/entypo_icons.dart';
 import 'package:provider/provider.dart';
 
-import '../../main.dart';
 import '../../providers/wallet_provider.dart';
 import '../../shared/models/wallet_model.dart';
 import '../../utils/constants/sizes.dart';
@@ -15,59 +14,45 @@ class WalletPage extends StatelessWidget {
   const WalletPage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) => Consumer<WalletProvider>(
-      builder: (builder, _walletProvider, child) => Scaffold(
-          backgroundColor: ColorConstants.kBackgroundColor,
-          body: SafeArea(
-              child: SingleChildScrollView(
-            child: ValueListenableBuilder(
-                valueListenable: walletProvider.wallets,
-                builder: (_, __, ___) {
-                  final wallets = walletProvider.wallets.value;
-                  return Container(
-                    padding: EdgeInsets.all(SpacingSizes.s24),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Text(
-                              'Carteiras',
-                              style: TextStyle(
-                                color: ColorConstants.kFontColor,
-                                fontSize: FontSizeConstants.s32,
-                                fontWeight: FontWeight.w800,
-                              ),
-                            ),
-                            renderButton(Icons.add, () {})
-                          ],
-                        ),
-                        wallets.isEmpty
-                            ? Container(
-                                margin: EdgeInsets.only(top: SpacingSizes.s64),
-                                child: Center(
-                                  child: Text(
-                                    'Você não tem nenhuma carteira registrada.',
-                                    style: TextStyle(
-                                      color: ColorConstants.kFontColor,
-                                      fontSize: FontSizeConstants.s16,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
+  Widget build(BuildContext context) =>
+      Consumer<WalletProvider>(builder: (builder, walletProvider, child) {
+        walletProvider.getWallets();
+        return Scaffold(
+            backgroundColor: ColorConstants.kBackgroundColor,
+            body: SafeArea(
+                child: SingleChildScrollView(
+              child: ValueListenableBuilder(
+                  valueListenable: walletProvider.wallets,
+                  builder: (_, __, ___) {
+                    final wallets = walletProvider.wallets.value;
+                    return Container(
+                      padding: EdgeInsets.all(SpacingSizes.s24),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Text(
+                                'Carteiras',
+                                style: TextStyle(
+                                  color: ColorConstants.kFontColor,
+                                  fontSize: FontSizeConstants.s32,
+                                  fontWeight: FontWeight.w800,
                                 ),
-                              )
-                            : Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Container(
-                                    margin: EdgeInsets.symmetric(
-                                        vertical: SpacingSizes.s24),
+                              ),
+                              renderButton(Icons.add, () {})
+                            ],
+                          ),
+                          wallets.isEmpty
+                              ? Container(
+                                  margin:
+                                      EdgeInsets.only(top: SpacingSizes.s64),
+                                  child: Center(
                                     child: Text(
-                                      'Carteira Primária',
+                                      'Você não tem nenhuma carteira registrada.',
                                       style: TextStyle(
                                         color: ColorConstants.kFontColor,
                                         fontSize: FontSizeConstants.s16,
@@ -75,41 +60,59 @@ class WalletPage extends StatelessWidget {
                                       ),
                                     ),
                                   ),
-                                  renderWallet(
-                                    context,
-                                    wallets.first,
-                                    ColorConstants.kPrimaryColor,
-                                  ),
-                                  Container(
-                                    margin: EdgeInsets.symmetric(
-                                        vertical: SpacingSizes.s24),
-                                    child: Text(
-                                      'Demais carteiras',
-                                      style: TextStyle(
-                                        color: ColorConstants.kFontColor,
-                                        fontSize: FontSizeConstants.s16,
-                                        fontWeight: FontWeight.bold,
+                                )
+                              : Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Container(
+                                      margin: EdgeInsets.symmetric(
+                                          vertical: SpacingSizes.s24),
+                                      child: Text(
+                                        'Carteira Primária',
+                                        style: TextStyle(
+                                          color: ColorConstants.kFontColor,
+                                          fontSize: FontSizeConstants.s16,
+                                          fontWeight: FontWeight.bold,
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                  ...wallets.map((wallet) =>
-                                      wallets.indexOf(wallet) != 0
-                                          ? Container(
-                                              margin: EdgeInsets.only(
-                                                  bottom: SpacingSizes.s24),
-                                              child: renderWallet(
-                                                  context,
-                                                  wallet,
-                                                  ColorConstants
-                                                      .kSecondaryColor))
-                                          : Container())
-                                ],
-                              )
-                      ],
-                    ),
-                  );
-                }),
-          ))));
+                                    renderWallet(
+                                      context,
+                                      wallets.first,
+                                      ColorConstants.kPrimaryColor,
+                                    ),
+                                    Container(
+                                      margin: EdgeInsets.symmetric(
+                                          vertical: SpacingSizes.s24),
+                                      child: Text(
+                                        'Demais carteiras',
+                                        style: TextStyle(
+                                          color: ColorConstants.kFontColor,
+                                          fontSize: FontSizeConstants.s16,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                    ),
+                                    ...wallets.map((wallet) =>
+                                        wallets.indexOf(wallet) != 0
+                                            ? Container(
+                                                margin: EdgeInsets.only(
+                                                    bottom: SpacingSizes.s24),
+                                                child: renderWallet(
+                                                    context,
+                                                    wallet,
+                                                    ColorConstants
+                                                        .kSecondaryColor))
+                                            : Container())
+                                  ],
+                                )
+                        ],
+                      ),
+                    );
+                  }),
+            )));
+      });
 }
 
 Widget renderWallet(BuildContext context, WalletModel wallet, Color color) =>

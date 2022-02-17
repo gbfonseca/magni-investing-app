@@ -11,10 +11,13 @@ class WalletProvider extends ChangeNotifier {
   Future<List<WalletModel>> getWallets() async {
     try {
       final _walletService = WalletService(dio);
-      final data = await _walletService.getWallets();
-      wallets.value.addAll(data);
-      wallets.notifyListeners();
-      return data;
+      if (wallets.value.isEmpty) {
+        final data = await _walletService.getWallets();
+        wallets.value.addAll(data);
+        wallets.notifyListeners();
+        return data;
+      }
+      return wallets.value;
     } catch (e) {
       print(e);
     }

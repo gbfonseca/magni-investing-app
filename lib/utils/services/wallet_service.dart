@@ -27,6 +27,7 @@ class WalletService implements WalletServiceModel {
       for (var wallet in response) {
         walletsData.add(WalletModel.fromJson(jsonEncode(wallet)));
       }
+      print(walletsData);
       return walletsData;
     } catch (e) {
       print(e);

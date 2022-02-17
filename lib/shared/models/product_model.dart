@@ -92,7 +92,7 @@ class Transaction {
   String name;
   int quantity;
   double price;
-  String purchaseDate;
+  String purchase_date;
   double fees;
   String type;
 
@@ -101,7 +101,7 @@ class Transaction {
     required this.name,
     required this.quantity,
     required this.price,
-    required this.purchaseDate,
+    required this.purchase_date,
     required this.fees,
     required this.type,
   });
@@ -111,7 +111,7 @@ class Transaction {
     String? name,
     int? quantity,
     double? price,
-    String? purchaseDate,
+    String? purchase_date,
     double? fees,
     String? type,
   }) =>
@@ -120,7 +120,7 @@ class Transaction {
         name: name ?? this.name,
         quantity: quantity ?? this.quantity,
         price: price ?? this.price,
-        purchaseDate: purchaseDate ?? this.purchaseDate,
+        purchase_date: purchase_date ?? this.purchase_date,
         fees: fees ?? this.fees,
         type: type ?? this.type,
       );
@@ -130,7 +130,7 @@ class Transaction {
         'name': name,
         'quantity': quantity,
         'price': price,
-        'purchaseDate': purchaseDate,
+        'purchase_date': purchase_date,
         'fees': fees,
         'type': type,
       };
@@ -140,7 +140,7 @@ class Transaction {
         name: map['name'] ?? '',
         quantity: map['quantity']?.toInt() ?? 0,
         price: map['price']?.toDouble() ?? 0.0,
-        purchaseDate: map['purchaseDate'] ?? '',
+        purchase_date: map['purchase_date'] ?? '',
         fees: map['fees']?.toDouble() ?? 0.0,
         type: map['type'] ?? '',
       );
@@ -152,7 +152,7 @@ class Transaction {
 
   @override
   String toString() =>
-      'Transaction(id: $id, name: $name, quantity: $quantity, price: $price, purchaseDate: $purchaseDate, fees: $fees, type: $type)';
+      'Transaction(id: $id, name: $name, quantity: $quantity, price: $price, purchase_date: $purchase_date, fees: $fees, type: $type)';
 
   @override
   bool operator ==(Object other) {
@@ -163,7 +163,7 @@ class Transaction {
         other.name == name &&
         other.quantity == quantity &&
         other.price == price &&
-        other.purchaseDate == purchaseDate &&
+        other.purchase_date == purchase_date &&
         other.fees == fees &&
         other.type == type;
   }
@@ -174,7 +174,7 @@ class Transaction {
       name.hashCode ^
       quantity.hashCode ^
       price.hashCode ^
-      purchaseDate.hashCode ^
+      purchase_date.hashCode ^
       fees.hashCode ^
       type.hashCode;
 }

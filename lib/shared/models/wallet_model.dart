@@ -127,7 +127,7 @@ class VariableIncome {
         id: map['id'] ?? '',
         name: map['name'] ?? '',
         invested_value: map['invested_value']?.toDouble() ?? 0.0,
-        current_value: map['current_value'] ?? 0.0,
+        current_value: map['current_value']?.toDouble() ?? 0.0,
         percentage_yield: map['percentage_yield']?.toDouble() ?? 0.0,
         products:
             List<Product>.from(map['products']?.map((x) => Product.fromMap(x))),

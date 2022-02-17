@@ -5,11 +5,9 @@ import 'app_widget.dart';
 import 'core/on_boarding/presentation/on_boarding_page.dart';
 import 'modules/start/presentation/start_page.dart';
 import 'providers/auth_provider.dart';
-import 'providers/wallet_provider.dart';
 import 'utils/services/shared_prefs.dart';
 
 AuthProviderNotifier authStore = AuthProviderNotifier();
-WalletProvider walletProvider = WalletProvider();
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,7 +18,6 @@ Future main() async {
   await authStore.getUser();
   Widget homepage = OnBoardingPage();
   if (authStore.authenticated) {
-    await walletProvider.getWallets();
     homepage = StartPage();
   } else {
     homepage = OnBoardingPage();
