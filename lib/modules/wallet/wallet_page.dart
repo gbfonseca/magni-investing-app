@@ -22,8 +22,12 @@ class WalletPage extends StatelessWidget {
             body: SafeArea(
                 child: SingleChildScrollView(
               child: ValueListenableBuilder(
-                  valueListenable: walletProvider.wallets,
+                  valueListenable: walletProvider.wallet,
                   builder: (_, __, ___) {
+                    walletProvider.getPrimaryWallet();
+                    walletProvider.getWallets();
+
+                    final primaryWallet = walletProvider.wallet.value;
                     final wallets = walletProvider.wallets.value;
                     return Container(
                       padding: EdgeInsets.all(SpacingSizes.s24),
@@ -49,67 +53,54 @@ class WalletPage extends StatelessWidget {
                               })
                             ],
                           ),
-                          wallets.isEmpty
-                              ? Container(
-                                  margin:
-                                      EdgeInsets.only(top: SpacingSizes.s64),
-                                  child: Center(
-                                    child: Text(
-                                      'Você não tem nenhuma carteira registrada.',
-                                      style: TextStyle(
-                                        color: ColorConstants.kFontColor,
-                                        fontSize: FontSizeConstants.s16,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                margin: EdgeInsets.symmetric(
+                                    vertical: SpacingSizes.s24),
+                                child: Text(
+                                  'Carteira Primária',
+                                  style: TextStyle(
+                                    color: ColorConstants.kFontColor,
+                                    fontSize: FontSizeConstants.s16,
+                                    fontWeight: FontWeight.bold,
                                   ),
-                                )
-                              : Column(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Container(
-                                      margin: EdgeInsets.symmetric(
-                                          vertical: SpacingSizes.s24),
-                                      child: Text(
-                                        'Carteira Primária',
-                                        style: TextStyle(
-                                          color: ColorConstants.kFontColor,
-                                          fontSize: FontSizeConstants.s16,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                    ),
-                                    renderWallet(
+                                ),
+                              ),
+                              primaryWallet != null
+                                  ? renderWallet(
                                       context,
-                                      wallets.first,
+                                      primaryWallet,
                                       ColorConstants.kPrimaryColor,
-                                    ),
-                                    Container(
-                                      margin: EdgeInsets.symmetric(
-                                          vertical: SpacingSizes.s24),
-                                      child: Text(
-                                        'Demais carteiras',
-                                        style: TextStyle(
-                                          color: ColorConstants.kFontColor,
-                                          fontSize: FontSizeConstants.s16,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                    ),
-                                    ...wallets.map((wallet) =>
-                                        wallets.indexOf(wallet) != 0
-                                            ? Container(
-                                                margin: EdgeInsets.only(
-                                                    bottom: SpacingSizes.s24),
-                                                child: renderWallet(
-                                                    context,
-                                                    wallet,
-                                                    ColorConstants
-                                                        .kSecondaryColor))
-                                            : Container())
-                                  ],
-                                )
+                                    )
+                                  : Container(),
+                              Container(
+                                margin: EdgeInsets.symmetric(
+                                    vertical: SpacingSizes.s24),
+                                child: Text(
+                                  'Demais carteiras',
+                                  style: TextStyle(
+                                    color: ColorConstants.kFontColor,
+                                    fontSize: FontSizeConstants.s16,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                              Column(
+                                children: wallets
+                                    .map((wallet) => wallet.primary == false
+                                        ? Container(
+                                            margin: EdgeInsets.only(
+                                                bottom: SpacingSizes.s24),
+                                            child: renderWallet(context, wallet,
+                                                ColorConstants.kSecondaryColor))
+                                        : Container())
+                                    .toList(),
+                              )
+                            ],
+                          )
                         ],
                       ),
                     );

@@ -35,4 +35,12 @@ class WalletService implements WalletServiceModel {
     }
     return walletsData;
   }
+
+  @override
+  Future<WalletModel> getPrimaryWallet() async {
+    final response = await client.get('$baseUrl/wallet/get-primary');
+    final wallet = WalletModel.fromJson(json.encode(response));
+
+    return wallet;
+  }
 }
