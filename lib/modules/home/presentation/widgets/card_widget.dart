@@ -6,7 +6,7 @@ import '../../../../utils/constants/spacing_sizes.dart';
 class CardWidget extends StatelessWidget {
   String title;
   String imagePath;
-  double balance;
+  String balance;
   double variation;
   CardWidget(
       {Key? key,

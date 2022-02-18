@@ -4,7 +4,7 @@ import '../../utils/constants/spacing_sizes.dart';
 import '../../utils/ui/colors.dart';
 
 class CardPortifolio extends StatelessWidget {
-  double balance;
+  String balance;
   double variation;
   double variationInCurrency;
   CardPortifolio(
