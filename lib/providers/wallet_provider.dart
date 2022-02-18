@@ -13,7 +13,7 @@ class WalletProvider extends ChangeNotifier {
   Future<WalletModel?> getPrimaryWallet() async {
     final _walletService = WalletService(dio);
     if (wallet.value != null) {
-      wallet.notifyListeners();
+      // wallet.notifyListeners();
       return wallet.value;
     }
     final data = await _walletService.getPrimaryWallet();
