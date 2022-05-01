@@ -15,8 +15,8 @@ class AuthProviderNotifier extends ChangeNotifier {
     id: '',
     email: '',
     lastName: '',
-    updatedAt: '',
-    createdAt: '',
+    updated_at: '',
+    created_at: '',
     name: '',
   ));
 
@@ -25,7 +25,7 @@ class AuthProviderNotifier extends ChangeNotifier {
   bool authenticated = false;
 
   setAuth(AuthModel authData) async {
-    storage.setData('@EzWallet: user', jsonEncode(authData.user.get()));
+    storage.setData('@EzWallet: user', jsonEncode(authData.user));
     storage.setData('@EzWallet: token', authData.token);
     user.value = authData.user;
     authenticated = true;
@@ -67,7 +67,7 @@ class AuthProviderNotifier extends ChangeNotifier {
     try {
       final userService = UserService(dio);
       final response = await userService.updateUser(data);
-      storage.setData('@EzWallet: user', jsonEncode(response.get()));
+      storage.setData('@EzWallet: user', jsonEncode(response));
       user.value = response;
       user.notifyListeners();
     } on DioError catch (e) {
@@ -81,8 +81,8 @@ class AuthProviderNotifier extends ChangeNotifier {
         id: '',
         email: '',
         lastName: '',
-        updatedAt: '',
-        createdAt: '',
+        updated_at: '',
+        created_at: '',
         name: '');
     authenticated = false;
     user.notifyListeners();

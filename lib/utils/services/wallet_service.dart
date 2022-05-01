@@ -1,7 +1,5 @@
 // ignore_for_file: public_member_api_docs
 
-import 'dart:convert';
-
 import '../../config/api.dart';
 import '../../shared/models/wallet_model.dart';
 import '../../shared/models/wallet_service_model.dart';
@@ -21,17 +19,22 @@ class WalletService implements WalletServiceModel {
     response['variable_income']['current_value'] =
         double.parse(response['variable_income']['current_value']);
 
-    final wallet = WalletModel.fromJson(json.encode(response));
+    final wallet = WalletModel.fromJson(response);
 
     return wallet;
   }
 
   @override
   Future<List<WalletModel>> getWallets() async {
-    final response = await client.get('$baseUrl/wallet/find-all');
     final walletsData = <WalletModel>[];
-    for (var wallet in response) {
-      walletsData.add(WalletModel.fromJson(jsonEncode(wallet)));
+    try {
+      final response = await client.get('$baseUrl/wallet/find-all');
+      for (var wallet in response) {
+        walletsData.add(WalletModel.fromJson(wallet));
+      }
+      return walletsData;
+    } catch (e) {
+      print(e);
     }
     return walletsData;
   }
@@ -39,7 +42,7 @@ class WalletService implements WalletServiceModel {
   @override
   Future<WalletModel> getPrimaryWallet() async {
     final response = await client.get('$baseUrl/wallet/get-primary');
-    final wallet = WalletModel.fromJson(json.encode(response));
+    final wallet = WalletModel.fromJson(response);
 
     return wallet;
   }
