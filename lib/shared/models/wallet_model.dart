@@ -7,6 +7,7 @@ part 'wallet_model.g.dart';
 class WalletModel {
   String id;
   String name;
+  bool primary;
   String created_at;
   String updated_at;
   VariableIncome variable_income;
@@ -14,6 +15,7 @@ class WalletModel {
   WalletModel({
     required this.id,
     required this.name,
+    required this.primary,
     required this.created_at,
     required this.updated_at,
     required this.variable_income,

@@ -41,7 +41,7 @@ class Transaction {
   String name;
   int quantity;
   double price;
-  String purchaseDate;
+  String purchase_date;
   double fees;
   String type;
 
@@ -50,7 +50,7 @@ class Transaction {
     required this.name,
     required this.quantity,
     required this.price,
-    required this.purchaseDate,
+    required this.purchase_date,
     required this.fees,
     required this.type,
   });
@@ -60,7 +60,7 @@ class Transaction {
     String? name,
     int? quantity,
     double? price,
-    String? purchaseDate,
+    String? purchase_date,
     double? fees,
     String? type,
   }) =>
@@ -69,7 +69,7 @@ class Transaction {
         name: name ?? this.name,
         quantity: quantity ?? this.quantity,
         price: price ?? this.price,
-        purchaseDate: purchaseDate ?? this.purchaseDate,
+        purchase_date: purchase_date ?? this.purchase_date,
         fees: fees ?? this.fees,
         type: type ?? this.type,
       );

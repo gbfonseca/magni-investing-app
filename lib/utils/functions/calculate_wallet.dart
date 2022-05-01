@@ -4,10 +4,10 @@ mixin CalculateWallet {
   static calculateCurrentValue(WalletModel wallet) =>
       wallet.variable_income.current_value
           .toStringAsFixed(2)
-          .replaceFirst(RegExp(r'.'), ',');
+          .replaceFirst(r'.', ',');
 
   static calculateInvestedValue(WalletModel wallet) =>
       wallet.variable_income.invested_value
           .toStringAsFixed(2)
-          .replaceFirst('.', ',');
+          .replaceFirst(r'.', ',');
 }

@@ -20,7 +20,7 @@ Future main() async {
   await authStore.getUser();
   Widget homepage = OnBoardingPage();
   if (authStore.authenticated) {
-    await walletProvider.getWallets();
+    await walletProvider.getPrimaryWallet();
     homepage = StartPage();
   } else {
     homepage = OnBoardingPage();

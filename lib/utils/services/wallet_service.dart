@@ -12,16 +12,23 @@ class WalletService implements WalletServiceModel {
   WalletService(this.client);
 
   @override
-  Future<WalletModel> addWallet(data) {
-    // TODO: implement addWallet
-    throw UnimplementedError();
+  Future<WalletModel> addWallet(dynamic data) async {
+    final response = await client.post('$baseUrl/wallet/create', data);
+    response['variable_income']['invested_value'] =
+        double.parse(response['variable_income']['invested_value']);
+    response['variable_income']['current_value'] =
+        double.parse(response['variable_income']['current_value']);
+
+    final wallet = WalletModel.fromJson(response);
+
+    return wallet;
   }
 
   @override
   Future<List<WalletModel>> getWallets() async {
+    final walletsData = <WalletModel>[];
     try {
       final response = await client.get('$baseUrl/wallet/find-all');
-      final walletsData = <WalletModel>[];
       for (var wallet in response) {
         walletsData.add(WalletModel.fromJson(wallet));
       }
@@ -29,6 +36,14 @@ class WalletService implements WalletServiceModel {
     } catch (e) {
       print(e);
     }
-    return [];
+    return walletsData;
+  }
+
+  @override
+  Future<WalletModel> getPrimaryWallet() async {
+    final response = await client.get('$baseUrl/wallet/get-primary');
+    final wallet = WalletModel.fromJson(response);
+
+    return wallet;
   }
 }
