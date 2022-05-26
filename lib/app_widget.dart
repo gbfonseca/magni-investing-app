@@ -28,12 +28,12 @@ class AppWidget extends StatelessWidget {
               child: MaterialApp(
                   title: 'EzWallet',
                   theme: ThemeData(
-                    primarySwatch: primaryColor(),
-                    backgroundColor: ColorConstants.kBackgroundColor,
-                    textTheme: GoogleFonts.nunitoTextTheme(),
-                    splashColor: ColorConstants.kPrimaryColor,
-                    primaryColor: ColorConstants.kPrimaryColor,
-                  ),
+                      primarySwatch: primaryColor(),
+                      backgroundColor: ColorConstants.kBackgroundColor,
+                      textTheme: GoogleFonts.nunitoTextTheme(),
+                      splashColor: ColorConstants.kPrimaryColor,
+                      primaryColor: ColorConstants.kPrimaryColor,
+                      useMaterial3: true),
                   localizationsDelegates: [
                     GlobalMaterialLocalizations.delegate,
                     GlobalCupertinoLocalizations.delegate,
