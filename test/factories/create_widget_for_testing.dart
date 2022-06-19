@@ -1,4 +1,4 @@
-import 'package:ezwallet_mobile/ui/utils/colors.dart';
+import 'package:magni_investing/ui/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 Widget createWidgetForTesting({required Widget child}) {

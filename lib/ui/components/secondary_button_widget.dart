@@ -1,5 +1,5 @@
-import 'package:ezwallet_mobile/ui/utils/colors.dart';
-import 'package:ezwallet_mobile/ui/utils/radius_size.dart';
+import 'package:magni_investing/ui/utils/colors.dart';
+import 'package:magni_investing/ui/utils/radius_size.dart';
 import 'package:flutter/material.dart';
 
 class SecondaryButton extends StatelessWidget {

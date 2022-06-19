@@ -1,6 +1,6 @@
-import 'package:ezwallet_mobile/ui/pages/welcome_page.dart';
-import 'package:ezwallet_mobile/ui/routes/routes.dart';
-import 'package:ezwallet_mobile/ui/utils/colors.dart';
+import 'package:magni_investing/ui/pages/welcome_page.dart';
+import 'package:magni_investing/ui/routes/routes.dart';
+import 'package:magni_investing/ui/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 class AppWidget extends StatelessWidget {

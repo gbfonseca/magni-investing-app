@@ -1,4 +1,4 @@
-package com.example.ezwallet_mobile
+package com.example.magni_investing
 
 import io.flutter.embedding.android.FlutterActivity
 

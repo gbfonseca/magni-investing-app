@@ -1,7 +1,7 @@
-import 'package:ezwallet_mobile/ui/components/primary_button_widget.dart';
-import 'package:ezwallet_mobile/ui/components/secondary_button_widget.dart';
-import 'package:ezwallet_mobile/ui/utils/colors.dart';
-import 'package:ezwallet_mobile/ui/utils/spacing_sizes.dart';
+import 'package:magni_investing/ui/components/primary_button_widget.dart';
+import 'package:magni_investing/ui/components/secondary_button_widget.dart';
+import 'package:magni_investing/ui/utils/colors.dart';
+import 'package:magni_investing/ui/utils/spacing_sizes.dart';
 import 'package:flutter/material.dart';
 
 class WelcomePage extends StatelessWidget {

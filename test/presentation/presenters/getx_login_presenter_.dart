@@ -1,4 +1,4 @@
-// import 'package:ezwallet_mobile/presentation/presenters/login/login_presenter.dart';
+// import 'package:magni_investing/presentation/presenters/login/login_presenter.dart';
 // import 'package:flutter_test/flutter_test.dart';
 // import 'package:mocktail/mocktail.dart';
 

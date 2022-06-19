@@ -1,4 +1,4 @@
-import 'package:ezwallet_mobile/ui/pages/welcome_page.dart';
+import 'package:magni_investing/ui/pages/welcome_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 

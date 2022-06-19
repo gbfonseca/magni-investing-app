@@ -1,4 +1,4 @@
-# ezwallet_mobile
+# magni_investing
 
 A new Flutter project.
 

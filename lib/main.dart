@@ -1,4 +1,4 @@
-import 'package:ezwallet_mobile/app_widget.dart';
+import 'package:magni_investing/app_widget.dart';
 import 'package:flutter/material.dart';
 
 void main() {
