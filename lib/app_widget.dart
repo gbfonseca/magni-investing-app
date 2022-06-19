@@ -14,7 +14,7 @@ class AppWidget extends StatelessWidget {
           brightness: Brightness.dark,
           useMaterial3: true,
           visualDensity: VisualDensity.adaptivePlatformDensity,
-          textTheme: GoogleFonts.nunitoTextTheme(),
+          textTheme: GoogleFonts.poppinsTextTheme(),
           primaryColor: ColorConstants.kPrimaryColor),
       home: const WelcomePage(),
       routes: getRoutes(context),
