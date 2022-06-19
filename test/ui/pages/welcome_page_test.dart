@@ -1,5 +1,5 @@
 import 'package:ezwallet_mobile/ui/pages/welcome_page.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../../factories/create_widget_for_testing.dart';
@@ -14,7 +14,7 @@ void main() {
       (tester) async {
     await tester.pumpWidget(createWidgetForTesting(child: const WelcomePage()));
 
-    final primaryButtonFinder = find.text('Log-in');
+    final primaryButtonFinder = find.widgetWithText(ElevatedButton, 'Log-in');
 
     expect(primaryButtonFinder, findsOneWidget);
   });
@@ -22,7 +22,7 @@ void main() {
   testWidgets('should has a button with text Cadastrar-se', (tester) async {
     await tester.pumpWidget(createWidgetForTesting(child: const WelcomePage()));
 
-    final primaryButtonFinder = find.text('Cadastrar-se');
+    final primaryButtonFinder = find.widgetWithText(TextButton, 'Cadastrar-se');
 
     expect(primaryButtonFinder, findsOneWidget);
   });
