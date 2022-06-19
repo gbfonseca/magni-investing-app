@@ -34,7 +34,9 @@ class WelcomePage extends StatelessWidget {
             Column(
               children: [
                 PrimaryButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/login');
+                  },
                   text: 'Log-in',
                   backgroundColor: ColorConstants.kPrimaryColor,
                   textColor: ColorConstants.kTextColor,
