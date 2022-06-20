@@ -9,4 +9,11 @@ void main() {
     final loginTextFinder = find.text('Log in');
     expect(loginTextFinder, findsOneWidget);
   });
+
+  testWidgets('should welcome page has a Description Text', (tester) async {
+    await tester.pumpWidget(createWidgetForTesting(child: LoginPage()));
+    final descriptionTextFinder =
+        find.text('Entre com uma das seguintes opções.');
+    expect(descriptionTextFinder, findsOneWidget);
+  });
 }
