@@ -3,6 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:fluttericon/font_awesome5_icons.dart';
 import 'package:magni_investing/ui/components/input_widget.dart';
 import 'package:magni_investing/ui/components/primary_button_widget.dart';
+import 'package:magni_investing/ui/components/secondary_button_widget.dart';
 import 'package:magni_investing/ui/components/social_button_widget.dart';
 import 'package:magni_investing/ui/pages/login_page.dart';
 
@@ -58,5 +59,13 @@ void main() {
     final buttonWithEntrarTextFinder =
         find.widgetWithText(PrimaryButton, 'Entrar');
     expect(buttonWithEntrarTextFinder, findsOneWidget);
+  });
+
+  testWidgets('should welcome page has a secondary button with text',
+      (tester) async {
+    await tester.pumpWidget(createWidgetForTesting(child: LoginPage()));
+    final buttonWithTextFinder = find.widgetWithText(
+        SecondaryButton, 'Não tem uma conta? Cadastre-se aqui.');
+    expect(buttonWithTextFinder, findsOneWidget);
   });
 }
