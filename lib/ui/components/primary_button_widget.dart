@@ -1,5 +1,5 @@
-import 'package:magni_investing/ui/utils/colors.dart';
-import 'package:magni_investing/ui/utils/radius_size.dart';
+import '../utils/colors.dart';
+import '../utils/radius_size.dart';
 import 'package:flutter/material.dart';
 
 class PrimaryButton extends StatelessWidget {
@@ -18,20 +18,19 @@ class PrimaryButton extends StatelessWidget {
       this.height});
 
   @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: onPressed,
-      style: ElevatedButton.styleFrom(
-          fixedSize: Size(width, height ?? 50),
-          primary: backgroundColor ?? ColorConstants.kGreyColor900,
-          shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(RadiusSize.s16)))),
-      child: Text(
-        text,
-        style: TextStyle(
-            color: textColor ?? ColorConstants.kPrimaryColor,
-            fontWeight: FontWeight.w500),
-      ),
-    );
-  }
+  Widget build(BuildContext context) => ElevatedButton(
+        onPressed: onPressed,
+        style: ElevatedButton.styleFrom(
+            fixedSize: Size(width, height ?? 50),
+            primary: backgroundColor ?? ColorConstants.kGreyColor900,
+            shape: const RoundedRectangleBorder(
+                borderRadius:
+                    BorderRadius.all(Radius.circular(RadiusSize.s16)))),
+        child: Text(
+          text,
+          style: TextStyle(
+              color: textColor ?? ColorConstants.kPrimaryColor,
+              fontWeight: FontWeight.w500),
+        ),
+      );
 }

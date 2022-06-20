@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:magni_investing/ui/utils/colors.dart';
-import 'package:magni_investing/ui/utils/radius_size.dart';
+import '../utils/colors.dart';
+import '../utils/radius_size.dart';
 
 class SocialButton extends StatelessWidget {
   IconData icon;
@@ -9,21 +9,20 @@ class SocialButton extends StatelessWidget {
       : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(
-      style: ElevatedButton.styleFrom(
-          primary: ColorConstants.kGreyColor950,
-          fixedSize: const Size.fromHeight(54),
-          shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(RadiusSize.s16))),
-          side: const BorderSide(
-              width: 0.5, color: ColorConstants.kGreyColor800)),
-      onPressed: () {},
-      child: Icon(
-        icon,
-        color: Colors.white,
-        size: iconSize,
-      ),
-    );
-  }
+  Widget build(BuildContext context) => ElevatedButton(
+        style: ElevatedButton.styleFrom(
+            primary: ColorConstants.kGreyColor950,
+            fixedSize: const Size.fromHeight(54),
+            shape: const RoundedRectangleBorder(
+                borderRadius:
+                    BorderRadius.all(Radius.circular(RadiusSize.s16))),
+            side: const BorderSide(
+                width: 0.5, color: ColorConstants.kGreyColor800)),
+        onPressed: () {},
+        child: Icon(
+          icon,
+          color: Colors.white,
+          size: iconSize,
+        ),
+      );
 }
