@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:fluttericon/font_awesome5_icons.dart';
 import 'package:magni_investing/ui/components/input_widget.dart';
+import 'package:magni_investing/ui/components/primary_button_widget.dart';
 import 'package:magni_investing/ui/components/social_button_widget.dart';
 import 'package:magni_investing/ui/pages/login_page.dart';
 
@@ -42,5 +43,20 @@ void main() {
     await tester.pumpWidget(createWidgetForTesting(child: LoginPage()));
     await tester.enterText(
         find.widgetWithText(InputWidget, 'Email'), 'john@doe.com');
+  });
+
+  testWidgets('should welcome page has password input and enter text',
+      (tester) async {
+    await tester.pumpWidget(createWidgetForTesting(child: LoginPage()));
+    await tester.enterText(
+        find.widgetWithText(InputWidget, 'Senha'), 'my_password');
+  });
+
+  testWidgets('should welcome page has a primary button with Entrar text',
+      (tester) async {
+    await tester.pumpWidget(createWidgetForTesting(child: LoginPage()));
+    final buttonWithEntrarTextFinder =
+        find.widgetWithText(PrimaryButton, 'Entrar');
+    expect(buttonWithEntrarTextFinder, findsOneWidget);
   });
 }
