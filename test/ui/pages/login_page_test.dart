@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:fluttericon/font_awesome5_icons.dart';
+import 'package:magni_investing/ui/components/input_widget.dart';
 import 'package:magni_investing/ui/components/social_button_widget.dart';
 import 'package:magni_investing/ui/pages/login_page.dart';
 
@@ -34,5 +35,12 @@ void main() {
     final buttonWithAppleIconFinder =
         find.widgetWithIcon(SocialButton, Icons.apple);
     expect(buttonWithAppleIconFinder, findsOneWidget);
+  });
+
+  testWidgets('should welcome page has email input and enter text',
+      (tester) async {
+    await tester.pumpWidget(createWidgetForTesting(child: LoginPage()));
+    await tester.enterText(
+        find.widgetWithText(InputWidget, 'Email'), 'john@doe.com');
   });
 }
