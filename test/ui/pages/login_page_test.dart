@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:fluttericon/font_awesome5_icons.dart';
 import 'package:magni_investing/ui/components/social_button_widget.dart';
@@ -25,5 +26,13 @@ void main() {
     final buttonWithGoogleIconFinder =
         find.widgetWithIcon(SocialButton, FontAwesome5.google);
     expect(buttonWithGoogleIconFinder, findsOneWidget);
+  });
+
+  testWidgets('should welcome page has a button with apple icon',
+      (tester) async {
+    await tester.pumpWidget(createWidgetForTesting(child: LoginPage()));
+    final buttonWithAppleIconFinder =
+        find.widgetWithIcon(SocialButton, Icons.apple);
+    expect(buttonWithAppleIconFinder, findsOneWidget);
   });
 }
