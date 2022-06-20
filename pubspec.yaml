@@ -24,6 +24,7 @@ dev_dependencies:
   mockito:
   faker:
   effective_dart:
+  flutter_launcher_icons:
 
 flutter:
   uses-material-design: true
@@ -32,3 +33,7 @@ flutter:
     - lib/assets/images/welcome/welcome.png
     - lib/assets/images/Logo/Logo.png
 
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/launcher/app_icon.png"
