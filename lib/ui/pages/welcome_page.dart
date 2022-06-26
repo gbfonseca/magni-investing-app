@@ -47,7 +47,7 @@ class WelcomePage extends StatelessWidget {
                   ),
                   SecondaryButton(
                     onPressed: () {
-                      Navigator.of(context).pushReplacementNamed('/signup');
+                      Navigator.of(context).pushNamed('/signup');
                     },
                     text: 'Cadastrar-se',
                     backgroundColor: Colors.transparent,
