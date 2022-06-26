@@ -46,7 +46,9 @@ class WelcomePage extends StatelessWidget {
                     height: SpacingSizes.s8,
                   ),
                   SecondaryButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).pushReplacementNamed('/signup');
+                    },
                     text: 'Cadastrar-se',
                     backgroundColor: Colors.transparent,
                     textColor: ColorConstants.kTextColor,

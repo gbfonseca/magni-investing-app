@@ -8,8 +8,8 @@ import '../utils/colors.dart';
 import '../utils/radius_size.dart';
 import '../utils/spacing_sizes.dart';
 
-class LoginPage extends StatelessWidget {
-  LoginPage({Key? key}) : super(key: key);
+class SignupPage extends StatelessWidget {
+  SignupPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -47,7 +47,7 @@ class LoginPage extends StatelessWidget {
                           width: SpacingSizes.s16,
                         ),
                         Text(
-                          'Log in',
+                          'Cadastre-se',
                           style: TextStyle(
                               fontSize: 24,
                               color: ColorConstants.kTextColor,
@@ -59,7 +59,7 @@ class LoginPage extends StatelessWidget {
                       height: SpacingSizes.s48,
                     ),
                     Text(
-                      'Entre com uma das seguintes opções.',
+                      'Cadastre-se com uma das seguintes opções.',
                       style: TextStyle(color: Color(0xff515151), fontSize: 16),
                     ),
                     SizedBox(
@@ -90,6 +90,14 @@ class LoginPage extends StatelessWidget {
                       height: SpacingSizes.s48,
                     ),
                     InputWidget(
+                      placeholder: 'Nome',
+                      icon: Icons.account_circle_outlined,
+                      textInputType: TextInputType.text,
+                    ),
+                    SizedBox(
+                      height: SpacingSizes.s32,
+                    ),
+                    InputWidget(
                       placeholder: 'Email',
                       icon: Icons.email_outlined,
                       textInputType: TextInputType.emailAddress,
@@ -110,7 +118,7 @@ class LoginPage extends StatelessWidget {
                         onPressed: () {
                           print('login');
                         },
-                        text: 'Entrar',
+                        text: 'Salvar',
                         backgroundColor: ColorConstants.kPrimaryColor,
                         textColor: ColorConstants.kButtonTextColor,
                         width: MediaQuery.of(context).size.width),
@@ -119,10 +127,10 @@ class LoginPage extends StatelessWidget {
                     ),
                     SecondaryButton(
                         onPressed: () {
-                          Navigator.of(context).pushReplacementNamed('/signup');
+                          Navigator.of(context).pushReplacementNamed('/login');
                         },
                         textColor: ColorConstants.kTextColor,
-                        text: 'Não tem uma conta? Cadastre-se aqui.',
+                        text: 'Já tem uma conta? Conecte-se aqui.',
                         width: MediaQuery.of(context).size.width)
                   ],
                 ),
