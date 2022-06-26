@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'ui/pages/welcome_page.dart';
+import 'ui/pages/splashscreen_page.dart';
 import 'ui/routes/routes.dart';
 import 'ui/utils/colors.dart';
 
@@ -16,7 +16,7 @@ class AppWidget extends StatelessWidget {
             visualDensity: VisualDensity.adaptivePlatformDensity,
             textTheme: GoogleFonts.poppinsTextTheme(),
             primaryColor: ColorConstants.kPrimaryColor),
-        home: const WelcomePage(),
+        home: SplashScreenPage(),
         routes: getRoutes(context),
       );
 }

@@ -25,13 +25,17 @@ dev_dependencies:
   faker:
   effective_dart:
   flutter_launcher_icons:
+  animated_splash_screen:
+  page_transition: 
 
 flutter:
   uses-material-design: true
 
   assets:
-    - lib/assets/images/welcome/welcome.png
-    - lib/assets/images/Logo/Logo.png
+    - lib/assets/images/welcome/
+    - lib/assets/images/Logo/
+    - lib/assets/images/logo_icon/
+
 
 flutter_icons:
   android: "launcher_icon"
