@@ -7,6 +7,7 @@ import '../components/social_button_widget.dart';
 import '../utils/colors.dart';
 import '../utils/radius_size.dart';
 import '../utils/spacing_sizes.dart';
+import 'welcome_page.dart';
 
 class LoginPage extends StatelessWidget {
   LoginPage({Key? key}) : super(key: key);
@@ -28,7 +29,9 @@ class LoginPage extends StatelessWidget {
                       children: [
                         GestureDetector(
                           onTap: () {
-                            Navigator.pop(context);
+                            Navigator.of(context).pushReplacement(
+                                MaterialPageRoute(
+                                    builder: (builder) => WelcomePage()));
                           },
                           child: Container(
                             width: 42,
